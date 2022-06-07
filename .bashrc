@@ -116,12 +116,30 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# Check what this means
-# bind 'set show-all-if-ambiguous on'
-# bind 'TAB:menu-complete'
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# Local Aliases
-alias ghub="cd ~/code/github"
+# Virtualenvwrapper
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
+source /usr/local/bin/virtualenvwrapper.sh
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/kevin/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/kevin/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/kevin/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/kevin/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
 
 # Color configuration for the terminal
 export PROMPT_COMMAND='PS1="$(python ~/.bash.config.color.py)"'
@@ -154,6 +172,26 @@ alias gitu="git add -u ."
 
 # Alias for "git commit -m"
 alias gitc="git commit -m"
+
+# Other aliases
+alias ju='jupyter notebook'
+alias ca='conda activate'
+alias cdc='conda deactivate'
+alias ctf='conda activate tf'
+alias ctor='conda activate torch'
+alias wk='workon'
+alias dc='deactivate'
+
+alias cae='cd ~/code/cae/'
+alias ghub='cd ~/code/github/'
+alias winghub='cd /mnt/c/Users/kevin/github/'
+alias h='cd /mnt/c/Users/kevin/'
+alias home='cd /mnt/c/Users/kevin/'
+alias winhome='cd /mnt/c/Users/kevin/'
+alias wksp='cd /mnt/e/onedrive.udem/OneDrive\ -\ Universite\ de\ Montreal/Root/School/UdeM/workspace/'
+alias workspace='cd /mnt/e/onedrive.udem/OneDrive\ -\ Universite\ de\ Montreal/Root/School/UdeM/workspace/'
+
+
 
 # mkcdir: create directory and change directory into it
 mkcdir ()
