@@ -141,8 +141,8 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 
-# Color configuration for the terminal
-export PROMPT_COMMAND='PS1="$(python ~/.bash.config.color.py)"'
+# # Color configuration for the terminal
+# export PROMPT_COMMAND='PS1="$(python ~/.bash.config.color.py)"'
 
 # Bash history pressing arrows
 bind '"\e[A": history-search-backward'
