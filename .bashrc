@@ -57,11 +57,18 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u \[\033[01;34m\]\w\[\033[00m\]\$ '
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\u \w\$ '
 fi
 unset color_prompt force_color_prompt
+
+# if [ "$color_prompt" = yes ]; then
+#     PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+# else
+#     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+# fi
+# unset color_prompt force_color_prompt
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
@@ -123,6 +130,7 @@ export NVM_DIR="$HOME/.nvm"
 # Virtualenvwrapper
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
+export WORKON_HOME=$HOME/.virtualenvs
 source /usr/local/bin/virtualenvwrapper.sh
 
 # >>> conda initialize >>>
@@ -147,10 +155,6 @@ unset __conda_setup
 # Bash history pressing arrows
 bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
-
-# virtualenvwrapper
-# export WORKON_HOME=$HOME/.virtualenvs
-# source /usr/local/bin/virtualenvwrapper.sh
 
 # Alias for "ls -lAh"
 alias lsa="ls -lAh --group-directories-first"
