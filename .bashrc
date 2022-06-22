@@ -177,6 +177,22 @@ alias gitu="git add -u ."
 # Alias for "git commit -m"
 alias gitc="git commit -m"
 
+# Alias for "git fetch"
+alias gitf="git fetch"
+alias gf="git fetch"
+
+# Alias for "git fetch --options"
+alias gfp="git fetch --prune"
+alias gfa="git fetch --all"
+
+# Alias for "git checkout"
+alias gitchk="git checkout"
+alias gchk="git checkout"
+
+# Alias for "git checkout"
+alias gitbr="git branch"
+alias gbr="git branch"
+
 # Other aliases
 alias ju='jupyter notebook'
 alias ca='conda activate'
