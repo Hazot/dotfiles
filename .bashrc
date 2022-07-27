@@ -203,6 +203,7 @@ alias wk='workon'
 alias dc='deactivate'
 
 alias cae='cd ~/code/cae/'
+alias hub='cd ~/code/cae/HubbleRasa/'
 alias ghub='cd ~/code/github/'
 alias winghub='cd /mnt/c/Users/kevin/github/'
 alias h='cd /mnt/c/Users/kevin/'
