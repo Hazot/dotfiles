@@ -194,7 +194,7 @@ alias gitbr="git branch"
 alias gbr="git branch"
 
 # Other aliases
-alias ju='jupyter notebook'
+alias ju="~/.local/bin/jupyter-notebook --no-browser"
 alias ca='conda activate'
 alias cdc='conda deactivate'
 alias ctf='conda activate tf'
