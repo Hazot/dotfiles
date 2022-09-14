@@ -194,7 +194,7 @@ alias gitbr="git branch"
 alias gbr="git branch"
 
 # Other aliases
-alias ju="~/.local/bin/jupyter-notebook --no-browser"
+alias ju="jupyter notebook --no-browser"
 alias ca='conda activate'
 alias cdc='conda deactivate'
 alias ctf='conda activate tf'
@@ -202,8 +202,7 @@ alias ctor='conda activate torch'
 alias wk='workon'
 alias dc='deactivate'
 
-alias cae='cd ~/code/cae/'
-alias hub='cd ~/code/cae/HubbleRasa/'
+alias udem='cd ~/code/udem/'
 alias ghub='cd ~/code/github/'
 alias winghub='cd /mnt/c/Users/kevin/github/'
 alias h='cd /mnt/c/Users/kevin/'
