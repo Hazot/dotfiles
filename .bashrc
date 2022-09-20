@@ -175,6 +175,9 @@ alias gitsuno="git status -uno ."
 # Alias for "git add -u ."
 alias gitu="git add -u ."
 
+# Alias for "git add --all"
+alias gita="git add --all"
+
 # Alias for "git commit -m"
 alias gitc="git commit -m"
 
