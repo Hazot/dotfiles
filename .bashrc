@@ -203,6 +203,13 @@ alias gpush="git push"
 alias gpull="git pull"
 alias gpul="git pull"
 
+# Alias for "git log --all --decorate --oneline --graph"
+# See: https://i.stack.imgur.com/ElVkf.jpg
+alias glog="git log --all --decorate --oneline --graph"
+
+# Alias for "git ls-tree -r master --name-only"
+alias gitls="git ls-tree -r master --name-only"
+
 # Other aliases
 alias ju="jupyter notebook --no-browser"
 alias julab="jupyter-lab --no-browser"
