@@ -198,6 +198,11 @@ alias gchk="git checkout"
 alias gitbr="git branch"
 alias gbr="git branch"
 
+# Alias for "git push && git pull"
+alias gpush="git push"
+alias gpull="git pull"
+alias gpul="git pull"
+
 # Other aliases
 alias ju="jupyter notebook --no-browser"
 alias julab="jupyter-lab --no-browser"
