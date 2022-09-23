@@ -259,3 +259,4 @@ compilelatex ()
 eval "$(thefuck --alias)"
 
 alias python='python3'
+alias vim='nvim'
