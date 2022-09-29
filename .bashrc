@@ -222,12 +222,12 @@ alias dc='deactivate'
 
 alias udem='cd ~/code/udem/'
 alias ghub='cd ~/code/github/'
-alias winghub='cd /mnt/c/Users/kevin/github/'
-alias h='cd /mnt/c/Users/kevin/'
-alias home='cd /mnt/c/Users/kevin/'
-alias winhome='cd /mnt/c/Users/kevin/'
-alias wksp='cd /mnt/e/onedrive.udem/OneDrive\ -\ Universite\ de\ Montreal/Root/School/UdeM/workspace/'
-alias workspace='cd /mnt/e/onedrive.udem/OneDrive\ -\ Universite\ de\ Montreal/Root/School/UdeM/workspace/'
+# alias winghub='cd /mnt/c/Users/kevin/github/'
+# alias h='cd /mnt/c/Users/kevin/'
+# alias home='cd /mnt/c/Users/kevin/'
+# alias winhome='cd /mnt/c/Users/kevin/'
+# alias wksp='cd /mnt/e/onedrive.udem/OneDrive\ -\ Universite\ de\ Montreal/Root/School/UdeM/workspace/'
+# alias workspace='cd /mnt/e/onedrive.udem/OneDrive\ -\ Universite\ de\ Montreal/Root/School/UdeM/workspace/'
 
 
 
@@ -256,7 +256,6 @@ compilelatex ()
 
 # Enable fuck functionality: typing fuck an error provides suggestions
 # See: https://github.com/nvbn/thefuck
-eval "$(thefuck --alias)"
 
 alias python='python3'
 alias vim='nvim'
