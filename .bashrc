@@ -131,9 +131,9 @@ export NVM_DIR="$HOME/.nvm"
 
 # Virtualenvwrapper
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
 export WORKON_HOME=$HOME/.virtualenvs
-source /usr/local/bin/virtualenvwrapper.sh
+export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
+source ~/.local/bin/virtualenvwrapper.sh
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
