@@ -189,6 +189,7 @@ alias gf="git fetch"
 # Alias for "git fetch --options"
 alias gfp="git fetch --prune"
 alias gfa="git fetch --all"
+alias gaf="git fetch --all" # because I always to that mistake by typing too fast
 
 # Alias for "git checkout"
 alias gitchk="git checkout"
