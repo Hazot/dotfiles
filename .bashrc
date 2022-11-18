@@ -230,6 +230,7 @@ alias winhome='cd /mnt/c/Users/kevin/'
 alias wksp='cd /mnt/e/onedrive.udem/OneDrive\ -\ Universite\ de\ Montreal/Root/School/UdeM/workspace/'
 alias workspace='cd /mnt/e/onedrive.udem/OneDrive\ -\ Universite\ de\ Montreal/Root/School/UdeM/workspace/'
 
+export COMET_API_KEY=uSCsJDHCChylrC6vWAR235rC5
 
 # mkcdir: create directory and change directory into it
 mkcdir ()
