@@ -133,7 +133,7 @@ export NVM_DIR="$HOME/.nvm"
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 export WORKON_HOME=$HOME/.virtualenvs
 export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
-source ~/.local/bin/virtualenvwrapper.sh
+source /usr/local/bin/virtualenvwrapper.sh
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -189,6 +189,7 @@ alias gf="git fetch"
 # Alias for "git fetch --options"
 alias gfp="git fetch --prune"
 alias gfa="git fetch --all"
+alias gaf="git fetch --all"
 
 # Alias for "git checkout"
 alias gitchk="git checkout"
