@@ -1,0 +1,21 @@
+[$Version]
+update_info=okular.upd:annotation-toolbar,okular.upd:builtin-annotations
+
+[Dlg Accessibility]
+RecolorBackground=24,24,24
+RecolorForeground=238,238,238
+
+[Document]
+RenderMode=InvertLuma
+
+[Main View]
+SplitterSizes=286,1630
+
+[Nav Panel]
+GroupByAuthor=false
+
+[PageView]
+PrimaryAnnotationToolBar=QuickAnnotationToolBar
+
+[Reviews]
+QuickAnnotationTools=<tool type="highlight" id="1" name="Yellow Highlighter"><engine color="#fffff066" type="TextSelector"><annotation color="#fffff066" type="Highlight"/></engine><shortcut>1</shortcut></tool>,<tool type="highlight" id="2" name="Blue Highlighter"><engine color="#ff8fdef9" type="TextSelector"><annotation color="#ff8fdef9" type="Highlight"/></engine><shortcut>2</shortcut></tool>,<tool type="highlight" id="3" name="Green Highlighter"><engine color="#ff7df066" type="TextSelector"><annotation color="#ff7df066" type="Highlight"/></engine><shortcut>3</shortcut></tool>,<tool type="highlight" id="4" name="Pink Highlighter"><engine color="#ffdc8add" type="TextSelector"><annotation color="#ffdc8add" type="Highlight"/></engine><shortcut>4</shortcut></tool>,<tool type="highlight" id="5" name="Red Highlighter"><engine color="#ffe01b24" type="TextSelector"><annotation color="#ffe01b24" type="Highlight" opacity="0.4"/></engine><shortcut>5</shortcut></tool>,<tool type="underline" id="6"><engine color="#ff0000" type="TextSelector"><annotation color="#ffff0000" type="Underline"/></engine><shortcut>6</shortcut></tool>,<tool type="typewriter" id="7" name="Insert Text" default="true"><engine type="PickPoint" block="true"><annotation color="#00ffffff" textColor="#000000" type="Typewriter" width="0"/></engine><shortcut>7</shortcut></tool>,<tool type="note-inline" id="8"><engine color="#ffff00" type="PickPoint" block="true" hoverIcon="tool-note-inline"><annotation color="#ffffff00" textColor="#ff000000" type="FreeText"/></engine><shortcut>8</shortcut></tool>,<tool type="note-linked" id="9"><engine color="#ffff00" type="PickPoint" hoverIcon="tool-note"><annotation color="#ffffff00" type="Text" icon="Note"/></engine><shortcut>9</shortcut></tool>
