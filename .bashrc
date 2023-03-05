@@ -230,6 +230,9 @@ alias ghub='cd ~/code/github/'
 # alias wksp='cd /mnt/e/onedrive.udem/OneDrive\ -\ Universite\ de\ Montreal/Root/School/UdeM/workspace/'
 # alias workspace='cd /mnt/e/onedrive.udem/OneDrive\ -\ Universite\ de\ Montreal/Root/School/UdeM/workspace/'
 
+# Julia
+export PATH="$PATH:/home/hazot/julia-1.8.5/bin"
+
 
 
 # mkcdir: create directory and change directory into it
