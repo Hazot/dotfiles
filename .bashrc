@@ -233,6 +233,10 @@ alias ghub='cd ~/code/github/'
 # Julia
 export PATH="$PATH:/home/hazot/julia-1.8.5/bin"
 
+# Ubuntu: open files
+# alias files='nautilus'
+alias files='gio open'
+
 
 
 # mkcdir: create directory and change directory into it
@@ -263,3 +267,5 @@ compilelatex ()
 
 alias python='python3'
 alias vim='nvim'
+
+# export LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libstdc++.so.6
