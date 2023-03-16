@@ -232,6 +232,9 @@ alias workspace='cd /mnt/e/onedrive.udem/OneDrive\ -\ Universite\ de\ Montreal/R
 
 export COMET_API_KEY=REDACTED_COMET_KEY
 
+# Windows files
+alias files='explorer.exe'
+
 # mkcdir: create directory and change directory into it
 mkcdir ()
 {
