@@ -160,6 +160,7 @@ bind '"\e[B": history-search-forward'
 
 # Alias for "ls -lAh"
 alias lsa="ls -lAh --group-directories-first"
+alias ll="ls -lAh --group-directories-first"
 
 # Alias for "ls -lh -I '*.pyc' -I '*.sw*'"
 alias lss="ls -lh -I '*.pyc' -I '*.sw*' --group-directories-first"
@@ -208,8 +209,8 @@ alias gpul="git pull"
 # See: https://i.stack.imgur.com/ElVkf.jpg
 alias glog="git log --all --decorate --oneline --graph"
 
-# Alias for "git ls-tree -r master --name-only"
-alias gitls="git ls-tree -r master --name-only"
+# Alias for "git ls-tree -r main --name-only"
+alias gitls="git ls-tree -r main --name-only"
 
 # Other aliases
 alias ju="jupyter notebook --no-browser"
@@ -223,12 +224,6 @@ alias dc='deactivate'
 
 alias udem='cd ~/code/udem/'
 alias ghub='cd ~/code/github/'
-# alias winghub='cd /mnt/c/Users/kevin/github/'
-# alias h='cd /mnt/c/Users/kevin/'
-# alias home='cd /mnt/c/Users/kevin/'
-# alias winhome='cd /mnt/c/Users/kevin/'
-# alias wksp='cd /mnt/e/onedrive.udem/OneDrive\ -\ Universite\ de\ Montreal/Root/School/UdeM/workspace/'
-# alias workspace='cd /mnt/e/onedrive.udem/OneDrive\ -\ Universite\ de\ Montreal/Root/School/UdeM/workspace/'
 
 # Julia
 export PATH="$PATH:/home/hazot/julia-1.8.5/bin"
