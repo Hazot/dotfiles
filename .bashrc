@@ -160,6 +160,7 @@ bind '"\e[B": history-search-forward'
 
 # Alias for "ls -lAh"
 alias lsa="ls -lAh --group-directories-first"
+alias ll="ls -lAh --group-directories-first"
 
 # Alias for "ls -lh -I '*.pyc' -I '*.sw*'"
 alias lss="ls -lh -I '*.pyc' -I '*.sw*' --group-directories-first"
@@ -260,7 +261,7 @@ compilelatex ()
 
 # Enable fuck functionality: typing fuck an error provides suggestions
 # See: https://github.com/nvbn/thefuck
-eval "$(thefuck --alias)"
+# eval "$(thefuck --alias)"
 
 alias python='python3'
 alias vim='nvim'
