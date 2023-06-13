@@ -231,10 +231,10 @@ alias winhome='cd /mnt/c/Users/kevin/'
 alias wksp='cd /mnt/e/onedrive.udem/OneDrive\ -\ Universite\ de\ Montreal/Root/School/UdeM/workspace/'
 alias workspace='cd /mnt/e/onedrive.udem/OneDrive\ -\ Universite\ de\ Montreal/Root/School/UdeM/workspace/'
 
-export COMET_API_KEY=uSCsJDHCChylrC6vWAR235rC5
-
 # Windows files
 alias files='explorer.exe'
+
+export COMET_API_KEY=uSCsJDHCChylrC6vWAR235rC5
 
 # mkcdir: create directory and change directory into it
 mkcdir ()
@@ -267,9 +267,14 @@ alias python='python3'
 alias vim='nvim'
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/x86_64_linux-gnu/
-export LD_LIBRARY_PATH=/usr/lib/wsl/lib:$LD_LIBRARY_PATH
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CONDA_PREFIX/lib/
-# export PATH="$CUDA_HOME/mnt/c/Program\ Files/NVIDIA\ GPU\ Computing\ Toolkit/CUDA/v11.8:$PATH"
+
+# CUDA Support
+export CUDA_VERSION=117
+# export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/x86_64_linux-gnu/
+# export LD_LIBRARY_PATH=/usr/lib/wsl/lib:$LD_LIBRARY_PATH
+# export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/mnt/c/Program\ Files/NVIDIA\ GPU\ Computing\ Toolkit/CUDA/v11.7/lib"
+# export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/mnt/c/Program\ Files/NVIDIA\ GPU\ Computing\ Toolkit/CUDA/v11.7/libnvvp"
+# export PATH="/mnt/c/Program\ Files/NVIDIA\ GPU\ Computing\ Toolkit/CUDA/v11.7/bin:$PATH"
+# export CUDA_HOME="/mnt/c/Program\ Files/NVIDIA\ GPU\ Computing\ Toolkit/CUDA/v11.7/"
 
 export LIBGL_ALWAYS_INDIRECT=0
