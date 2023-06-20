@@ -270,8 +270,8 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 # CUDA Support
 export CUDA_VERSION=117
-# export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/x86_64_linux-gnu/
-# export LD_LIBRARY_PATH=/usr/lib/wsl/lib:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/x86_64_linux-gnu/
+export LD_LIBRARY_PATH=/usr/lib/wsl/lib:$LD_LIBRARY_PATH
 # export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/mnt/c/Program\ Files/NVIDIA\ GPU\ Computing\ Toolkit/CUDA/v11.7/lib"
 # export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/mnt/c/Program\ Files/NVIDIA\ GPU\ Computing\ Toolkit/CUDA/v11.7/libnvvp"
 # export PATH="/mnt/c/Program\ Files/NVIDIA\ GPU\ Computing\ Toolkit/CUDA/v11.7/bin:$PATH"
