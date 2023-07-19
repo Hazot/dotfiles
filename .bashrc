@@ -278,3 +278,6 @@ export LD_LIBRARY_PATH=/usr/lib/wsl/lib:$LD_LIBRARY_PATH
 # export CUDA_HOME="/mnt/c/Program\ Files/NVIDIA\ GPU\ Computing\ Toolkit/CUDA/v11.7/"
 
 export LIBGL_ALWAYS_INDIRECT=0
+
+# Wandb
+export WANDB_API_KEY=3e192bde10008ae1480400047373f6bef54bbe5c
