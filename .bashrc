@@ -137,14 +137,14 @@ source /usr/local/bin/virtualenvwrapper.sh
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/kevin/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+__conda_setup="$('/home/hazot/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/home/kevin/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/kevin/miniconda3/etc/profile.d/conda.sh"
+    if [ -f "/home/hazot/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/hazot/miniconda3/etc/profile.d/conda.sh"
     else
-        export PATH="/home/kevin/miniconda3/bin:$PATH"
+        export PATH="/home/hazot/miniconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
@@ -160,6 +160,7 @@ bind '"\e[B": history-search-forward'
 
 # Alias for "ls -lAh"
 alias lsa="ls -lAh --group-directories-first"
+alias ll="ls -lAh --group-directories-first"
 
 # Alias for "ls -lh -I '*.pyc' -I '*.sw*'"
 alias lss="ls -lh -I '*.pyc' -I '*.sw*' --group-directories-first"
@@ -230,6 +231,9 @@ alias winhome='cd /mnt/c/Users/kevin/'
 alias wksp='cd /mnt/e/onedrive.udem/OneDrive\ -\ Universite\ de\ Montreal/Root/School/UdeM/workspace/'
 alias workspace='cd /mnt/e/onedrive.udem/OneDrive\ -\ Universite\ de\ Montreal/Root/School/UdeM/workspace/'
 
+# Windows files
+alias files='explorer.exe'
+
 export COMET_API_KEY=uSCsJDHCChylrC6vWAR235rC5
 
 # mkcdir: create directory and change directory into it
@@ -257,7 +261,23 @@ compilelatex ()
 
 # Enable fuck functionality: typing fuck an error provides suggestions
 # See: https://github.com/nvbn/thefuck
-eval "$(thefuck --alias)"
+# eval "$(thefuck --alias)"
 
 alias python='python3'
 alias vim='nvim'
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+# CUDA Support
+export CUDA_VERSION=117
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/x86_64_linux-gnu/
+export LD_LIBRARY_PATH=/usr/lib/wsl/lib:$LD_LIBRARY_PATH
+# export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/mnt/c/Program\ Files/NVIDIA\ GPU\ Computing\ Toolkit/CUDA/v11.7/lib"
+# export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/mnt/c/Program\ Files/NVIDIA\ GPU\ Computing\ Toolkit/CUDA/v11.7/libnvvp"
+# export PATH="/mnt/c/Program\ Files/NVIDIA\ GPU\ Computing\ Toolkit/CUDA/v11.7/bin:$PATH"
+# export CUDA_HOME="/mnt/c/Program\ Files/NVIDIA\ GPU\ Computing\ Toolkit/CUDA/v11.7/"
+
+export LIBGL_ALWAYS_INDIRECT=0
+
+# Wandb
+export WANDB_API_KEY=3e192bde10008ae1480400047373f6bef54bbe5c
