@@ -84,6 +84,9 @@ colors
 ## Load aliases and shortcuts if existent.
 [ -f "$HOME/.config/aliases.sh" ] && source "$HOME/.config/aliases.sh"
 
+## Exports
+export PATH="$PATH:/mnt/c/Users/kevin/AppData/Local/Programs/Microsoft VS Code/bin"
+
 ## Virtualenvwrapper
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv

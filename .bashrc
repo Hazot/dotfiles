@@ -153,6 +153,9 @@ alias vim='nvim'
 # node
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
+# code
+export PATH="$PATH:/mnt/c/Users/kevin/AppData/Local/Programs/Microsoft VS Code/bin"
+
 # CUDA Support
 export CUDA_VERSION=117
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/x86_64_linux-gnu/

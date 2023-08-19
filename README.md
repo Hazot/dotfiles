@@ -8,4 +8,7 @@ In ``/etc/wsl.conf``, add:
 ```
 [boot]
 systemd=true
+
+[interop]
+appendWindowsPath = False
 ``````
