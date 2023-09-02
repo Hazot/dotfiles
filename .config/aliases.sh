@@ -83,4 +83,4 @@ alias wksp='cd /mnt/e/onedrive.udem/OneDrive\ -\ Universite\ de\ Montreal/Root/S
 alias workspace='cd /mnt/e/onedrive.udem/OneDrive\ -\ Universite\ de\ Montreal/Root/School/UdeM/workspace/'
 
 # Windows files
-alias files='explorer.exe'
+alias files='/mnt/c/Windows/explorer.exe'
