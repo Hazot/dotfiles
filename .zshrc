@@ -88,21 +88,21 @@ colors
 export PATH="$PATH:/mnt/c/Users/kevin/AppData/Local/Programs/Microsoft VS Code/bin"
 
 ## Virtualenvwrapper
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
-export WORKON_HOME=$HOME/.virtualenvs
-source /usr/local/bin/virtualenvwrapper.sh
+# export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+# export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
+# export WORKON_HOME=$HOME/.virtualenvs
+# source /usr/local/bin/virtualenvwrapper.sh
 
-## >>> conda initialize >>>
+# >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/hazot/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+__conda_setup="$('/Tmp/lessarke/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/home/hazot/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/hazot/miniconda3/etc/profile.d/conda.sh"
+    if [ -f "/Tmp/lessarke/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/Tmp/lessarke/miniconda3/etc/profile.d/conda.sh"
     else
-        export PATH="/home/hazot/miniconda3/bin:$PATH"
+        export PATH="/Tmp/lessarke/miniconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
@@ -126,6 +126,9 @@ source ~/.zsh/zsh-sudo/sudo.plugin.zsh
 
 ## p10k stuff
 source ~/powerlevel10k/powerlevel10k.zsh-theme
+
+# # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zshsource ~/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
