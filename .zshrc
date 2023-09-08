@@ -1,90 +1,101 @@
-# Use powerline
-USE_POWERLINE="true"
-# Source manjaro-zsh-configuration
-if [[ -e /usr/share/zsh/manjaro-zsh-config ]]; then
-  source /usr/share/zsh/manjaro-zsh-config
-fi
-# Use manjaro zsh prompt
-if [[ -e /usr/share/zsh/manjaro-zsh-prompt ]]; then
-  source /usr/share/zsh/manjaro-zsh-prompt
+## Kevin's config for the zoomer shell
+
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# Alias for "ls -lAh"
-alias lsa="ls -lAh --group-directories-first"
-alias ll="ls -lAh --group-directories-first"
+# Enable colors and change prompt:
+autoload -U colors && colors
+# PS1="%{$fg[magenta]%}%n%{$fg[magenta]%}@%{$fg[magenta]%}%M %{$fg[blue]%}%~%{$fg[red]%}%{$reset_color%}$%b "
+# PROMPT='%(?..%F{red}%?%f:)%F{blue}%n%f:%F{green}%{${PWD/#$HOME/~}%} %(!.%F{red}.%f)%# %f'
+# PS1='%(?..%F{red}%?%f:)%F{blue}%n%f:%F{green}${PWD/#$HOME/~} %(!.%F{red}.%f)%# %f'
 
-# Alias for "ls -lh -I '*.pyc' -I '*.sw*'"
-alias lss="ls -lh -I '*.pyc' -I '*.sw*' --group-directories-first"
+setopt autocd		# Automatically cd into typed directory.
 
-# Alias for ls that hides auxiliary LaTeX files
-alias lst="ls -lh -I '*.aux' -I '*.bbl' -I '*.blg' -I '*.fdb_latexmk' -I '*.fls' -I '*.log' -I '*.out' -I '*.thm' -I '*.synctex.gz' --group-directories-first"
+## Options section
+setopt correct                                                  # Auto correct mistakes
+setopt extendedglob                                             # Extended globbing. Allows using regular expressions with *
+setopt nocaseglob                                               # Case insensitive globbing
+setopt rcexpandparam                                            # Array expension with parameters
+setopt nocheckjobs                                              # Don't warn about running processes when exiting
+setopt numericglobsort                                          # Sort filenames numerically when it makes sense
+setopt nobeep                                                   # No beep
+setopt appendhistory                                            # Immediately append history instead of overwriting
+setopt histignorealldups                                        # If a new command is a duplicate, remove the older one
+setopt autocd                                                   # if only directory path is entered, cd there.
+setopt inc_append_history                                       # save commands are added to the history immediately, otherwise only when shell exits.
+setopt histignorespace                                          # Don't save commands that start with space
 
-# Alias for "git status ."
-alias gits="git status ."
+zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' # Case insensitive tab completion
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"         # Colored completion (different colors for dirs/files/etc)
+zstyle ':completion:*' rehash true                              # automatically find new executables in path 
+zstyle ':completion:*' menu select                              # Highlight menu selection
+# Speed up completions
+zstyle ':completion:*' accept-exact '*(N)'
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path ~/.zsh/cache
+HISTFILE=~/.zhistory
+HISTSIZE=10000
+SAVEHIST=10000
+#export EDITOR=/usr/bin/nano
+#export VISUAL=/usr/bin/nano
+WORDCHARS=${WORDCHARS//\/[&.;]}                                 # Don't consider certain characters part of the word
 
-# Alias for "git status -uno ." (ignore untracked files)
-alias gitsuno="git status -uno ."
+## Keybindings section
+bindkey -e
+bindkey '^[[7~' beginning-of-line                               # Home key
+bindkey '^[[H' beginning-of-line                                # Home key
+if [[ "${terminfo[khome]}" != "" ]]; then
+  bindkey "${terminfo[khome]}" beginning-of-line                # [Home] - Go to beginning of line
+fi
+bindkey '^[[8~' end-of-line                                     # End key
+bindkey '^[[F' end-of-line                                     # End key
+if [[ "${terminfo[kend]}" != "" ]]; then
+  bindkey "${terminfo[kend]}" end-of-line                       # [End] - Go to end of line
+fi
+bindkey '^[[2~' overwrite-mode                                  # Insert key
+bindkey '^[[3~' delete-char                                     # Delete key
+bindkey '^[[C'  forward-char                                    # Right key
+bindkey '^[[D'  backward-char                                   # Left key
+bindkey '^[[5~' history-beginning-search-backward               # Page up key
+bindkey '^[[6~' history-beginning-search-forward                # Page down key
 
-# Alias for "git add -u ."
-alias gitu="git add -u ."
+# Navigate words with ctrl+arrow keys
+bindkey '^[Oc' forward-word                                     #
+bindkey '^[Od' backward-word                                    #
+bindkey '^[[1;5D' backward-word                                 #
+bindkey '^[[1;5C' forward-word                                  #
+bindkey '^H' backward-kill-word                                 # delete previous word with ctrl+backspace
+bindkey '^[[Z' undo                                             # Shift+tab undo last action
 
-# Alias for "git add --all"
-alias gita="git add --all"
+## Alias section
+alias cp="cp -i"                                                # Confirm before overwriting something
+alias df='df -h'                                                # Human-readable sizes
+alias free='free -m'                                            # Show sizes in MB
 
-# Alias for "git commit -m"
-alias gitc="git commit -m"
+# Theming section  
+autoload -U compinit colors zcalc
+compinit -d
+colors
 
-# Alias for "git fetch"
-alias gitf="git fetch"
-alias gf="git fetch"
+## Load aliases and shortcuts if existent.
+[ -f "$HOME/.config/aliases.sh" ] && source "$HOME/.config/aliases.sh"
 
-# Alias for "git fetch --options"
-alias gfp="git fetch --prune"
-alias gfa="git fetch --all"
-alias gaf="git fetch --all"
+## Exports
+export PATH="$PATH:/mnt/c/Users/kevin/AppData/Local/Programs/Microsoft VS Code/bin"
 
-# Alias for "git checkout"
-alias gitchk="git checkout"
-alias gchk="git checkout"
+## Virtualenvwrapper
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
+export WORKON_HOME=$HOME/.virtualenvs
+source /usr/local/bin/virtualenvwrapper.sh
 
-# Alias for "git checkout"
-alias gitbr="git branch"
-alias gbr="git branch"
-
-# Alias for "git push && git pull"
-alias gpush="git push"
-alias gpull="git pull"
-alias gpul="git pull"
-
-# Alias for "git log --all --decorate --oneline --graph"
-# See: https://i.stack.imgur.com/ElVkf.jpg
-alias glog="git log --all --decorate --oneline --graph"
-
-# Alias for "git ls-tree -r main --name-only"
-alias gitls="git ls-tree -r main --name-only"
-
-# Other aliases
-alias ju="jupyter notebook --no-browser"
-alias julab="jupyter-lab --no-browser"
-alias ca='conda activate'
-alias cdc='conda deactivate'
-alias ctf='conda activate tf'
-alias ctor='conda activate torch'
-alias wk='workon'
-alias dc='deactivate'
-
-alias udem='cd ~/code/udem/'
-
-# Julia
-export PATH="$PATH:/home/hazot/julia-1.8.5/bin"
-
-# Ubuntu: open files
-# alias files='nautilus'
-alias files='gio open'
-
-# >>> conda initialize >>>
+## >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/hazot/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('/home/hazot/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
@@ -97,3 +108,24 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+## Plugins section
+# Load zsh-syntax-highlighting; should be last.
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# Use history substring search
+source ~/.zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
+# bind UP and DOWN arrow keys to history substring search
+zmodload zsh/terminfo
+bindkey "$terminfo[kcuu1]" history-substring-search-up
+bindkey "$terminfo[kcud1]" history-substring-search-down
+bindkey '^[[A' history-substring-search-up			
+bindkey '^[[B' history-substring-search-down
+# Use autosuggestions
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+# Load sudo: adds sudo after hitting escape twice
+source ~/.zsh/zsh-sudo/sudo.plugin.zsh
+
+## p10k stuff
+source ~/powerlevel10k/powerlevel10k.zsh-theme
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
