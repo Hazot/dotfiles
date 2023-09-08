@@ -19,7 +19,11 @@ SplitterSizes=286,1630
 GroupByAuthor=false
 
 [PageView]
+MouseMode=TextSelect
 PrimaryAnnotationToolBar=QuickAnnotationToolBar
 
 [Reviews]
 QuickAnnotationTools=<tool type="highlight" id="1" name="Yellow Highlighter"><engine type="TextSelector" color="#fffff066"><annotation type="Highlight" color="#fffff066"/></engine><shortcut>1</shortcut></tool>,<tool type="highlight" id="2" name="Blue Highlighter"><engine type="TextSelector" color="#ff8fdef9"><annotation type="Highlight" color="#ff8fdef9"/></engine><shortcut>2</shortcut></tool>,<tool type="highlight" id="3" name="Green Highlighter"><engine type="TextSelector" color="#ff7df066"><annotation type="Highlight" color="#ff7df066"/></engine><shortcut>3</shortcut></tool>,<tool type="highlight" id="4" name="Pink Highlighter"><engine type="TextSelector" color="#ffdc8add"><annotation type="Highlight" color="#ffdc8add"/></engine><shortcut>4</shortcut></tool>,<tool type="highlight" id="5" name="Red Highlighter"><engine type="TextSelector" color="#ffe01b24"><annotation type="Highlight" color="#ffe01b24" opacity="0.4"/></engine><shortcut>5</shortcut></tool>,<tool type="note-linked" id="6"><engine type="PickPoint" color="#ffffff00" hoverIcon="tool-note"><annotation type="Text" icon="Note" color="#ffffff00"/></engine><shortcut>6</shortcut></tool>,<tool type="ink" id="7"><engine type="SmoothLine" color="#ff7df066"><annotation type="Ink" width="7" color="#ff7df066" opacity="0.6"/></engine><shortcut>7</shortcut></tool>,<tool type="underline" id="8"><engine type="TextSelector" color="#ff0000"><annotation type="Underline" color="#ffff0000"/></engine><shortcut>8</shortcut></tool>,<tool type="typewriter" default="true" id="9" name="Insert Text"><engine type="PickPoint" block="true"><annotation textColor="#000000" type="Typewriter" width="0" color="#00ffffff"/></engine><shortcut>9</shortcut></tool>
+
+[Search]
+SearchFromCurrentPage=false
