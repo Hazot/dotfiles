@@ -85,7 +85,7 @@ colors
 [ -f "$HOME/.config/aliases.sh" ] && source "$HOME/.config/aliases.sh"
 
 ## Exports
-export PATH="$PATH:/mnt/c/Users/kevin/AppData/Local/Programs/Microsoft VS Code/bin"
+export PATH="/mnt/c/Users/kevin/AppData/Local/Programs/Microsoft VS Code/bin:/Tmp/lessarke/pycharm/pycharm-2023.2.1/bin:$PATH}"
 
 ## Virtualenvwrapper
 # export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
