@@ -19,6 +19,7 @@ SplitterSizes=286,1630
 GroupByAuthor=false
 
 [PageView]
+MouseMode=TextSelect
 PrimaryAnnotationToolBar=QuickAnnotationToolBar
 
 [Reviews]
