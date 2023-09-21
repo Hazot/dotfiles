@@ -1,14 +1,16 @@
-# linux-config-dotfiles
+# dotfiles
 
-PRIVATE LINUS CONFIG DOTFILES, DO NOT PUT PUBLIC BECAUSE KEYS ARE IN IT
+Some config files
 
-# WSL2
+## Requirements
 
-In ``/etc/wsl.conf``, add:
-```
-[boot]
-systemd=true
+1. Need to use ``git clone https://github.com/Hazot/dotfiles.git .`` or move files that are not in ``.config``.
+3. Need to install p10k
+2. Need to git clone the following zsh plugins in ``$HOME/.zsh/``: 
+    - zsh-syntax-highlighting
+    - zsh-history-substring-search
+    - zsh-autosuggestions
+    - zsh-sudo
 
-[interop]
-appendWindowsPath = False
-``````
+## TODO
+- work on symlinks for rc files and work on .gitignore
