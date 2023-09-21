@@ -167,6 +167,3 @@ export LD_LIBRARY_PATH=/usr/lib/wsl/lib:$LD_LIBRARY_PATH
 
 # Nvidia OpenGL instead of Mesa 3D 
 export LIBGL_ALWAYS_INDIRECT=0
-
-# Wandb
-export WANDB_API_KEY=3e192bde10008ae1480400047373f6bef54bbe5c
