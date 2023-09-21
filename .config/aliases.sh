@@ -53,6 +53,7 @@ alias gchk="git checkout"
 # Alias for "git checkout"
 alias gitbr="git branch"
 alias gbr="git branch"
+alias gbra="git branch --all"
 
 # Alias for "git push && git pull"
 alias gpush="git push"
