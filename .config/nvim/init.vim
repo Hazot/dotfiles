@@ -1,5 +1,5 @@
 
-source $HOME/.config/nvim/plug-config/coc.vim
+"source $HOME/.config/nvim/plug-config/coc.vim
 set encoding=utf-8
 set number relativenumber
 syntax enable
@@ -20,7 +20,7 @@ set completeopt-=preview " For no preview"
 
 let mapleader = ' '
 
-call plug#begin('~/.vim/plugged')
+call plug#begin()
 
 Plug 'morhetz/gruvbox'
 Plug 'jiangmiao/auto-pairs'
@@ -32,14 +32,14 @@ Plug 'sirver/ultisnips'
 Plug 'tc50cal/vim-terminal'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'preservim/tagbar'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'joshdick/onedark.vim'
 
 call plug#end()
 
 
-colorscheme gruvbox
-let g:airline_theme='gruvbox'
+colorscheme onedark
+let g:airline_theme='onedark'
 
 if (has("termguicolors"))
     set termguicolors
