@@ -2,6 +2,8 @@
 
 Some config files
 
+The ``main`` branch is for WSL (was desktop).
+
 ## Requirements
 
 1. Need to use ``git clone https://github.com/Hazot/dotfiles.git .`` or move files that are not in ``.config``.
