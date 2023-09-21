@@ -3,33 +3,48 @@
 # General aliases
 alias mkdir="mkdir -p"
 alias ..="cd .."
-alias python='python3'
-alias vim='nvim'
+alias ...='cd ../..'
+alias python="python3"
+alias vim="nvim"
 
 # Alias for listing directories 
-alias ls='ls --color=auto'
+alias ls="ls --color=auto"
 alias ll="ls -lAh --group-directories-first --color=auto"
-# alias ll="ls -alF --color=auto"
+# alias ll="ls -alF --color=auto" # Equivalent to ls -la
 alias la="ls -A --color=auto"
 alias l="ls -ClF --group-directories-first --color=auto"
-alias dir='dir --color=auto'
-alias vdir='vdir --color=auto'
+alias dir="dir --color=auto"
+alias vdir="vdir --color=auto"
 
 # Alias for ls that hides auxiliary LaTeX files
 alias lst="ls -lh -I '*.aux' -I '*.bbl' -I '*.blg' -I '*.fdb_latexmk' -I '*.fls' -I '*.log' -I '*.out' -I '*.thm' -I '*.synctex.gz' --group-directories-first"
 
+# Colorize grep output (good for log files)
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+
+# confirm before overwriting something
+alias cp="cp -i"
+alias mv='mv -i'
+alias rm='rm -i'
+
+# easier to read disk
+alias df='df -h'     # human-readable sizes
+alias free='free -m' # show sizes in MB
 
 # Alias for "git status ."
+alias gs='git status'
 alias gits="git status ."
 
 # Alias for "git status -uno ." (ignore untracked files)
+alias guno="git status -uno"
 alias gitsuno="git status -uno ."
 
-# Alias for "git add -u ."
+# Alias for git add
+alias ga="git add"
 alias gitu="git add -u ."
-
-# Alias for "git add --all"
-alias gita="git add --all"
+alias gita="git add --all" # same as "git add -A"
 
 # Alias for "git commit -m"
 alias gitc="git commit -m"
@@ -50,11 +65,13 @@ alias gchk="git checkout"
 # Alias for "git checkout"
 alias gitbr="git branch"
 alias gbr="git branch"
+alias gbra="git branch --all"
 
 # Alias for "git push && git pull"
 alias gpush="git push"
 alias gpull="git pull"
 alias gpul="git pull"
+alias gupll="git pull"
 
 # Alias for "git log --all --decorate --oneline --graph"
 # See: https://i.stack.imgur.com/ElVkf.jpg
@@ -72,7 +89,8 @@ alias ctf='conda activate tf'
 alias ctor='conda activate torch'
 alias wk='workon'
 alias dc='deactivate'
-
+ 
+# Old aliases
 alias udem='cd ~/code/udem/'
 alias ghub='cd ~/code/github/'
 alias winghub='cd /mnt/c/Users/kevin/github/'
