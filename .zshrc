@@ -9,9 +9,6 @@ fi
 
 # Enable colors and change prompt:
 autoload -U colors && colors
-# PS1="%{$fg[magenta]%}%n%{$fg[magenta]%}@%{$fg[magenta]%}%M %{$fg[blue]%}%~%{$fg[red]%}%{$reset_color%}$%b "
-# PROMPT='%(?..%F{red}%?%f:)%F{blue}%n%f:%F{green}%{${PWD/#$HOME/~}%} %(!.%F{red}.%f)%# %f'
-# PS1='%(?..%F{red}%?%f:)%F{blue}%n%f:%F{green}${PWD/#$HOME/~} %(!.%F{red}.%f)%# %f'
 
 setopt autocd		# Automatically cd into typed directory.
 
@@ -40,8 +37,6 @@ zstyle ':completion:*' cache-path ~/.zsh/cache
 HISTFILE=~/.zhistory
 HISTSIZE=10000
 SAVEHIST=10000
-#export EDITOR=/usr/bin/nano
-#export VISUAL=/usr/bin/nano
 WORDCHARS=${WORDCHARS//\/[&.;]}                                 # Don't consider certain characters part of the word
 
 ## Keybindings section
@@ -71,18 +66,17 @@ bindkey '^[[1;5C' forward-word                                  #
 bindkey '^H' backward-kill-word                                 # delete previous word with ctrl+backspace
 bindkey '^[[Z' undo                                             # Shift+tab undo last action
 
-## Alias section
-alias cp="cp -i"                                                # Confirm before overwriting something
-alias df='df -h'                                                # Human-readable sizes
-alias free='free -m'                                            # Show sizes in MB
-
 # Theming section  
 autoload -U compinit colors zcalc
 compinit -d
 colors
 
+## Load scripts
+[ -f "$HOME/.config/zsh/scripts.zsh" ] && source "$HOME/.config/zsh/scripts.zsh"
+
 ## Load aliases and shortcuts if existent.
 [ -f "$HOME/.config/aliases.sh" ] && source "$HOME/.config/aliases.sh"
+alias reload='source ~/.zshrc'
 
 ## Exports
 export PATH="$PATH:/mnt/c/Users/kevin/AppData/Local/Programs/Microsoft VS Code/bin"
@@ -111,7 +105,8 @@ unset __conda_setup
 ## Plugins section
 # Load zsh-syntax-highlighting; should be last.
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# Use history substring search
+
+# Load history substring search
 source ~/.zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
 # bind UP and DOWN arrow keys to history substring search
 zmodload zsh/terminfo
@@ -119,8 +114,10 @@ bindkey "$terminfo[kcuu1]" history-substring-search-up
 bindkey "$terminfo[kcud1]" history-substring-search-down
 bindkey '^[[A' history-substring-search-up			
 bindkey '^[[B' history-substring-search-down
-# Use autosuggestions
+
+# Load autosuggestions
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+
 # Load sudo: adds sudo after hitting escape twice
 source ~/.zsh/zsh-sudo/sudo.plugin.zsh
 
@@ -129,3 +126,8 @@ source ~/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Export keys 
+if [ -r $HOME/.config/keys.sh ]; then
+    . $HOME/.config/keys.sh
+fi
