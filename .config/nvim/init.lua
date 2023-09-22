@@ -1,1 +1,2 @@
+require("hazot")
 print("Hello!")

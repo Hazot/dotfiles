@@ -13,8 +13,15 @@ fi
 [ -f "$HOME/.config/aliases.sh" ] && source "$HOME/.config/aliases.sh"
 alias reload='source ~/.zshrc'
 
+## More ZSH plugins for manjaro
+# Load sudo: adds sudo after hitting escape twice
+source ~/.zsh/zsh-sudo/sudo.plugin.zsh
+
 # Julia
 export PATH="$PATH:/home/hazot/julia-1.8.5/bin"
+
+# Neovim
+export PATH="$PATH:/home/hazot/.nvim/lua_ls/bin/"
 
 ## Virtualenvwrapper
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
