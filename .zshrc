@@ -80,6 +80,7 @@ alias reload='source ~/.zshrc'
 
 ## Exports
 export PATH="$PATH:/mnt/c/Users/kevin/AppData/Local/Programs/Microsoft VS Code/bin"
+export PATH="$PATH:/usr/local/go/bin"
 
 ## Virtualenvwrapper
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
