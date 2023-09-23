@@ -13,18 +13,20 @@ return require('packer').startup(function(use)
 	  requires = { {'nvim-lua/plenary.nvim'} }
   }
 
-  use({ 
-	  'rose-pine/neovim', 
+  use({
+	  'rose-pine/neovim',
 	  as = 'rose-pine',
 	  config = function()
-		  vim.cmd('colorscheme rose-pine')
+		  vim.cmd('colorscheme rose-pine-moon')
 	  end
   })
 
   use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
   use('nvim-treesitter/playground')
   use('theprimeagen/harpoon')
+  use('ThePrimeagen/vim-be-good')
   use('mbbill/undotree')
+  use('b3nj5m1n/kommentary')
   use('tpope/vim-fugitive')
 
   use {
@@ -44,4 +46,3 @@ return require('packer').startup(function(use)
 	  }
   }
 end)
-
