@@ -59,4 +59,3 @@ lspconfig.lua_ls.setup {
 lspconfig.rust_analyzer.setup({})
 
 lsp_zero.setup()
-

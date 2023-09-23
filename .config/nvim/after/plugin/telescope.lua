@@ -6,4 +6,3 @@ vim.keymap.set('n', '<leader>ps', function()
 	-- installing fd and ripgrep makes find_files not work anymore
 	builtin.grep_string({ search = vim.fn.input("Grep > ") });
 end)
-

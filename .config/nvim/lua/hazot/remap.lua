@@ -33,4 +33,3 @@ vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
 
 -- Can easily replace all the words in a file
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
-
