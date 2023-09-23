@@ -1,2 +1,1 @@
 require("hazot")
-print("Hello!")
