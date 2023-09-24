@@ -167,3 +167,4 @@ export LD_LIBRARY_PATH=/usr/lib/wsl/lib:$LD_LIBRARY_PATH
 
 # Nvidia OpenGL instead of Mesa 3D 
 export LIBGL_ALWAYS_INDIRECT=0
+. "$HOME/.cargo/env"
