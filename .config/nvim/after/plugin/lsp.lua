@@ -25,6 +25,19 @@ lsp_zero.on_attach(function(client, bufnr)
   vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
 end)
 
+require('mason').setup({})
+require('mason-lspconfig').setup({
+  ensure_installed = {
+      "pyright",
+      "lua_ls",
+      "rust_analyzer"
+  },
+  handlers = {
+    lsp_zero.default_setup,
+  },
+})
+
+
 lspconfig.pyright.setup{}
 lspconfig.lua_ls.setup {
   on_init = function(client)
