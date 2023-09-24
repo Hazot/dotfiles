@@ -18,7 +18,7 @@ The ``manjaro`` branch already has a ``manjaro-zsh-config`` file with default st
     - zsh-autosuggestions
     - zsh-sudo
 
-## TODO
+## TODOs
 - [ ] work on symlinks for rc files and work on .gitignore
 - [ ] want to make a script to automatically download the 4 above plugins for zsh quick install
 - [ ] work on a new lua config for WSL (can copy a lot from ``manjaro``)
