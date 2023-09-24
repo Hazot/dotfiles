@@ -4,38 +4,37 @@
 vim.cmd.packadd('packer.nvim')
 
 return require('packer').startup(function(use)
-  -- Packer can manage itself
-  use 'wbthomason/packer.nvim'
+    -- Packer can manage itself
+    use 'wbthomason/packer.nvim'
 
-  use {
-	  'nvim-telescope/telescope.nvim', tag = '0.1.0',
-	  -- or                            , branch = '0.1.x',
-	  requires = { {'nvim-lua/plenary.nvim'} }
-  }
+    use {
+        'nvim-telescope/telescope.nvim', tag = '0.1.3',
+        -- or                            , branch = '0.1.x',
+        requires = { {'nvim-lua/plenary.nvim'} }
+    }
 
-  use({ 
-	  'rose-pine/neovim', 
-	  as = 'rose-pine',
-	  config = function()
-		  vim.cmd('colorscheme rose-pine-moon')
-	  end
-  })
+    use({ 
+        'rose-pine/neovim', 
+        as = 'rose-pine',
+        config = function()
+            vim.cmd('colorscheme rose-pine-moon')
+        end
+    })
 
-  use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
-  use('nvim-treesitter/playground')
-  use('theprimeagen/harpoon')
-  use('ThePrimeagen/vim-be-good')
-  use('mbbill/undotree')
-  use('b3nj5m1n/kommentary')
-  use('tpope/vim-fugitive')
-
-  use {
+    use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
+    use('nvim-treesitter/playground')
+    use('theprimeagen/harpoon')
+    use('ThePrimeagen/vim-be-good')
+    use('mbbill/undotree')
+    use('b3nj5m1n/kommentary')
+    use('tpope/vim-fugitive')
+    use {
 	  'VonHeikemen/lsp-zero.nvim',
 	  branch = 'v3.x',
 	  requires = {
 		  --- Uncomment these if you want to manage LSP servers from neovim
-		  -- {'williamboman/mason.nvim'},
-		  -- {'williamboman/mason-lspconfig.nvim'},
+		  {'williamboman/mason.nvim'},
+		  {'williamboman/mason-lspconfig.nvim'},
 
 		  -- LSP Support
 		  {'neovim/nvim-lspconfig'},
@@ -45,4 +44,5 @@ return require('packer').startup(function(use)
 		  {'L3MON4D3/LuaSnip'},
 	  }
   }
+
 end)
