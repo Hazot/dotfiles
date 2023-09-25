@@ -6,6 +6,7 @@ alias ..="cd .."
 alias ...='cd ../..'
 alias python="python3"
 alias vim="nvim"
+alias fd="fd --no-ignore"
 
 # Alias for listing directories 
 alias ls="ls --color=auto"
