@@ -34,6 +34,7 @@ alias gitsuno="git status -uno ."
 alias ga="git add"
 alias gitu="git add -u ."
 alias gita="git add --all" # same as "git add -A"
+alias giat="git add --all" # mistakes were made
 
 # Alias for "git commit -m"
 alias gitc="git commit -m"
