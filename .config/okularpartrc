@@ -6,6 +6,7 @@ RecolorBackground=24,24,24
 RecolorForeground=238,238,238
 
 [Document]
+ChangeColors=true
 PaperColor=255,251,220
 RenderMode=Paper
 
@@ -17,7 +18,6 @@ SplitterSizes=286,1630
 GroupByAuthor=false
 
 [PageView]
-MouseMode=TextSelect
 PrimaryAnnotationToolBar=QuickAnnotationToolBar
 
 [Reviews]
