@@ -33,3 +33,6 @@ vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
 
 -- Can easily replace all the words in a file
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+
+-- Add ctrl+backspace to delete word
+vim.keymap.set("i", "C-h", "C-w", { noremap = true })
