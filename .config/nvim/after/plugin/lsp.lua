@@ -5,6 +5,19 @@ local cmp = require('cmp')
 local cmp_select = {behavior = cmp.SelectBehavior.Select}
 
 cmp.setup({
+	sources = {
+        {name = 'path'},
+        {name = 'nvim_lsp'},
+        {name = 'nvim_lua'},
+    },
+
+    -- Make the first item in completion menu always be selected.
+    --[[ preselect = 'item',
+    completion = {
+        completeopt = 'menu,menuone,noinsert'
+    }, ]]
+
+    formatting = lsp_zero.cmp_format(),
 	mapping = cmp.mapping.preset.insert({
 		['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
 		['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
