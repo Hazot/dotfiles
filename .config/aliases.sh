@@ -63,6 +63,10 @@ alias gpull="git pull"
 alias gpul="git pull"
 alias gupll="git pull"
 
+# Alias for "git diff"
+alias gdiff="git diff"
+alias gdif="git diff"
+
 # Alias for "git log --all --decorate --oneline --graph"
 # See: https://i.stack.imgur.com/ElVkf.jpg
 alias glog="git log --all --decorate --oneline --graph"
