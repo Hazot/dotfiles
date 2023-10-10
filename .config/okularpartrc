@@ -6,9 +6,8 @@ RecolorBackground=24,24,24
 RecolorForeground=238,238,238
 
 [Document]
-ChangeColors=true
 PaperColor=255,251,220
-RenderMode=InvertLightness
+RenderMode=Paper
 
 [Main View]
 ShowLeftPanel=false

@@ -39,6 +39,10 @@ export VIRTUALENVWRAPPER_VIRTUALENV=/home/hazot/.local/bin/
 export WORKON_HOME=$HOME/.virtualenvs
 source /home/hazot/.local/bin/virtualenvwrapper.sh
 
+## Tex Live Path
+export PATH="/usr/local/texlive/2023/bin/x86_64-linux:$PATH"
+
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/home/hazot/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
