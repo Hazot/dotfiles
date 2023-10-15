@@ -21,7 +21,6 @@ alias vdir='vdir --color=auto'
 # Alias for ls that hides auxiliary LaTeX files
 alias lst="ls -lh -I '*.aux' -I '*.bbl' -I '*.blg' -I '*.fdb_latexmk' -I '*.fls' -I '*.log' -I '*.out' -I '*.thm' -I '*.synctex.gz' --group-directories-first"
 
-
 # Alias for "git status ."
 alias gs="git status"
 alias gits="git status ."
