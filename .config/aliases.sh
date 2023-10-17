@@ -5,8 +5,7 @@ alias mkdir="mkdir -p"
 alias ..="cd .."
 alias ...="cd ../.."
 alias python='python3'
-alias vi='vim'
-alias vim='nvim'
+alias vi='nvim'
 alias fd='fd --no-ignore'
 
 # Alias for listing directories 
