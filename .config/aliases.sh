@@ -7,6 +7,7 @@ alias ...="cd ../.."
 alias python='python3'
 alias vi='nvim'
 alias fd='fd --no-ignore'
+alias rg='rg --no-ignore'
 
 # GENTOO ONLY
 alias cdd='cd /Tmp/lessarke/'

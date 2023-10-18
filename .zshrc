@@ -82,10 +82,13 @@ alias reload='source ~/.zshrc'
 ## Exports
 export PATH="/Tmp/lessarke/pycharm/pycharm-2023.2.1/bin:$PATH}"
 
+### GENTOO UDEM STUFF
 ## external neovim
 export PATH="/Tmp/lessarke/neovim/bin:$PATH"
-
-##
+export CARGO_HOME="/Tmp/lessarke/.cargo"
+export RUSTUP_HOME="/Tmp/lessarke/.rustup"
+export PATH="/Tmp/lessarke/.cargo/bin:$PATH"
+export PATH="$PATH:/Tmp/lessarke/.cargo/bin/fd"
 export PATH="$PATH:$HOME/.local/bin"
 
 ## Virtualenvwrapper
