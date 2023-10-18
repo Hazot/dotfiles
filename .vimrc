@@ -14,6 +14,8 @@ set paste
 set mouse=a
 set clipboard=unnamedplus
 
+" Plug
+
 " keybindings
 nnoremap <SPACE> <Nop>
 let mapleader = " "
