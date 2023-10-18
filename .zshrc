@@ -30,6 +30,9 @@ source ~/.zsh/zsh-sudo/sudo.plugin.zsh
 # Julia
 export PATH="$PATH:/home/hazot/julia-1.8.5/bin"
 
+# Cargo (Rust)
+export PATH="$PATH:$HOME/.cargo/bin/"
+
 # Neovim
 export PATH="$PATH:/home/hazot/.nvim/lua_ls/bin/"
 

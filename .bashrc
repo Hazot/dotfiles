@@ -155,3 +155,4 @@ compilelatex ()
 }
 
 alias reload="source ~/.bashrc"
+. "$HOME/.cargo/env"
