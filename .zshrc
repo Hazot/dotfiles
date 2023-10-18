@@ -40,8 +40,7 @@ zstyle ':completion:*' cache-path ~/.zsh/cache
 HISTFILE=~/.zhistory
 HISTSIZE=10000
 SAVEHIST=10000
-#export EDITOR=/usr/bin/nano
-#export VISUAL=/usr/bin/nano
+export EDITOR=/Tmp/lessarke/neovim/bin/nvim
 WORDCHARS=${WORDCHARS//\/[&.;]}                                 # Don't consider certain characters part of the word
 
 ## Keybindings section
@@ -71,11 +70,6 @@ bindkey '^[[1;5C' forward-word                                  #
 bindkey '^H' backward-kill-word                                 # delete previous word with ctrl+backspace
 bindkey '^[[Z' undo                                             # Shift+tab undo last action
 
-## Alias section
-alias cp="cp -i"                                                # Confirm before overwriting something
-alias df='df -h'                                                # Human-readable sizes
-alias free='free -m'                                            # Show sizes in MB
-
 # Theming section  
 autoload -U compinit colors zcalc
 compinit -d
@@ -83,9 +77,16 @@ colors
 
 ## Load aliases and shortcuts if existent.
 [ -f "$HOME/.config/aliases.sh" ] && source "$HOME/.config/aliases.sh"
+alias reload='source ~/.zshrc'
 
 ## Exports
-export PATH="/mnt/c/Users/kevin/AppData/Local/Programs/Microsoft VS Code/bin:/Tmp/lessarke/pycharm/pycharm-2023.2.1/bin:$PATH}"
+export PATH="/Tmp/lessarke/pycharm/pycharm-2023.2.1/bin:$PATH}"
+
+## external neovim
+export PATH="/Tmp/lessarke/neovim/bin:$PATH"
+
+##
+export PATH="$PATH:$HOME/.local/bin"
 
 ## Virtualenvwrapper
 # export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
@@ -111,6 +112,7 @@ unset __conda_setup
 ## Plugins section
 # Load zsh-syntax-highlighting; should be last.
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 # Use history substring search
 source ~/.zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
 # bind UP and DOWN arrow keys to history substring search
@@ -119,16 +121,21 @@ bindkey "$terminfo[kcuu1]" history-substring-search-up
 bindkey "$terminfo[kcud1]" history-substring-search-down
 bindkey '^[[A' history-substring-search-up			
 bindkey '^[[B' history-substring-search-down
+
 # Use autosuggestions
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+
 # Load sudo: adds sudo after hitting escape twice
 source ~/.zsh/zsh-sudo/sudo.plugin.zsh
 
 ## p10k stuff
 source ~/powerlevel10k/powerlevel10k.zsh-theme
 
-# # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zshsource ~/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Export keys 
+if [ -r $HOME/.config/keys.sh ]; then
+    . $HOME/.config/keys.sh
+fi
