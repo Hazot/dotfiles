@@ -8,6 +8,10 @@ alias python='python3'
 alias vi='nvim'
 alias fd='fd --no-ignore'
 
+# Custom update function call
+alias upd='updapack'
+alias upd='upda'
+
 # Alias for listing directories 
 alias ls='ls --color=auto'
 alias ll="ls -lAh --group-directories-first --color=auto"
