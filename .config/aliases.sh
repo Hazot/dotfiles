@@ -9,7 +9,7 @@ alias vim="nvim"
 alias fd="fd --no-ignore"
 alias rg="rg --no-ignore"
 
-# Alias for listing directories 
+# Alias for listing directories?page=1 
 alias ls="ls --color=auto"
 alias ll="ls -lAh --group-directories-first --color=auto"
 # alias ll="ls -alF --color=auto" # Equivalent to ls -la
@@ -20,11 +20,6 @@ alias vdir="vdir --color=auto"
 
 # Alias for ls that hides auxiliary LaTeX files
 alias lst="ls -lh -I '*.aux' -I '*.bbl' -I '*.blg' -I '*.fdb_latexmk' -I '*.fls' -I '*.log' -I '*.out' -I '*.thm' -I '*.synctex.gz' --group-directories-first"
-
-# Colorize grep output (good for log files)
-alias grep='grep --color=auto'
-alias egrep='egrep --color=auto'
-alias fgrep='fgrep --color=auto'
 
 # confirm before overwriting something
 alias cp="cp -i"
