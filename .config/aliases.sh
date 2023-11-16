@@ -21,10 +21,10 @@ alias vdir="vdir --color=auto"
 # Alias for ls that hides auxiliary LaTeX files
 alias lst="ls -lh -I '*.aux' -I '*.bbl' -I '*.blg' -I '*.fdb_latexmk' -I '*.fls' -I '*.log' -I '*.out' -I '*.thm' -I '*.synctex.gz' --group-directories-first"
 
-# confirm before overwriting something
+# Confirm before overwriting something
 alias cp="cp -i"
-alias mv='mv -i'
-alias rm='rm -i'
+alias mv="mv -i"
+alias rm="rm -i"
 
 # easier to read disk
 alias df='df -h'     # human-readable sizes
