@@ -83,6 +83,10 @@ export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quo
 if [ -r $HOME/.config/aliases.sh ]; then
     . $HOME/.config/aliases.sh
 fi
+# Exports (uses the same file as .zshrc)
+if [ -r $HOME/.config/exports.sh ]; then
+    . $HOME/.config/exports.sh
+fi
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile

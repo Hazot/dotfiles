@@ -78,6 +78,9 @@ colors
 [ -f "$HOME/.config/aliases.sh" ] && source "$HOME/.config/aliases.sh"
 alias reload='source ~/.zshrc'
 
+## Load exports and shortcuts if existent.
+[ -f "$HOME/.config/exports.sh" ] && source "$HOME/.config/exports.sh"
+
 ## Exports
 export PATH="$PATH:/mnt/c/Users/kevin/AppData/Local/Programs/Microsoft VS Code/bin"
 export PATH="$PATH:$HOME/.local/bin"
