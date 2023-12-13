@@ -6,7 +6,6 @@ RecolorBackground=24,24,24
 RecolorForeground=238,238,238
 
 [Document]
-ChangeColors=true
 PaperColor=255,251,220
 RenderMode=Paper
 
@@ -22,6 +21,7 @@ MouseMode=TextSelect
 PrimaryAnnotationToolBar=QuickAnnotationToolBar
 
 [Reviews]
+QuickAnnotationDefaultAction=5
 QuickAnnotationTools=<tool name="Yellow Highlighter" id="1" type="highlight"><engine color="#fffff066" type="TextSelector"><annotation color="#fffff066" type="Highlight"/></engine><shortcut>1</shortcut></tool>,<tool name="Blue Highlighter" id="2" type="highlight"><engine color="#ff8fdef9" type="TextSelector"><annotation color="#ff8fdef9" type="Highlight"/></engine><shortcut>2</shortcut></tool>,<tool name="Green Highlighter" id="3" type="highlight"><engine color="#ff7df066" type="TextSelector"><annotation color="#ff7df066" type="Highlight"/></engine><shortcut>3</shortcut></tool>,<tool name="Pink Highlighter" id="4" type="highlight"><engine color="#ffdc8add" type="TextSelector"><annotation color="#ffdc8add" type="Highlight"/></engine><shortcut>4</shortcut></tool>,<tool name="Red Highlighter" id="5" type="highlight"><engine color="#ffe01b24" type="TextSelector"><annotation opacity="0.4" color="#ffe01b24" type="Highlight"/></engine><shortcut>5</shortcut></tool>,<tool id="6" type="note-linked"><engine hoverIcon="tool-note" color="#ffffff00" type="PickPoint"><annotation color="#ffffff00" icon="Note" type="Text"/></engine><shortcut>6</shortcut></tool>,<tool id="7" type="ink"><engine color="#ff7df066" type="SmoothLine"><annotation opacity="0.6" color="#ff7df066" type="Ink" width="7"/></engine><shortcut>7</shortcut></tool>,<tool id="8" type="underline"><engine color="#ff0000" type="TextSelector"><annotation color="#ffff0000" type="Underline"/></engine><shortcut>8</shortcut></tool>,<tool name="Insert Text" id="9" type="typewriter"><engine block="true" type="PickPoint"><annotation textColor="#0055ff" color="#00ffffff" type="Typewriter" width="0"/></engine><shortcut>9</shortcut></tool>,<tool name="Pen Annotation" id="10" type="ink"><engine color="#ff0055ff" type="SmoothLine"><annotation color="#ff0055ff" type="Ink" width="1"/></engine></tool>
 
 [Search]
