@@ -14,15 +14,12 @@ alias cdd='cd /Tmp/lessarke/'
 
 # Alias for listing directories 
 alias ls='ls --color=auto'
-alias ll="ls -lAh --group-directories-first --color=auto"
+alias ll="ls -lAh --color=auto"
 # alias ll="ls -alF --color=auto"
 alias la="ls -A --color=auto"
-alias l="ls -ClF --group-directories-first --color=auto"
+alias l="ls -ClF --color=auto"
 alias dir='dir --color=auto'
 alias vdir='vdir --color=auto'
-
-# Alias for ls that hides auxiliary LaTeX files
-alias lst="ls -lh -I '*.aux' -I '*.bbl' -I '*.blg' -I '*.fdb_latexmk' -I '*.fls' -I '*.log' -I '*.out' -I '*.thm' -I '*.synctex.gz' --group-directories-first"
 
 # Confirm before overwriting something
 alias cp="cp -i"
@@ -98,4 +95,4 @@ alias h='cd /home/hazot/'
 alias home='cd /home/hazot/'
 
 # alias files='nautilus'
-alias files='gio open'
+alias files='open'

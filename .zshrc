@@ -79,38 +79,11 @@ colors
 [ -f "$HOME/.config/aliases.sh" ] && source "$HOME/.config/aliases.sh"
 alias reload='source ~/.zshrc'
 
-## Exports
-export PATH="/Tmp/lessarke/pycharm/pycharm-2023.2.1/bin:$PATH}"
-
-### GENTOO UDEM STUFF
-## external neovim
-export PATH="/Tmp/lessarke/neovim/bin:$PATH"
-export CARGO_HOME="/Tmp/lessarke/.cargo"
-export RUSTUP_HOME="/Tmp/lessarke/.rustup"
-export PATH="/Tmp/lessarke/.cargo/bin:$PATH"
-export PATH="$PATH:/Tmp/lessarke/.cargo/bin/fd"
-export PATH="$PATH:$HOME/.local/bin"
-
 ## Virtualenvwrapper
 # export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 # export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
 # export WORKON_HOME=$HOME/.virtualenvs
 # source /usr/local/bin/virtualenvwrapper.sh
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Tmp/lessarke/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Tmp/lessarke/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/Tmp/lessarke/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/Tmp/lessarke/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
 
 ## Plugins section
 # Load zsh-syntax-highlighting; should be last.
