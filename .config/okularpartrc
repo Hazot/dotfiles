@@ -10,7 +10,6 @@ PaperColor=255,251,220
 RenderMode=Paper
 
 [Main View]
-ShowLeftPanel=false
 SplitterSizes=286,1630
 
 [Nav Panel]
