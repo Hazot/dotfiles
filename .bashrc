@@ -172,3 +172,18 @@ export LD_LIBRARY_PATH=/usr/lib/wsl/lib:$LD_LIBRARY_PATH
 # Nvidia OpenGL instead of Mesa 3D 
 export LIBGL_ALWAYS_INDIRECT=0
 . "$HOME/.cargo/env"
+
+# >>> juliaup initialize >>>
+
+# !! Contents within this block are managed by juliaup !!
+
+case ":$PATH:" in
+    *:/home/hazot/.juliaup/bin:*)
+        ;;
+
+    *)
+        export PATH=/home/hazot/.juliaup/bin${PATH:+:${PATH}}
+        ;;
+esac
+
+# <<< juliaup initialize <<<

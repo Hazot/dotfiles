@@ -137,3 +137,12 @@ source ~/powerlevel10k/powerlevel10k.zsh-theme
 if [ -r $HOME/.config/keys.sh ]; then
     . $HOME/.config/keys.sh
 fi
+
+# >>> juliaup initialize >>>
+
+# !! Contents within this block are managed by juliaup !!
+
+path=('/home/hazot/.juliaup/bin' $path)
+export PATH
+
+# <<< juliaup initialize <<<
