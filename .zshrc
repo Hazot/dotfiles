@@ -75,9 +75,15 @@ autoload -U compinit colors zcalc
 compinit -d
 colors
 
+## Load scripts
+[ -f "$HOME/.config/zsh/scripts.zsh" ] && source "$HOME/.config/zsh/scripts.zsh"
+
 ## Load aliases and shortcuts if existent.
 [ -f "$HOME/.config/aliases.sh" ] && source "$HOME/.config/aliases.sh"
 alias reload='source ~/.zshrc'
+
+## Load exports and shortcuts if existent.
+[ -f "$HOME/.config/exports.sh" ] && source "$HOME/.config/exports.sh"
 
 ## Virtualenvwrapper
 # export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
