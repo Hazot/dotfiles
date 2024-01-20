@@ -37,3 +37,14 @@ vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 -- Have j and k working with word wrap
 vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr=true, silent=true} )
 vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr=true, silent=true} )
+
+-- Can use tab for block indentation (not sure why it overrides <C-I>)
+local opts = { noremap = true, silent = true }
+--[[ vim.keymap.set("n",    "<Tab>",         ">>",  opts)
+vim.keymap.set("n",    "<S-Tab>",       "<<",  opts) ]]
+vim.keymap.set("v",    "<Tab>",         ">gv", opts)
+vim.keymap.set("v",    "<S-Tab>",       "<gv", opts)
+
+-- Format on key press (one from 
+vim.keymap.set("n", "<leader>wf", vim.lsp.buf.format, { remap = false })
+vim.keymap.set("n", "<C-I>", vim.lsp.buf.format, { remap = false })
