@@ -171,3 +171,4 @@ export LIBGL_ALWAYS_INDIRECT=0
 if  [ -f "Tmp/lessarke/.cargo/env" ]; then
     . "/Tmp/lessarke/.cargo/env"
 fi
+. "$HOME/.cargo/env"
