@@ -4,4 +4,7 @@
 function updapack(){
     brew update
     brew upgrade
+
+    brew outdated --cask --greedy --verbose
+    brew upgrade --cask --greedy
 }
