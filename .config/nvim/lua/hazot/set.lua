@@ -34,6 +34,7 @@ vim.opt.clipboard = "unnamedplus"
 
 vim.opt.wrap = false
 
+vim.opt.mouse = "a"
 
 vim.api.nvim_create_autocmd('BufEnter', {
   pattern = {'*.md', '*.tex'},

@@ -25,9 +25,9 @@ return require('packer').startup(function(use)
     use('nvim-treesitter/playground')
     use('theprimeagen/harpoon')
     use('ThePrimeagen/vim-be-good')
-    use('mbbill/undotree')
+    -- use('mbbill/undotree')
     use('b3nj5m1n/kommentary')
-    use('tpope/vim-fugitive')
+    -- use('tpope/vim-fugitive')
 
     use {
         'VonHeikemen/lsp-zero.nvim',
