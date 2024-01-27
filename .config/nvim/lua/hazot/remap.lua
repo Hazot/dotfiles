@@ -16,6 +16,9 @@ vim.keymap.set("n", "N", "Nzzzv")
 -- Can delete highlight without copying it and then paste the current buffer
 vim.keymap.set("x", "<leader>p", "\"_dP")
 
+-- Format on key press (one from
+vim.keymap.set("n", "<leader>wf", vim.lsp.buf.format, { remap = false })
+vim.keymap.set("n", "<C-I>", vim.lsp.buf.format, { remap = false })
 
 -- Yank multiple lines to clipboard easily
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
@@ -24,7 +27,7 @@ vim.keymap.set("n", "<leader>Y", [["+Y]])
 -- Only difference between escape and ctrl+c
 vim.keymap.set("i", "<C-c>", "<Esc>")
 
--- Do not use Q
+-- Do not use Q 
 vim.keymap.set("n", "Q", "<nop>")
 
 -- Can you ctrl+f to create a new session on a new project

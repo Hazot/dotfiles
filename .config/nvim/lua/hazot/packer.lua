@@ -12,7 +12,7 @@ return require('packer').startup(function(use)
 
     use "nvim-lua/plenary.nvim" -- don't forget to add this one if you don't have it yet!
     use {
-        'nvim-telescope/telescope.nvim', tag = '0.1.4',
+        'nvim-telescope/telescope.nvim', tag = '0.1.5',
         -- or                            , branch = '0.1.x',
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
@@ -33,9 +33,9 @@ return require('packer').startup(function(use)
         requires = { { "nvim-lua/plenary.nvim" } }
     }
     use('ThePrimeagen/vim-be-good')
-    use('mbbill/undotree')
+    -- use('mbbill/undotree')
     use('b3nj5m1n/kommentary')
-    use('tpope/vim-fugitive')
+    -- use('tpope/vim-fugitive')
     use {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v3.x',
