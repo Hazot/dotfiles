@@ -35,7 +35,7 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.wrap = false
 
 vim.api.nvim_create_autocmd('BufEnter', {
-  pattern = {'*.md', '*.tex'},
-  group = group,
-  command = 'setlocal wrap'
+    pattern = { '*.md', '*.tex' },
+    group = group,
+    command = 'setlocal wrap'
 })
