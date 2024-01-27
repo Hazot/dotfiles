@@ -8,8 +8,8 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 -- Does not move mouse when appending lines with J
 vim.keymap.set("n", "J", "mzJ`z")
 
-vim.keymap.set("n", "<C-d>","<C-d>zz")
-vim.keymap.set("n", "<C-u>","<C-u>zz")
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
@@ -17,8 +17,13 @@ vim.keymap.set("n", "N", "Nzzzv")
 vim.keymap.set("x", "<leader>p", "\"_dP")
 
 
+-- Format on key press
+vim.keymap.set("n", "<leader>f", vim.lsp.buf.format, { remap = false })
+-- vim.keymap.set("n", "<C-I>", vim.lsp.buf.format, { remap = false })
+
+
 -- Yank multiple lines to clipboard easily
-vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
+vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
 -- Only difference between escape and ctrl+c
@@ -35,8 +40,8 @@ vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 -- Have j and k working with word wrap
-vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr=true, silent=true} )
-vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr=true, silent=true} )
+vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
--- Black for pythhon formatting
-vim.keymap.set("n", "<C-I>", function() vim.cmd("!black %") end)
+-- Nvim Tree
+vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
