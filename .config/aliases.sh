@@ -104,3 +104,6 @@ alias workspace='cd /mnt/e/onedrive.udem/OneDrive\ -\ Universite\ de\ Montreal/R
 
 # Windows files
 alias files='/mnt/c/Windows/explorer.exe'
+
+# Obsidian Vault
+alias obsid='/mnt/c/Users/kevin/obsidian_vault/'
