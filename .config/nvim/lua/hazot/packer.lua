@@ -32,6 +32,7 @@ return require('packer').startup(function(use)
         branch = "harpoon2",
         requires = { { "nvim-lua/plenary.nvim" } }
     }
+
     use('ThePrimeagen/vim-be-good')
     -- use('mbbill/undotree')
     use('b3nj5m1n/kommentary')
@@ -52,12 +53,14 @@ return require('packer').startup(function(use)
             { 'L3MON4D3/LuaSnip' },
         }
     }
+
     use {
         'nvim-tree/nvim-tree.lua',
         requires = {
             'nvim-tree/nvim-web-devicons', -- optional
         },
     }
+
     use({
         "kylechui/nvim-surround",
         tag = "*", -- Use for stability; omit to use `main` branch for the latest features
@@ -68,4 +71,6 @@ return require('packer').startup(function(use)
         end
     })
     use('airblade/vim-gitgutter')
+
+    use('zbirenbaum/copilot.lua')
 end)
