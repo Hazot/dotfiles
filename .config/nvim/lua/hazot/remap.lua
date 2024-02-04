@@ -27,7 +27,7 @@ vim.keymap.set("n", "<leader>Y", [["+Y]])
 -- Only difference between escape and ctrl+c
 vim.keymap.set("i", "<C-c>", "<Esc>")
 
--- Do not use Q 
+-- Do not use Q
 vim.keymap.set("n", "Q", "<nop>")
 
 -- Can you ctrl+f to create a new session on a new project
@@ -43,3 +43,6 @@ vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = tr
 
 -- Nvim Tree
 vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
+
+-- Set ctrl+backspace to delete words like C-w
+vim.keymap.set("i", "<C-H>", "<C-W>", {noremap = true})

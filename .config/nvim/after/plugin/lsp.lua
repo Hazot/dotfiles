@@ -6,6 +6,9 @@ local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
 cmp.setup({
     sources = {
+        -- Copilot Source
+        -- { name = "copilot", group_index = 2 },
+        -- Other sources
         { name = 'path' },
         { name = 'nvim_lsp' },
         { name = 'nvim_lua' },
