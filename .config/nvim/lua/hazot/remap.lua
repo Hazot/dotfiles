@@ -1,5 +1,5 @@
 vim.g.mapleader = " "
--- vim.keymap.set("n", "<leader>pv", vim.cmd [[Ex]])
+vim.keymap.set("n", "<leader>pv", "<Cmd>Ex<CR>")
 
 -- Moves highlighted text together in visual mode with J and K
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -24,6 +24,9 @@ vim.keymap.set("n", "<C-I>", vim.lsp.buf.format, { remap = false })
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
+-- Delete without yank
+vim.keymap.set({ "n", "v" }, "<leader>D", "\"_d")
+
 -- Only difference between escape and ctrl+c
 vim.keymap.set("i", "<C-c>", "<Esc>")
 
@@ -35,14 +38,21 @@ vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
 
 -- Can easily replace all the words in a file
-vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+vim.keymap.set("n", "<leader>s",
+    [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]]
+)
+
+-- Fighting one-eyed kirby
+vim.keymap.set(
+    "v",
+    "<leader>k",
+    ":s/\\(\\S.*\\)/ \\1/g<left><left><left><left><left>",
+    { desc = "Fighting one-eyed kirby" }
+)
 
 -- Have j and k working with word wrap
 vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
--- Nvim Tree
-vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
-
 -- Set ctrl+backspace to delete words like C-w
-vim.keymap.set("i", "<C-H>", "<C-W>", {noremap = true})
+vim.keymap.set("i", "<C-H>", "<C-W>", { noremap = true })

@@ -39,3 +39,6 @@ vim.api.nvim_create_autocmd('BufEnter', {
     group = group,
     command = 'setlocal wrap'
 })
+
+-- Enable incrementing hex numbers and letters
+vim.api.nvim_set_option("nrformats", "hex,alpha")

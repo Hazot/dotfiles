@@ -71,13 +71,4 @@ return require('packer').startup(function(use)
         end
     })
     use('airblade/vim-gitgutter')
-
-    use {
-        "zbirenbaum/copilot.lua",
-        cmd = "Copilot",
-        event = "InsertEnter",
-        config = function()
-            require("copilot").setup({})
-        end,
-    }
 end)
