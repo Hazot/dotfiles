@@ -39,9 +39,17 @@ vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
 -- Can easily replace all the words in a file
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
+-- Fighting one-eyed kirby
+vim.keymap.set(
+    "v",
+    "<leader>k",
+    ":s/\\(\\S.*\\)/ \\1/g<left><left><left><left><left>",
+    { desc = "Fighting one-eyed kirby" }
+)
+
 -- Have j and k working with word wrap
 vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
--- Nvim Tree
-vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
+-- Set ctrl+backspace to delete words like C-w
+vim.keymap.set("i", "<C-H>", "<C-W>", { noremap = true })
