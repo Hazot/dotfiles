@@ -96,3 +96,7 @@ alias home='cd /home/hazot/'
 
 # alias files='nautilus'
 alias files='open'
+
+# alias papers
+alias papers='/Users/hazot/Google\ Drive/My\ Drive/Learning/Readings/Papers'
+alias paper='/Users/hazot/Google\ Drive/My\ Drive/Learning/Readings/Papers'
