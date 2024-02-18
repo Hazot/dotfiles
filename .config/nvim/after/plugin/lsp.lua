@@ -7,7 +7,7 @@ local cmp_select = { behavior = cmp.SelectBehavior.Select }
 cmp.setup({
     sources = {
         -- Copilot Source
-        -- { name = "copilot", group_index = 2 },
+        { name = "copilot", group_index = 2 },
         -- Other sources
         { name = 'path' },
         { name = 'nvim_lsp' },
@@ -82,5 +82,7 @@ lspconfig.lua_ls.setup {
     end
 }
 lspconfig.rust_analyzer.setup({})
+
+lspconfig.clangd.setup({})
 
 lsp_zero.setup()

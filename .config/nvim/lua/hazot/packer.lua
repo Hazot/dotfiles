@@ -55,9 +55,18 @@ return require('packer').startup(function(use)
     }
 
     use {
+        'numToStr/Comment.nvim',
+        config = function()
+            require('Comment').setup()
+        end
+    }
+
+    use {
         'nvim-tree/nvim-tree.lua',
         requires = {
             'nvim-tree/nvim-web-devicons', -- optional
+            "MunifTanjim/nui.nvim",
+            "3rd/image.nvim"
         },
     }
 
@@ -71,4 +80,13 @@ return require('packer').startup(function(use)
         end
     })
     use('airblade/vim-gitgutter')
+
+    use { "zbirenbaum/copilot.lua" }
+    use {
+        "zbirenbaum/copilot-cmp",
+        after = { "copilot.lua" },
+        config = function()
+            require("copilot_cmp").setup()
+        end
+    }
 end)
