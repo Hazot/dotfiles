@@ -36,7 +36,7 @@ return require('packer').startup(function(use)
     use('ThePrimeagen/vim-be-good')
     use('mbbill/undotree')
     use('b3nj5m1n/kommentary')
-    -- use('tpope/vim-fugitive')
+    use('tpope/vim-fugitive')
     use {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v3.x',
@@ -55,9 +55,18 @@ return require('packer').startup(function(use)
     }
 
     use {
+        'numToStr/Comment.nvim',
+        config = function()
+            require('Comment').setup()
+        end
+    }
+
+    use {
         'nvim-tree/nvim-tree.lua',
         requires = {
             'nvim-tree/nvim-web-devicons', -- optional
+            "MunifTanjim/nui.nvim",
+            "3rd/image.nvim"
         },
     }
 
@@ -71,4 +80,13 @@ return require('packer').startup(function(use)
         end
     })
     use('airblade/vim-gitgutter')
+
+    use { "zbirenbaum/copilot.lua" }
+    use {
+        "zbirenbaum/copilot-cmp",
+        after = { "copilot.lua" },
+        config = function()
+            require("copilot_cmp").setup()
+        end
+    }
 end)

@@ -6,6 +6,8 @@ vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
+vim.opt.mouse = "a"
+
 vim.opt.smartindent = true
 
 vim.opt.wrap = false
@@ -34,10 +36,13 @@ vim.opt.clipboard = "unnamedplus"
 
 vim.opt.wrap = false
 
-vim.opt.mouse = "a"
+vim.opt.cursorline = true
 
 vim.api.nvim_create_autocmd('BufEnter', {
   pattern = {'*.md', '*.tex'},
   group = group,
   command = 'setlocal wrap'
 })
+
+-- Enable incrementing hex numbers and letters
+vim.api.nvim_set_option("nrformats", "hex,alpha")
