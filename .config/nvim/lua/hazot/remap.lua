@@ -19,8 +19,10 @@ vim.keymap.set("x", "<leader>p", "\"_dP")
 
 -- Format on key press
 vim.keymap.set("n", "<leader>f", vim.lsp.buf.format, { remap = false })
--- vim.keymap.set("n", "<C-I>", vim.lsp.buf.format, { remap = false })
+vim.keymap.set("n", "<C-I>", vim.lsp.buf.format, { remap = false })
 
+-- Remap ctrl + / to gcc
+vim.keymap.set("n", "<C-_>", "gcc", { desc = "Toggle commenting" , remap = true})
 
 -- Yank multiple lines to clipboard easily
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])

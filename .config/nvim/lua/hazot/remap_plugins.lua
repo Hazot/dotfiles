@@ -1,6 +1,12 @@
--- NerdCommenter
-vim.keymap.set("v", "<leader>cc", "<plug>NERDCommenterToggle", { desc = "Toggle commenting" })
-vim.keymap.set("n", "<C-_>", "<leader>cc", { desc = "Toggle commenting" })
+-- Copilot enable/disable
+vim.keymap.set("n", "<leader>ce", [[:Copilot enable<CR>]], { desc = "Copilot" })
+vim.keymap.set("n", "<leader>cd", [[:Copilot disable<CR>]], { desc = "Copilot" })
 
 -- Nvim Tree
 -- vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
+
+-- ToggleTerm
+vim.keymap.set({ "n", "v" }, "<leader>tt", "<cmd>ToggleTermToggleAll<cr>", {
+    desc = "Toggle terminal",
+})
+
