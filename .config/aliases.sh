@@ -94,3 +94,6 @@ alias home='cd /home/hazot/'
 
 # alias files='nautilus'
 alias files='gio open'
+
+# alias for papers
+alias papers='cd ~/Documents/Readings/Papers/'
