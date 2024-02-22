@@ -115,6 +115,9 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 # Load sudo: adds sudo after hitting escape twice
 source ~/.zsh/zsh-sudo/sudo.plugin.zsh
 
+# Load zsh-z to jump around directories quickly
+source ~/.zsh/zsh-z/zsh-z.plugin.zsh
+
 ## p10k stuff
 source ~/powerlevel10k/powerlevel10k.zsh-theme
 
