@@ -1,5 +1,5 @@
 vim.g.mapleader = " "
-vim.keymap.set("n", "<leader>pv", "<Cmd>Ex<CR>")
+vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
 -- Moves highlighted text together in visual mode with J and K
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -16,9 +16,12 @@ vim.keymap.set("n", "N", "Nzzzv")
 -- Can delete highlight without copying it and then paste the current buffer
 vim.keymap.set("x", "<leader>p", "\"_dP")
 
--- Format on key press (one from
-vim.keymap.set("n", "<leader>wf", vim.lsp.buf.format, { remap = false })
-vim.keymap.set("n", "<C-I>", vim.lsp.buf.format, { remap = false })
+-- Format on key press
+vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
+vim.keymap.set("n", "<C-I>", vim.lsp.buf.format)
+
+-- Remap ctrl + / to gcc
+vim.keymap.set({ "n", "v" }, "<C-_>", "gcc", { desc = "Toggle commenting", remap = true })
 
 -- Yank multiple lines to clipboard easily
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
@@ -35,7 +38,6 @@ vim.keymap.set("n", "Q", "<nop>")
 
 -- Can you ctrl+f to create a new session on a new project
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
-vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
 
 -- Can easily replace all the words in a file
 vim.keymap.set("n", "<leader>s",
