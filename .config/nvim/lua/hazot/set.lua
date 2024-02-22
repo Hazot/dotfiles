@@ -48,18 +48,17 @@ vim.api.nvim_create_autocmd('BufEnter', {
 vim.api.nvim_set_option("nrformats", "hex,alpha")
 
 vim.api.nvim_create_autocmd("FileType", {
-	pattern = "cpp",
-	callback = function()
-		vim.opt_local.shiftwidth = 2
-		vim.opt_local.tabstop = 2
-	end
+    pattern = "cpp",
+    callback = function()
+        vim.opt_local.shiftwidth = 2
+        vim.opt_local.tabstop = 2
+    end
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-	pattern = "h",
-	callback = function()
-		vim.opt_local.shiftwidth = 2
-		vim.opt_local.tabstop = 2
-	end
+    pattern = "h",
+    callback = function()
+        vim.opt_local.shiftwidth = 2
+        vim.opt_local.tabstop = 2
+    end
 })
-
