@@ -1,3 +1,6 @@
 [submodule ".config/nvim"]
 	path = .config/nvim
 	url = git@github.com:Hazot/nvim.git
+[submodule ".config/sioyek"]
+	path = .config/sioyek
+	url = git@github.com:Hazot/sioyek.git
