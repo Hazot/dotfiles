@@ -1,8 +1,10 @@
 # dotfiles
 
-These are most of my configurations files. My aliases are in ``~/.config/aliases.sh``.
+These are most of my configuration files. My aliases are in ``~/.config/aliases.sh``.
 
 The ``main`` branch is for WSL.
+
+The ``macos`` branch is also always up-to-date.
 
 The ``ubuntu`` branch was not used for a while since I am mostly active on the ``manjaro`` for fun right now. 
 
@@ -21,8 +23,7 @@ The ``manjaro`` branch already has a ``manjaro-zsh-config`` file with default st
 ## TODOs
 - [ ] work on symlinks for rc files and work on .gitignore
 - [ ] want to make a script to automatically download the 4 above plugins for zsh quick install
-- [ ] work on a new lua config for WSL (can copy a lot from ``manjaro``)
-- [ ] make python lsp work better on nvim
+- [ ] make python lsp work even better on nvim
 - [ ] add latex stuff
 
 ## Note
