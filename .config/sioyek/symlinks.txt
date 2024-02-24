@@ -1,2 +1,0 @@
-ln -s ~/.config/sioyek/prefs_user.config /mnt/c/Users/kevin/sioyek-release-windows/prefs_user.config
-ln -s ~/.config/sioyek/keys_user.config /mnt/c/Users/kevin/sioyek-release-windows/keys_user.config
