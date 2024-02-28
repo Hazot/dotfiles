@@ -20,6 +20,10 @@ The ``manjaro`` branch already has a ``manjaro-zsh-config`` file with default st
     - zsh-autosuggestions
     - zsh-sudo
 
+## Packages
+```sudo apt-get install silversearcher-ag```
+
+
 ## TODOs
 - [ ] work on symlinks for rc files and work on .gitignore
 - [ ] want to make a script to automatically download the 4 above plugins for zsh quick install
