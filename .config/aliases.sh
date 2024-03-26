@@ -78,6 +78,7 @@ alias gdif="git diff"
 # Alias for "git log --all --decorate --oneline --graph"
 # See: https://i.stack.imgur.com/ElVkf.jpg
 alias glog="git log --all --decorate --oneline --graph"
+alias glogp="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --no-merges"
 
 # Alias for "git ls-tree -r master --name-only"
 alias gitls="git ls-tree -r master --name-only"
