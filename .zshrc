@@ -85,11 +85,6 @@ alias reload='source ~/.zshrc'
 ## Load exports and shortcuts if existent.
 [ -f "$HOME/.config/exports.sh" ] && source "$HOME/.config/exports.sh"
 
-# ensure "python3" command uses homebrew's version of python3
-alias python3=/opt/homebrew/bin/python3
-# OPTIONAL: ensure "python" command uses homebrew's version of python3
-alias python=/opt/homebrew/bin/python3
-
 ## Virtualenvwrapper
 # export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 # export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
