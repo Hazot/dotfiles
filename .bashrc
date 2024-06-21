@@ -126,6 +126,15 @@ compilelatex ()
     pdflatex $1"tex"
 }
 
+### GENTOO UDEM STUFF
+## external neovim
+export PATH="/Tmp/lessarke/neovim/bin:$PATH"
+export CARGO_HOME="/Tmp/lessarke/.cargo"
+export RUSTUP_HOME="/Tmp/lessarke/.rustup"
+export PATH="/Tmp/lessarke/.cargo/bin:$PATH"
+export PATH="$PATH:/Tmp/lessarke/.cargo/bin/fd"
+export PATH="$PATH:$HOME/.local/bin"
+
 # Virtualenvwrapper
 # export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 # export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
