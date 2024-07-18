@@ -79,6 +79,9 @@ colors
 [ -f "$HOME/.config/aliases.sh" ] && source "$HOME/.config/aliases.sh"
 alias reload='source ~/.zshrc'
 
+## Load exports and shortcuts if existent.
+[ -f "$HOME/.config/exports.sh" ] && source "$HOME/.config/exports.sh"
+
 ## Exports
 export PATH="/Tmp/lessarke/pycharm/pycharm-2023.2.1/bin:$PATH}"
 
