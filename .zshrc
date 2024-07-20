@@ -23,9 +23,15 @@ fi
 [ -f "$HOME/.config/aliases.sh" ] && source "$HOME/.config/aliases.sh"
 alias reload='source ~/.zshrc'
 
+## Load exports and shortcuts if existent.
+[ -f "$HOME/.config/exports.sh" ] && source "$HOME/.config/exports.sh"
+
 ## More ZSH plugins for manjaro
 # Load sudo: adds sudo after hitting escape twice
 source ~/.zsh/zsh-sudo/sudo.plugin.zsh
+
+# Load zsh-z: jump around directories with z
+source ~/.zsh/zsh-z/zsh-z.plugin.zsh
 
 # Julia
 export PATH="$PATH:/home/hazot/julia-1.8.5/bin"
