@@ -87,7 +87,6 @@ alias reload='source ~/.zshrc'
 
 ## Duckietown stuff
 export IP=$(ifconfig en0 | grep inet | awk '$1=="inet" {print $2}')
-xhost +$IP
 
 ## Path (added for duckietown)
 export PATH=~/.local/bin:${PATH}
@@ -122,7 +121,6 @@ source ~/.zsh/zsh-z/zsh-z.plugin.zsh
 
 ## p10k stuff
 source ~/powerlevel10k/powerlevel10k.zsh-theme
-
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
