@@ -85,6 +85,13 @@ alias reload='source ~/.zshrc'
 ## Load exports and shortcuts if existent.
 [ -f "$HOME/.config/exports.sh" ] && source "$HOME/.config/exports.sh"
 
+## Duckietown stuff
+export IP=$(ifconfig en0 | grep inet | awk '$1=="inet" {print $2}')
+xhost +$IP
+
+## Path (added for duckietown)
+export PATH=~/.local/bin:${PATH}
+
 ## Virtualenvwrapper
 # export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 # export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
