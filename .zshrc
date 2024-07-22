@@ -93,6 +93,7 @@ export RUSTUP_HOME="/Tmp/lessarke/.rustup"
 export PATH="/Tmp/lessarke/.cargo/bin:$PATH"
 export PATH="$PATH:/Tmp/lessarke/.cargo/bin/fd"
 export PATH="$PATH:$HOME/.local/bin"
+# source "/Tmp/ros2_humble/install/setup.sh"
 
 ## Virtualenvwrapper
 # export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
