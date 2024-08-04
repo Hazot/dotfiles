@@ -6,9 +6,11 @@ The ``main`` branch is for WSL.
 
 The ``macos`` branch is also always up-to-date.
 
-The ``ubuntu`` branch was not used for a while since I am mostly active on the ``manjaro`` for fun right now. 
+The ``ubuntu`` branch is always up-to-date since I'm using this over WSL now. 
 
 The ``manjaro`` branch already has a ``manjaro-zsh-config`` file with default stuff not present in ``.zshrc``.
+
+The ``arch`` branch will be coming soon.
 
 ## Requirements
 
@@ -18,7 +20,8 @@ The ``manjaro`` branch already has a ``manjaro-zsh-config`` file with default st
     - zsh-syntax-highlighting
     - zsh-history-substring-search
     - zsh-autosuggestions
-    - zsh-sudo
+    - zsh-sudo (already in github)
+    - zsh-z (already in github)
 
 ## Packages
 ```sudo apt-get install silversearcher-ag```
@@ -26,8 +29,7 @@ The ``manjaro`` branch already has a ``manjaro-zsh-config`` file with default st
 
 ## TODOs
 - [ ] work on symlinks for rc files and work on .gitignore
-- [ ] want to make a script to automatically download the 4 above plugins for zsh quick install
-- [ ] make python lsp work even better on nvim
+- [ ] make a script to automatically download the 5 above plugins for zsh quick install
 - [ ] add latex stuff
 
 ## Note
