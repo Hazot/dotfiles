@@ -84,6 +84,11 @@ alias reload='source ~/.zshrc'
 ## Exports
 export PATH="$PATH:/mnt/c/Users/kevin/AppData/Local/Programs/Microsoft VS Code/bin"
 export PATH="$PATH:$HOME/.local/bin"
+export PATH="$PATH:/usr/bin/python3"
+export PATH="$PATH:/usr/bin/python3.12"
+
+# Neovim
+export PATH="$PATH:/opt/nvim-linux64/bin"
 
 ## Virtualenvwrapper
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
@@ -98,9 +103,9 @@ if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
     if [ -f "/home/hazot/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/hazot/miniconda3/etc/profile.d/conda.sh"
+# . "/home/hazot/miniconda3/etc/profile.d/conda.sh"  # commented out by conda initialize
     else
-        export PATH="/home/hazot/miniconda3/bin:$PATH"
+# export PATH="/home/hazot/miniconda3/bin:$PATH"  # commented out by conda initialize
     fi
 fi
 unset __conda_setup
@@ -149,3 +154,4 @@ path=('/home/hazot/.juliaup/bin' $path)
 export PATH
 
 # <<< juliaup initialize <<<
+source ~/powerlevel10k/powerlevel10k.zsh-theme
