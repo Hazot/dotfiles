@@ -2,7 +2,9 @@
 
 These are most of my configuration files. My aliases are in ``~/.config/aliases.sh``.
 
-The ``main`` branch is for WSL.
+The ``main`` branch is for currently used distro.
+
+The ``wsl`` branch is for Windows WSl.
 
 The ``macos`` branch is also always up-to-date.
 
@@ -11,6 +13,9 @@ The ``ubuntu`` branch is always up-to-date since I'm using this over WSL now.
 The ``manjaro`` branch already has a ``manjaro-zsh-config`` file with default stuff not present in ``.zshrc``.
 
 The ``arch`` branch will be coming soon.
+
+---
+The branches have diferent paths, package managers, etc. but try to emulate the same config accross systems.
 
 ## Requirements
 
@@ -23,11 +28,10 @@ The ``arch`` branch will be coming soon.
     - zsh-sudo (already in github)
     - zsh-z (already in github)
 
-## Packages
-```sudo apt-get install silversearcher-ag```
-
 
 ## TODOs
+- [ ] make only one branch with a setup file that creates a config depending on the OS
+- [ ] add all required packages in there
 - [ ] work on symlinks for rc files and work on .gitignore
 - [ ] make a script to automatically download the 5 above plugins for zsh quick install
 - [ ] add latex stuff
