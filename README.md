@@ -8,7 +8,7 @@ The ``wsl`` branch is for Windows WSl.
 
 The ``macos`` branch is also always up-to-date.
 
-The ``ubuntu`` branch is always up-to-date since I'm using this over WSL now. 
+The ``gentoo`` branch is not often updated, only sometimes when I use it.
 
 The ``manjaro`` branch already has a ``manjaro-zsh-config`` file with default stuff not present in ``.zshrc``.
 
