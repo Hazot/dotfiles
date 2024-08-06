@@ -89,7 +89,7 @@ alias julab="jupyter-lab --no-browser"
 alias ca='conda activate'
 alias cdc='conda deactivate'
 alias ctf='conda activate tf'
-alias ctor='conda activate torch'
+alias ctor='conda activate torch-py3.12'
 alias wk='workon'
 alias dc='deactivate'
 
