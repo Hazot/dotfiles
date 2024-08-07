@@ -5,7 +5,6 @@ alias mkdir="mkdir -p"
 alias ..="cd .."
 alias ...='cd ../..'
 alias python="python3"
-alias vim="nvim"
 alias fd="fd --no-ignore"
 alias rg="rg --no-ignore"
 
