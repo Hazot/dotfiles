@@ -71,6 +71,10 @@ autoload -U compinit colors zcalc
 compinit -d
 colors
 
+
+
+### SCRIPTS
+
 ## Load scripts
 [ -f "$HOME/.config/zsh/scripts.zsh" ] && source "$HOME/.config/zsh/scripts.zsh"
 
@@ -81,7 +85,10 @@ alias reload='source ~/.zshrc'
 ## Load exports and shortcuts if existent.
 [ -f "$HOME/.config/exports.sh" ] && source "$HOME/.config/exports.sh"
 
-## Exports
+
+
+### EXPORTS
+
 export PATH="$PATH:/mnt/c/Users/kevin/AppData/Local/Programs/Microsoft VS Code/bin"
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:/usr/bin/python3"
@@ -90,11 +97,22 @@ export PATH="$PATH:/usr/bin/python3.12"
 # Neovim
 export PATH="$PATH:/opt/nvim-linux64/bin"
 
-## Virtualenvwrapper
+# Virtualenvwrapper
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
 export WORKON_HOME=$HOME/.virtualenvs
 source /usr/local/bin/virtualenvwrapper.sh
+
+# Cargo
+. "$HOME/.cargo/env"
+
+# nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
+
+
+### CONDA
 
 ## >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -111,7 +129,10 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-## Plugins section
+
+
+### PLUGINS
+
 # Load zsh-syntax-highlighting; should be last.
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
@@ -133,18 +154,13 @@ source ~/.zsh/zsh-sudo/sudo.plugin.zsh
 # Load zsh-z: jump around directories with z
 source ~/.zsh/zsh-z/zsh-z.plugin.zsh
 
-## p10k stuff
+# p10k stuff
 source ~/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-. "$HOME/.cargo/env"
 
-# Export keys 
-if [ -r $HOME/.config/keys.sh ]; then
-    . $HOME/.config/keys.sh
-fi
 
 # >>> juliaup initialize >>>
 
@@ -155,7 +171,3 @@ export PATH
 
 # <<< juliaup initialize <<<
 source ~/powerlevel10k/powerlevel10k.zsh-theme
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-
