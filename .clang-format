@@ -1,4 +1,6 @@
----
-BasedOnStyle: LLVM
+BasedOnStyle: Chromium
 IndentWidth: 4
----
+ColumnLimit: 120
+UseTab: Never
+AllowShortIfStatementsOnASingleLine: false
+UseCRLF: false
