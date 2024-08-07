@@ -72,6 +72,7 @@ compinit -d
 colors
 
 
+
 ### SCRIPTS
 
 ## Load scripts
@@ -105,15 +106,12 @@ source /usr/local/bin/virtualenvwrapper.sh
 # Cargo
 . "$HOME/.cargo/env"
 
-# Export keys 
-if [ -r $HOME/.config/keys.sh ]; then
-    . $HOME/.config/keys.sh
-fi
-
+# nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
-#
+
+
 ### CONDA
 
 ## >>> conda initialize >>>
@@ -130,6 +128,7 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+
 
 
 ### PLUGINS
@@ -160,6 +159,7 @@ source ~/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
 
 
 # >>> juliaup initialize >>>
