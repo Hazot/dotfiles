@@ -19,8 +19,6 @@ set clipboard=unnamedplus
 " keybindings
 nnoremap <SPACE> <Nop>
 let mapleader = " "
-nnoremap <esc> :noh<return><esc>
-" nnoremap <C-c> :noh<return><C-c>
 
 "--" Moves highlighted text together in visual mode with J and K
 vnoremap J :m '>+1<CR>gv=gv
