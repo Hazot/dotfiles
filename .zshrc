@@ -143,5 +143,11 @@ else
     fi
 fi
 unset __conda_setup
+
+
+if [ -f "/Users/hazot/miniconda3/etc/profile.d/mamba.sh" ]; then
+    . "/Users/hazot/miniconda3/etc/profile.d/mamba.sh"
+fi
+
 # <<< conda initialize <<<
 

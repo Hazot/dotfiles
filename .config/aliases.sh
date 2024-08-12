@@ -83,6 +83,7 @@ alias gitls="git ls-tree -r master --name-only"
 alias ju="jupyter notebook --no-browser"
 alias julab="jupyter-lab --no-browser"
 alias ca='conda activate'
+alias ma='mamba activate'
 alias cdc='conda deactivate'
 alias ctf='conda activate tf'
 alias ctor='conda activate torch'
