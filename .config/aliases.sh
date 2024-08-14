@@ -1,5 +1,8 @@
 # Kevin's aliases
 
+# Kitty SSH
+alias s="kitten ssh"
+
 # General aliases
 alias mkdir="mkdir -p"
 alias ..="cd .."
