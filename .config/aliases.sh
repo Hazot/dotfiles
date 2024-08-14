@@ -5,7 +5,6 @@ alias mkdir="mkdir -p"
 alias ..="cd .."
 alias ...='cd ../..'
 alias python="python3"
-alias vim="nvim"
 alias fd="fd --no-ignore"
 alias rg="rg --no-ignore"
 
@@ -93,6 +92,19 @@ alias ctor='conda activate torch'
 alias wk='workon'
 alias dc='deactivate'
 
-# File explorer
-alias files='gio open'
+# Old aliases
+alias udem='cd ~/code/udem/'
+alias ghub='cd ~/code/github/'
+alias winghub='cd /mnt/c/Users/kevin/github/'
+alias h='cd /mnt/c/Users/kevin/'
+alias home='cd /mnt/c/Users/kevin/'
+alias winhome='cd /mnt/c/Users/kevin/'
+alias wksp='cd /mnt/d/onedrive.udem/OneDrive\ -\ Universite\ de\ Montreal/Root/School/UdeM/workspace/'
+alias workspace='cd /mnt/d/onedrive.udem/OneDrive\ -\ Universite\ de\ Montreal/Root/School/UdeM/workspace/'
+alias root='cd /mnt/d/onedrive.udem/OneDrive\ -\ Universite\ de\ Montreal/'
 
+# Windows files
+alias files='/mnt/c/Windows/explorer.exe'
+
+# Obsidian Vault
+alias obsid='/mnt/c/Users/kevin/obsidian_vault/'
