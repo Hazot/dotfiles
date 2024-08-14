@@ -88,7 +88,6 @@ alias reload='source ~/.zshrc'
 
 
 ### EXPORTS
-
 export PATH="$PATH:/mnt/c/Users/kevin/AppData/Local/Programs/Microsoft VS Code/bin"
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:/usr/bin/python3"
@@ -110,10 +109,17 @@ source /usr/local/bin/virtualenvwrapper.sh
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
+# BasedPyRight
+export PATH="$PATH:/home/hazot/venv/bin/basedpyright-langserver"
 
 # CUDA
 export PATH=/usr/local/cuda/bin${PATH:+:${PATH}}
 export LD_LIBRARY_PATH=/usr/local/cuda-12.2/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+
+# Pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
 
 
 
