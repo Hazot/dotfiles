@@ -26,7 +26,7 @@ alias mv="mv -i"
 alias rm="rm -i"
 
 # Alias for "git status ."
-alias gs="git status"
+# alias gs="git status" # Conflicts with ghostscript
 alias gits="git status ."
 
 # Alias for "git status -uno ." (ignore untracked files)
