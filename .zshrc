@@ -112,25 +112,6 @@ export NVM_DIR="$HOME/.nvm"
 
 
 
-### CONDA
-
-## >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/hazot/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/hazot/miniconda3/etc/profile.d/conda.sh" ]; then
-# . "/home/hazot/miniconda3/etc/profile.d/conda.sh"  # commented out by conda initialize
-    else
-# export PATH="/home/hazot/miniconda3/bin:$PATH"  # commented out by conda initialize
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
-
-
 ### PLUGINS
 
 # Load zsh-syntax-highlighting; should be last.
@@ -171,3 +152,26 @@ export PATH
 
 # <<< juliaup initialize <<<
 source ~/powerlevel10k/powerlevel10k.zsh-theme
+
+
+
+### MAMBA (CONDA)
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/hazot/mambaforge/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/hazot/mambaforge/etc/profile.d/conda.sh" ]; then
+        . "/home/hazot/mambaforge/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/hazot/mambaforge/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+
+if [ -f "/home/hazot/mambaforge/etc/profile.d/mamba.sh" ]; then
+    . "/home/hazot/mambaforge/etc/profile.d/mamba.sh"
+fi
+# <<< conda initialize <<<
+

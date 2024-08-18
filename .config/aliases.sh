@@ -85,12 +85,17 @@ alias gitls="git ls-tree -r master --name-only"
 # Other aliases
 alias ju="jupyter notebook --no-browser"
 alias julab="jupyter-lab --no-browser"
-alias ca='conda activate'
-alias cdc='conda deactivate'
-alias ctf='conda activate tf'
-alias ctor='conda activate torch'
 alias wk='workon'
 alias dc='deactivate'
+
+# Conda
+alias ca='conda activate'
+alias cdc='conda deactivate'
+alias ctor='conda activate torch'
+# And mamba
+alias ma='mamba activate'
+alias mdc='mamba deactivate'
+alias mtor='mamba activate torch'
 
 # Old aliases
 alias udem='cd ~/code/udem/'
