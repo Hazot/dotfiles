@@ -167,7 +167,7 @@ esac
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/hazot/miniforge3/bin/conda' 'shell.zsh' 'hook' 2>/dev/null)"
+__conda_setup="$('/home/hazot/miniforge3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
@@ -178,8 +178,4 @@ else
     fi
 fi
 unset __conda_setup
-
-if [ -f "/home/hazot/miniforge3/etc/profile.d/mamba.sh" ]; then
-    . "/home/hazot/miniforge3/etc/profile.d/mamba.sh"
-fi
 # <<< conda initialize <<<
