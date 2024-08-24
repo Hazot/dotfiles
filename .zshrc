@@ -114,6 +114,9 @@ export NVM_DIR="$HOME/.nvm"
 export JAVA_HOME=$(dirname $(dirname $(readlink -f $(which java))))
 export PATH=$PATH:$JAVA_HOME/bin
 
+# Julia
+export PATH="$PATH:/home/hazot/julia-1.10.4/bin"
+
 
 
 ### PLUGINS
