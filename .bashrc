@@ -130,6 +130,22 @@ compilelatex ()
     pdflatex $1"tex"
 }
 
+
+
+### SCRIPTS
+
+## Load scripts
+[ -f "$HOME/.config/zsh/scripts.zsh" ] && source "$HOME/.config/zsh/scripts.zsh"
+
+## Load aliases and shortcuts if existent.
+[ -f "$HOME/.config/aliases.sh" ] && source "$HOME/.config/aliases.sh"
+alias reload='source ~/.zshrc'
+
+## Load exports and shortcuts if existent.
+[ -f "$HOME/.config/exports.sh" ] && source "$HOME/.config/exports.sh"
+
+### EXPORTS 
+
 # Virtualenvwrapper
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
@@ -140,39 +156,45 @@ source /usr/local/bin/virtualenvwrapper.sh
 export PATH=/usr/local/cuda/bin${PATH:+:${PATH}}
 export LD_LIBRARY_PATH=/usr/local/cuda-12.2/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
 
+# Neovim export path
+export PATH="$PATH:/opt/nvim-linux64/bin"
+
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/hazot/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/hazot/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/hazot/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/hazot/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
-# Neovim export path
-export PATH="$PATH:/opt/nvim-linux64/bin"
-
-alias python='python3'
-alias vim='nvim'
-
 # node
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-
 
 # Nvidia OpenGL instead of Mesa 3D 
 export LIBGL_ALWAYS_INDIRECT=0
 . "$HOME/.cargo/env"
+
+
+
+### MAMBA (CONDA)
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/hazot/miniforge3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/hazot/miniforge3/etc/profile.d/conda.sh" ]; then
+        . "/home/hazot/miniforge3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/hazot/miniforge3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+
+if [ -f "/home/hazot/miniforge3/etc/profile.d/mamba.sh" ]; then
+    . "/home/hazot/miniforge3/etc/profile.d/mamba.sh"
+fi
+# <<< conda initialize <<<
+
+
 
 # >>> juliaup initialize >>>
 
@@ -188,3 +210,6 @@ case ":$PATH:" in
 esac
 
 # <<< juliaup initialize <<<
+
+# Created by `pipx` on 2024-09-09 04:10:58
+export PATH="$PATH:/home/hazot/.local/bin"
