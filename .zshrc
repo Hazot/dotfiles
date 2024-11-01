@@ -164,3 +164,12 @@ if [ -f "/Users/hazot/mambaforge/etc/profile.d/mamba.sh" ]; then
 fi
 # <<< Mamba initialize <<<
 #
+
+# >>> juliaup initialize >>>
+
+# !! Contents within this block are managed by juliaup !!
+
+path=('/Users/hazot/.juliaup/bin' $path)
+export PATH
+
+# <<< juliaup initialize <<<
