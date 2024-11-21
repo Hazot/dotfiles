@@ -104,6 +104,9 @@ source /usr/local/bin/virtualenvwrapper.sh
 # Cargo
 . "$HOME/.cargo/env"
 
+# RCLONE
+export RCLONE_BETA_FEATURES=bisync
+
 # nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
