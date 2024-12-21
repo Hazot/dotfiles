@@ -91,6 +91,12 @@ export IP=$(ifconfig en0 | grep inet | awk '$1=="inet" {print $2}')
 ## Path (added for duckietown)
 export PATH=~/.local/bin:${PATH}
 
+## Default Programming Language versions:
+export PATH="/opt/homebrew/opt/lua@5.4/bin:$PATH"
+export PATH="/opt/homebrew/opt/python@3.12/bin:$PATH"
+
+
+
 ## Virtualenvwrapper
 # export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 # export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
