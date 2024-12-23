@@ -37,6 +37,9 @@ alias gits="git status ."
 alias guno="git status -uno"
 alias gitsuno="git status -uno ."
 
+# gpp
+alias gpp="git pull && git push"
+
 # Alias for git add
 alias ga="git add"
 alias gitu="git add -u ."
