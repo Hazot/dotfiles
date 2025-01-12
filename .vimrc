@@ -27,6 +27,7 @@ vnoremap K :m '<-2<CR>gv=gv
 "--" Does not move mouse when appending lines with J
 nnoremap J mzJ`z
 
+" Cursor in middle of screen after these commands
 nnoremap <C-d> <C-d>zz
 nnoremap <C-u> <C-u>zz
 nnoremap n nzzzv
