@@ -88,8 +88,6 @@ alias reload='source ~/.zshrc'
 
 
 ### EXPORTS
-
-export PATH="$PATH:/mnt/c/Users/kevin/AppData/Local/Programs/Microsoft VS Code/bin"
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:/usr/bin/python3"
 export PATH="$PATH:/usr/bin/python3.12"
@@ -113,7 +111,7 @@ export NVM_DIR="$HOME/.nvm"
 # Pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init - bash)"
+eval "$(pyenv init - zsh)"
 
 # Java
 export JAVA_HOME=$(dirname $(dirname $(readlink -f $(which java))))
