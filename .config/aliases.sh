@@ -8,7 +8,7 @@ alias python="python3"
 alias fd="fd --no-ignore"
 alias rg="rg --no-ignore"
 
-# Alias for listing directories?page=1 
+# Alias for listing directories?page=1
 alias ls="ls --color=auto"
 alias ll="ls -lAh --group-directories-first --color=auto"
 # alias ll="ls -alF --color=auto" # Equivalent to ls -la
