@@ -18,3 +18,8 @@ case ":$PATH:" in
 esac
 
 # <<< juliaup initialize <<<
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/hazot/.cache/lm-studio/bin"
+# End of LM Studio CLI section
+
