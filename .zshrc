@@ -139,6 +139,9 @@ if [ -r $HOME/.config/keys.sh ]; then
     . $HOME/.config/keys.sh
 fi
 
+# export flutter dev bin
+export PATH="$PATH:$HOME/development/flutter/bin"
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/Tmp/lessarke/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
@@ -182,3 +185,8 @@ path=('/Users/hazot/.juliaup/bin' $path)
 export PATH
 
 # <<< juliaup initialize <<<
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/hazot/.cache/lm-studio/bin"
+# End of LM Studio CLI section
+
