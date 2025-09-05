@@ -5,6 +5,7 @@ alias mkdir="mkdir -p"
 alias ..="cd .."
 alias ...='cd ../..'
 alias python="python3"
+alias sov="source .venv/bin/activate"
 alias fd="fd --no-ignore"
 alias rg="rg --no-ignore"
 
