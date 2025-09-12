@@ -91,6 +91,9 @@ export IP=$(ifconfig en0 | grep inet | awk '$1=="inet" {print $2}')
 ## Path (added for duckietown)
 export PATH=~/.local/bin:${PATH}
 
+## Add go bin to path
+export PATH=$PATH:$(go env GOPATH)/bin
+
 ## Path for local custom bins
 export PATH="~/bin:${PATH}"
 
