@@ -154,6 +154,9 @@ source ~/powerlevel10k/powerlevel10k.zsh-theme
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+# git ceiling for configs
+export GIT_CEILING_DIRECTORIES="$HOME"
+
 
 
 # >>> juliaup initialize >>>
@@ -188,3 +191,9 @@ if [ -f "/home/hazot/miniforge3/etc/profile.d/mamba.sh" ]; then
     . "/home/hazot/miniforge3/etc/profile.d/mamba.sh"
 fi
 # <<< conda initialize <<<
+
+
+
+#### PIXI
+export PATH="/home/hazot/.pixi/bin:$PATH"
+eval "$(pixi completion --shell zsh)"
