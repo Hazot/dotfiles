@@ -19,21 +19,17 @@ The branches have diferent paths, package managers, etc. but try to emulate the 
 
 ## Requirements
 
-1. Need to use ``git clone https://github.com/Hazot/dotfiles.git .`` or git clone and then move files all files and hidden files accordingly.
-3. Need to install p10k and customize it however you like.
-2. Need to git clone the following zsh plugins in ``$HOME/.zsh/``: 
-    - zsh-syntax-highlighting
-    - zsh-history-substring-search
-    - zsh-autosuggestions
-    - zsh-sudo (already in github)
-    - zsh-z (already in github)
-
+1. Use ``git clone git@github.com:Hazot/dotfiles.git .`` then move files all files and hidden files accordingly.
+2. Run ``sh ./.install.sh`` in your ``$HOME`` (may need to ``chmod +x .install.sh``)
+3. Make sure that ``chsh -s $(which zsh)`` and restart your terminal
+4. Enjoy!
 
 ## TODOs
+- [x] make a script to automatically download the 5 above plugins for zsh quick install
+- [x] make a script to automatically download rust tools (``ripgrep``, ``fd-find``)
 - [ ] make only one branch with a setup file that creates a config depending on the OS
 - [ ] add all required packages in there
 - [ ] work on symlinks for rc files and work on .gitignore
-- [ ] make a script to automatically download the 5 above plugins for zsh quick install
 - [ ] add latex stuff
 
 ## Note
