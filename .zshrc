@@ -93,7 +93,7 @@ export PATH="$PATH:/usr/bin/python3"
 export PATH="$PATH:/usr/bin/python3.12"
 
 # Neovim
-export PATH="$PATH:/opt/nvim-linux64/bin"
+export PATH="$HOME/.local/bin:$PATH"
 
 # Virtualenvwrapper
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
