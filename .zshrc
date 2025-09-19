@@ -9,9 +9,6 @@ fi
 
 # Enable colors and change prompt:
 autoload -U colors && colors
-# PS1="%{$fg[magenta]%}%n%{$fg[magenta]%}@%{$fg[magenta]%}%M %{$fg[blue]%}%~%{$fg[red]%}%{$reset_color%}$%b "
-# PROMPT='%(?..%F{red}%?%f:)%F{blue}%n%f:%F{green}%{${PWD/#$HOME/~}%} %(!.%F{red}.%f)%# %f'
-# PS1='%(?..%F{red}%?%f:)%F{blue}%n%f:%F{green}${PWD/#$HOME/~} %(!.%F{red}.%f)%# %f'
 
 setopt autocd		# Automatically cd into typed directory.
 
@@ -40,7 +37,6 @@ zstyle ':completion:*' cache-path ~/.zsh/cache
 HISTFILE=~/.zhistory
 HISTSIZE=10000
 SAVEHIST=10000
-export EDITOR=vim
 WORDCHARS=${WORDCHARS//\/[&.;]}                                 # Don't consider certain characters part of the word
 
 ## Keybindings section
@@ -75,6 +71,10 @@ autoload -U compinit colors zcalc
 compinit -d
 colors
 
+
+
+### SCRIPTS
+
 ## Load scripts
 [ -f "$HOME/.config/zsh/scripts.zsh" ] && source "$HOME/.config/zsh/scripts.zsh"
 
@@ -85,35 +85,51 @@ alias reload='source ~/.zshrc'
 ## Load exports and shortcuts if existent.
 [ -f "$HOME/.config/exports.sh" ] && source "$HOME/.config/exports.sh"
 
-## Duckietown stuff
+### EXPORTS
+export PATH="$PATH:$HOME/.local/bin"
+
+# Neovim
+export PATH="$HOME/neovim/bin:$PATH"
+
+# Mason python
+export MASON_PYTHON="/opt/homebrew/bin/python3.12"
+
+# Duckietown
 export IP=$(ifconfig en0 | grep inet | awk '$1=="inet" {print $2}')
 
-## Path (added for duckietown)
+# Path (added for duckietown)
 export PATH=~/.local/bin:${PATH}
 
-## Add go bin to path
+# Add go bin to path
 export PATH=$PATH:$(go env GOPATH)/bin
 
-## Path for local custom bins
+# Path for local custom bins
 export PATH="~/bin:${PATH}"
 
-## Default Programming Language versions:
+# Default Programming Language versions:
 export PATH="/opt/homebrew/opt/lua@5.4/bin:$PATH"
 export PATH="/opt/homebrew/opt/python@3.12/bin:$PATH"
 
+# nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
+# BasedPyRight
+export PATH="$PATH:/home/hazot/venv/bin/basedpyright-langserver"
+
+# Cargo
+. "$HOME/.cargo/env"
+
+# export flutter dev bin
+export PATH="$PATH:$HOME/development/flutter/bin"
 
 
-## Virtualenvwrapper
-# export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-# export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
-# export WORKON_HOME=$HOME/.virtualenvs
-# source /usr/local/bin/virtualenvwrapper.sh
 
-## Plugins section
+### PLUGINS
 # Load zsh-syntax-highlighting; should be last.
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# Use history substring search
+# Load history substring search
 source ~/.zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
 # bind UP and DOWN arrow keys to history substring search
 zmodload zsh/terminfo
@@ -122,16 +138,16 @@ bindkey "$terminfo[kcud1]" history-substring-search-down
 bindkey '^[[A' history-substring-search-up			
 bindkey '^[[B' history-substring-search-down
 
-# Use autosuggestions
+# Load autosuggestions
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Load sudo: adds sudo after hitting escape twice
 source ~/.zsh/zsh-sudo/sudo.plugin.zsh
 
-# Load zsh-z to jump around directories quickly
+# Load zsh-z: jump around directories with z
 source ~/.zsh/zsh-z/zsh-z.plugin.zsh
 
-## p10k stuff
+# p10k stuff
 source ~/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
@@ -142,8 +158,7 @@ if [ -r $HOME/.config/keys.sh ]; then
     . $HOME/.config/keys.sh
 fi
 
-# export flutter dev bin
-export PATH="$PATH:$HOME/development/flutter/bin"
+
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -160,36 +175,8 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-# >>> Mamba initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/hazot/mambaforge/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/hazot/mambaforge/etc/profile.d/conda.sh" ]; then
-        . "/Users/hazot/mambaforge/etc/profile.d/conda.sh"
-    else
-        export PATH="/Users/hazot/mambaforge/bin:$PATH"
-    fi
-fi
-unset __conda_setup
 
-if [ -f "/Users/hazot/mambaforge/etc/profile.d/mamba.sh" ]; then
-    . "/Users/hazot/mambaforge/etc/profile.d/mamba.sh"
-fi
-# <<< Mamba initialize <<<
-#
 
-# >>> juliaup initialize >>>
-
-# !! Contents within this block are managed by juliaup !!
-
-path=('/Users/hazot/.juliaup/bin' $path)
-export PATH
-
-# <<< juliaup initialize <<<
-
-# Added by LM Studio CLI (lms)
-export PATH="$PATH:/Users/hazot/.cache/lm-studio/bin"
-# End of LM Studio CLI section
-
+#### PIXI
+export PATH="/Users/hazot/.pixi/bin:$PATH"
+eval "$(pixi completion --shell zsh)"
