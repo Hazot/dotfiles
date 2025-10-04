@@ -100,6 +100,8 @@ alias ma='mamba activate'
 alias mdc='mamba deactivate'
 alias mtor='mamba activate torch'
 
+# Python
+alias sov='source .venv/bin/activate'
 
 # File explorer
 alias files='gio open'
