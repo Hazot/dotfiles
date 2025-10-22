@@ -197,3 +197,10 @@ fi
 #### PIXI
 export PATH="/home/hazot/.pixi/bin:$PATH"
 eval "$(pixi completion --shell zsh)"
+
+# >>> b2 autocomplete >>>
+# This section is managed by b2 . Manual edit may break automated updates.
+if [[ -z "$_comps" ]] && [[ -t 0 ]]; then autoload -Uz compinit && compinit -i -D; fi
+source /home/hazot/.zsh/completion/_b2
+
+# <<< b2 autocomplete <<<
