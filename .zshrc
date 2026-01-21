@@ -204,3 +204,9 @@ if [[ -z "$_comps" ]] && [[ -t 0 ]]; then autoload -Uz compinit && compinit -i -
 source /home/hazot/.zsh/completion/_b2
 
 # <<< b2 autocomplete <<<
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/hazot/google-cloud-sdk/path.zsh.inc' ]; then . '/home/hazot/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/hazot/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/hazot/google-cloud-sdk/completion.zsh.inc'; fi
