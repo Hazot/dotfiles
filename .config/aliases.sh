@@ -107,4 +107,4 @@ alias sov='source .venv/bin/activate'
 alias files='gio open'
 
 # work
-alias wksp='cd ~/work/data'
+alias wksp='cd ~/work/code/'
