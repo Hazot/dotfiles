@@ -1,5 +1,4 @@
 ## Kevin's config for the zoomer shell
-
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -118,6 +117,10 @@ export PATH="$PATH:/home/hazot/venv/bin/basedpyright-langserver"
 export PATH=/usr/local/cuda/bin${PATH:+:${PATH}}
 export LD_LIBRARY_PATH=/usr/local/cuda-12.2/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
 
+# Code editor
+export EDITOR="code --wait"
+export VISUAL="code --wait"
+
 # Pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
@@ -210,3 +213,11 @@ if [ -f '/home/hazot/google-cloud-sdk/path.zsh.inc' ]; then . '/home/hazot/googl
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/hazot/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/hazot/google-cloud-sdk/completion.zsh.inc'; fi
+
+# Go
+export PATH=$PATH:$HOME/go/bin
+export GOROOT=$HOME/go
+export GOPATH=$HOME/go-workspace
+
+# opencode
+export PATH=/home/hazot/.opencode/bin:$PATH
