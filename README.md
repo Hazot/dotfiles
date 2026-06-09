@@ -20,9 +20,10 @@ The branches have diferent paths, package managers, etc. but try to emulate the 
 ## Requirements
 
 1. Use ``git clone git@github.com:Hazot/dotfiles.git .`` then move files all files and hidden files accordingly.
-2. Run ``sh ./.install.sh`` in your ``$HOME`` (may need to ``chmod +x .install.sh``)
-3. Make sure that ``chsh -s $(which zsh)`` and restart your terminal
-4. Enjoy!
+2. Install tmux via ``sudo apt install tmux`` or ``sudo pacman -S tmux`` or ``sudo emerge tmux`` or ``brew install tmux``
+3. Run ``sh ./.install.sh`` in your ``$HOME`` (may need to ``chmod +x .install.sh``)
+4. Make sure that ``chsh -s $(which zsh)`` and restart your terminal
+5. Enjoy!
 
 ## TODOs
 - [x] make a script to automatically download the 5 above plugins for zsh quick install
