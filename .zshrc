@@ -94,12 +94,6 @@ export PATH="$PATH:/usr/bin/python3.12"
 # Neovim
 export PATH="$HOME/.local/bin:$PATH"
 
-# Virtualenvwrapper
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
-export WORKON_HOME=$HOME/.virtualenvs
-source /usr/local/bin/virtualenvwrapper.sh
-
 # Cargo
 . "$HOME/.cargo/env"
 
@@ -111,7 +105,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # BasedPyRight
-export PATH="$PATH:/home/hazot/venv/bin/basedpyright-langserver"
+export PATH="$PATH:$HOME/venv/bin/basedpyright-langserver"
 
 # CUDA
 export PATH=/usr/local/cuda/bin${PATH:+:${PATH}}
@@ -166,7 +160,7 @@ export GIT_CEILING_DIRECTORIES="$HOME"
 
 # !! Contents within this block are managed by juliaup !!
 
-path=('/home/hazot/.juliaup/bin' $path)
+path=("$HOME/.juliaup/bin" $path)
 export PATH
 
 # <<< juliaup initialize <<<
@@ -178,41 +172,41 @@ source ~/powerlevel10k/powerlevel10k.zsh-theme
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/hazot/miniforge3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$("$HOME/miniforge3/bin/conda" 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/home/hazot/miniforge3/etc/profile.d/conda.sh" ]; then
-        . "/home/hazot/miniforge3/etc/profile.d/conda.sh"
+    if [ -f "$HOME/miniforge3/etc/profile.d/conda.sh" ]; then
+        . "$HOME/miniforge3/etc/profile.d/conda.sh"
     else
-        export PATH="/home/hazot/miniforge3/bin:$PATH"
+        export PATH="$HOME/miniforge3/bin:$PATH"
     fi
 fi
 unset __conda_setup
 
-if [ -f "/home/hazot/miniforge3/etc/profile.d/mamba.sh" ]; then
-    . "/home/hazot/miniforge3/etc/profile.d/mamba.sh"
+if [ -f "$HOME/miniforge3/etc/profile.d/mamba.sh" ]; then
+    . "$HOME/miniforge3/etc/profile.d/mamba.sh"
 fi
 # <<< conda initialize <<<
 
 
 
 #### PIXI
-export PATH="/home/hazot/.pixi/bin:$PATH"
+export PATH="$HOME/.pixi/bin:$PATH"
 eval "$(pixi completion --shell zsh)"
 
 # >>> b2 autocomplete >>>
 # This section is managed by b2 . Manual edit may break automated updates.
 if [[ -z "$_comps" ]] && [[ -t 0 ]]; then autoload -Uz compinit && compinit -i -D; fi
-source /home/hazot/.zsh/completion/_b2
+source "$HOME/.zsh/completion/_b2"
 
 # <<< b2 autocomplete <<<
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/hazot/google-cloud-sdk/path.zsh.inc' ]; then . '/home/hazot/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/google-cloud-sdk/path.zsh.inc"; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/home/hazot/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/hazot/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-cloud-sdk/completion.zsh.inc"; fi
 
 # Go
 export PATH=$PATH:$HOME/go/bin
@@ -220,4 +214,4 @@ export GOROOT=$HOME/go
 export GOPATH=$HOME/go-workspace
 
 # opencode
-export PATH=/home/hazot/.opencode/bin:$PATH
+export PATH=$HOME/.opencode/bin:$PATH
