@@ -25,6 +25,15 @@ echo ">>> Installing Powerlevel10k..."
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k || echo "Already exists, skipping."
 echo -e "Powerlevel10k installed!\n"
 
+
+# Install python stuff
+echo ">>> Installing python stuff..."
+curl -fsSL https://pixi.sh/install.sh | sh
+curl -fsSL https://pyenv.run | bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+uvx b2 install-autocomplete
+echo -e ">>> python stuff installed!"
+
 # ZSH PLUGINS
 echo ">>> Installing Zsh plugins..."
 

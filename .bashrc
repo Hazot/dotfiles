@@ -71,6 +71,51 @@ xterm*|rxvt*)
     ;;
 esac
 
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    #alias dir='dir --color=auto'
+    #alias vdir='vdir --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
+# colored GCC warnings and errors
+#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+
+# some more ls aliases
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+# Alias definitions.
+# You may want to put all your additions into a separate file like
+# ~/.bash_aliases, instead of adding them here directly.
+# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+
+# if [ -f ~/.bash_aliases ]; then
+#     . ~/.bash_aliases
+# fi
+
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+  fi
+fi
+
+
 # Configured prompt in python for bash)
 if [ "$force_python_prompt" = yes ]; then
     export PROMPT_COMMAND='PS1="$(python ~/.config/bash.config.color.py)"'
@@ -132,25 +177,10 @@ compilelatex ()
 
 
 
-### SCRIPTS
-
-## Load scripts
-[ -f "$HOME/.config/zsh/scripts.zsh" ] && source "$HOME/.config/zsh/scripts.zsh"
-
-## Load aliases and shortcuts if existent.
-[ -f "$HOME/.config/aliases.sh" ] && source "$HOME/.config/aliases.sh"
-alias reload='source ~/.zshrc'
-
-## Load exports and shortcuts if existent.
-[ -f "$HOME/.config/exports.sh" ] && source "$HOME/.config/exports.sh"
-
 ### EXPORTS 
 
-# Virtualenvwrapper
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
-export WORKON_HOME=$HOME/.virtualenvs
-source /usr/local/bin/virtualenvwrapper.sh
+# Poetry + pip user-level binaries
+export PATH="$HOME/.local/bin:$PATH"
 
 # CUDA
 export PATH=/usr/local/cuda/bin${PATH:+:${PATH}}
@@ -177,20 +207,20 @@ export LIBGL_ALWAYS_INDIRECT=0
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/hazot/miniforge3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$("$HOME/miniforge3/bin/conda" 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/home/hazot/miniforge3/etc/profile.d/conda.sh" ]; then
-        . "/home/hazot/miniforge3/etc/profile.d/conda.sh"
+    if [ -f "$HOME/miniforge3/etc/profile.d/conda.sh" ]; then
+        . "$HOME/miniforge3/etc/profile.d/conda.sh"
     else
-        export PATH="/home/hazot/miniforge3/bin:$PATH"
+        export PATH="$HOME/miniforge3/bin:$PATH"
     fi
 fi
 unset __conda_setup
 
-if [ -f "/home/hazot/miniforge3/etc/profile.d/mamba.sh" ]; then
-    . "/home/hazot/miniforge3/etc/profile.d/mamba.sh"
+if [ -f "$HOME/miniforge3/etc/profile.d/mamba.sh" ]; then
+    . "$HOME/miniforge3/etc/profile.d/mamba.sh"
 fi
 # <<< conda initialize <<<
 
@@ -201,15 +231,15 @@ fi
 # !! Contents within this block are managed by juliaup !!
 
 case ":$PATH:" in
-    *:/home/hazot/.juliaup/bin:*)
+    *:$HOME/.juliaup/bin:*)
         ;;
 
     *)
-        export PATH=/home/hazot/.juliaup/bin${PATH:+:${PATH}}
+        export PATH=$HOME/.juliaup/bin${PATH:+:${PATH}}
         ;;
 esac
 
 # <<< juliaup initialize <<<
 
 # Created by `pipx` on 2024-09-09 04:10:58
-export PATH="$PATH:/home/hazot/.local/bin"
+export PATH="$PATH:$HOME/.local/bin"
