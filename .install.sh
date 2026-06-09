@@ -25,6 +25,10 @@ echo ">>> Installing Powerlevel10k..."
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k || echo "Already exists, skipping."
 echo -e "Powerlevel10k installed!\n"
 
+# Install tmux stuff
+echo ">>> Installing tmux plugins..."
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+echo -e ">>> tmux plugins installed!\n"
 
 # Install python stuff
 echo ">>> Installing python stuff..."
