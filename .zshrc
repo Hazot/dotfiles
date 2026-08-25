@@ -216,6 +216,5 @@ export GOPATH=$HOME/go-workspace
 # opencode
 export PATH=$HOME/.opencode/bin:$PATH
 
-# For asdf
+# asdf
 export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
-export PATH="$PATH:/home/hazot/asdf-git/asdf"
