@@ -35,6 +35,17 @@ echo ">>> Installing python stuff..."
 curl -fsSL https://pixi.sh/install.sh | sh
 curl -fsSL https://pyenv.run | bash
 curl -LsSf https://astral.sh/uv/install.sh | sh
+echo "Installing pipx..."
+if python3 -m pip install --user pipx && python3 -m pipx ensurepath; then
+    echo "pipx installed successfully via pip."
+else
+    echo "pip install failed, trying apt..."
+    if sudo apt install -y pipx; then
+        echo "pipx installed successfully via apt."
+    else
+        echo "ERROR: Failed to install pipx via both pip and apt. Please install manually."
+    fi
+fi
 uvx b2 install-autocomplete
 echo -e ">>> python stuff installed!"
 
