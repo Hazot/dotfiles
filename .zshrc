@@ -6,6 +6,9 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# Keep $PATH duplicate-free across nested shells.
+typeset -U path PATH
+
 # Enable colors and change prompt:
 autoload -U colors && colors
 
@@ -87,9 +90,6 @@ alias reload='source ~/.zshrc'
 
 
 ### EXPORTS
-export PATH="$PATH:$HOME/.local/bin"
-export PATH="$PATH:/usr/bin/python3"
-export PATH="$PATH:/usr/bin/python3.12"
 
 # Neovim
 export PATH="$HOME/.local/bin:$PATH"
@@ -103,9 +103,7 @@ export RCLONE_BETA_FEATURES=bisync
 # nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-
-# BasedPyRight
-export PATH="$PATH:$HOME/venv/bin/basedpyright-langserver"
+nvm use default --silent 2>/dev/null # nvm's own auto-use hook is unreliable; force it explicitly
 
 # CUDA
 export PATH=/usr/local/cuda/bin${PATH:+:${PATH}}
@@ -160,8 +158,10 @@ export GIT_CEILING_DIRECTORIES="$HOME"
 
 # !! Contents within this block are managed by juliaup !!
 
-path=("$HOME/.juliaup/bin" $path)
+path=('/home/hazot/.juliaup/bin' $path)
 export PATH
+# Tab completion for juliaup and julia channel selection
+[ -f "/home/hazot/.julia/juliaup/completions/zsh.zsh" ] && source "/home/hazot/.julia/juliaup/completions/zsh.zsh"
 
 # <<< juliaup initialize <<<
 source ~/powerlevel10k/powerlevel10k.zsh-theme
@@ -215,3 +215,7 @@ export GOPATH=$HOME/go-workspace
 
 # opencode
 export PATH=$HOME/.opencode/bin:$PATH
+
+# For asdf
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+export PATH="$PATH:/home/hazot/asdf-git/asdf"

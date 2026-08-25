@@ -186,9 +186,6 @@ export PATH="$HOME/.local/bin:$PATH"
 export PATH=/usr/local/cuda/bin${PATH:+:${PATH}}
 export LD_LIBRARY_PATH=/usr/local/cuda-12.2/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
 
-# Neovim export path
-export PATH="$HOME/.local/bin:$PATH"
-
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
@@ -231,15 +228,30 @@ fi
 # !! Contents within this block are managed by juliaup !!
 
 case ":$PATH:" in
-    *:$HOME/.juliaup/bin:*)
+    *:/home/hazot/.juliaup/bin:*)
         ;;
 
     *)
-        export PATH=$HOME/.juliaup/bin${PATH:+:${PATH}}
+        export PATH=/home/hazot/.juliaup/bin${PATH:+:${PATH}}
         ;;
 esac
+# Tab completion for juliaup and julia channel selection
+[ -f "/home/hazot/.julia/juliaup/completions/bash.sh" ] && source "/home/hazot/.julia/juliaup/completions/bash.sh"
 
 # <<< juliaup initialize <<<
 
-# Created by `pipx` on 2024-09-09 04:10:58
-export PATH="$PATH:$HOME/.local/bin"
+# For asdf
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+
+# Keep $PATH duplicate-free across nested shells.
+__dedup_path() {
+    local IFS=: dir new=
+    for dir in $PATH; do
+        case ":$new:" in
+            *":$dir:"*) ;;
+            *) new="${new:+$new:}$dir" ;;
+        esac
+    done
+    export PATH="$new"
+}
+__dedup_path
