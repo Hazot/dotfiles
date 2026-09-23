@@ -75,6 +75,9 @@ colors
 
 ### SCRIPTS
 
+# homebrew
+export PATH="/opt/homebrew/bin:$PATH"
+
 ## Load scripts
 [ -f "$HOME/.config/zsh/scripts.zsh" ] && source "$HOME/.config/zsh/scripts.zsh"
 
@@ -86,13 +89,12 @@ alias reload='source ~/.zshrc'
 [ -f "$HOME/.config/exports.sh" ] && source "$HOME/.config/exports.sh"
 
 ### EXPORTS
-export PATH="$PATH:$HOME/.local/bin"
-
 # Neovim
-export PATH="$HOME/neovim/bin:$PATH"
+export PATH="$PATH:$HOME/.local/bin"
 
 # Mason python
 export MASON_PYTHON="/opt/homebrew/bin/python3.12"
+export PATH="$PATH:/opt/homebrew/opt/python@3.12/bin"
 
 # Duckietown
 export IP=$(ifconfig en0 | grep inet | awk '$1=="inet" {print $2}')
@@ -106,16 +108,18 @@ export PATH=$PATH:$(go env GOPATH)/bin
 # Path for local custom bins
 export PATH="~/bin:${PATH}"
 
-# Default Programming Language versions:
-export PATH="/opt/homebrew/opt/lua@5.4/bin:$PATH"
-export PATH="/opt/homebrew/opt/python@3.12/bin:$PATH"
+# Lua
+export PATH="$PATH:/opt/homebrew/opt/lua@5.4/bin"
+export PATH="$HOME/.local/lua5.1/bin:$PATH"
+export PATH="$HOME/.local/luarocks-5.1/bin:$PATH"
+export PKG_CONFIG_PATH="/opt/homebrew/opt/lua@5.1/lib/pkgconfig:$PKG_CONFIG_PATH"
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
-# BasedPyRight
-export PATH="$PATH:/home/hazot/venv/bin/basedpyright-langserver"
+# LaTeX
+export PATH="/Library/TeX/texbin:$PATH"
 
 # Cargo
 . "$HOME/.cargo/env"
@@ -158,25 +162,8 @@ if [ -r $HOME/.config/keys.sh ]; then
     . $HOME/.config/keys.sh
 fi
 
-
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Tmp/lessarke/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Tmp/lessarke/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/Tmp/lessarke/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/Tmp/lessarke/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
-
-
 #### PIXI
 export PATH="/Users/hazot/.pixi/bin:$PATH"
 eval "$(pixi completion --shell zsh)"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+

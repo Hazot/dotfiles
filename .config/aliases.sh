@@ -1,5 +1,9 @@
 # Kevin's aliases
 
+# Claude Code: plain `claude` uses ~/.claude (org account, single login).
+# `claude-pro` uses a separate config dir for the personal Pro account.
+alias claude-pro='CLAUDE_CONFIG_DIR="$HOME/.claude-pro" claude'
+
 # General aliases
 alias mkdir="mkdir -p"
 alias ..="cd .."
@@ -8,8 +12,8 @@ alias python='python3'
 alias fd='fd --no-ignore'
 alias rg='rg --no-ignore'
 
-# GENTOO ONLY
-alias cdd='cd /Tmp/lessarke/'
+# Source venv fast
+alias sov='source .venv/bin/activate'
 
 # Alias for listing directories 
 alias ls='ls --color=auto'
@@ -33,7 +37,7 @@ alias gits="git status ."
 alias guno="git status -uno"
 alias gitsuno="git status -uno ."
 
-# GPP
+# gpp
 alias gpp="git pull && git push"
 
 # Alias for git add
@@ -104,3 +108,7 @@ alias files='open'
 # alias papers
 alias papers='/Users/hazot/Google\ Drive/My\ Drive/Learning/Readings/Papers'
 alias paper='/Users/hazot/Google\ Drive/My\ Drive/Learning/Readings/Papers'
+
+# Claude Code status line toggle
+alias sl-cc='touch ~/.claude/use-ccstatusline'
+alias sl-mine='rm -f ~/.claude/use-ccstatusline'
