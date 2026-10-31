@@ -21,7 +21,8 @@ warn() { printf '\033[1;33m!!! %s\033[0m\n' "$*" >&2; }
 ask() {
     [[ $YES -eq 1 ]] && return 0
     local reply
-    { read -r -p "$1 [y/N] " reply </dev/tty; } 2>/dev/null || return 1
+    # Prompt on the tty directly: read -p writes to stderr, which is silenced here
+    { printf '%s [y/N] ' "$1" >/dev/tty && read -r reply </dev/tty; } 2>/dev/null || return 1
     [[ "$reply" =~ ^[Yy]$ ]]
 }
 
