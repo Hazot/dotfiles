@@ -1,4 +1,5 @@
-## Kevin's config for the zoomer shell
+## Kevin's config for the zoomer shell (macOS + Linux)
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -11,8 +12,6 @@ typeset -U path PATH
 
 # Enable colors and change prompt:
 autoload -U colors && colors
-
-setopt autocd		# Automatically cd into typed directory.
 
 ## Options section
 setopt correct                                                  # Auto correct mistakes
@@ -30,7 +29,7 @@ setopt histignorespace                                          # Don't save com
 
 zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' # Case insensitive tab completion
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"         # Colored completion (different colors for dirs/files/etc)
-zstyle ':completion:*' rehash true                              # automatically find new executables in path 
+zstyle ':completion:*' rehash true                              # automatically find new executables in path
 zstyle ':completion:*' menu select                              # Highlight menu selection
 # Speed up completions
 zstyle ':completion:*' accept-exact '*(N)'
@@ -49,7 +48,7 @@ if [[ "${terminfo[khome]}" != "" ]]; then
   bindkey "${terminfo[khome]}" beginning-of-line                # [Home] - Go to beginning of line
 fi
 bindkey '^[[8~' end-of-line                                     # End key
-bindkey '^[[F' end-of-line                                     # End key
+bindkey '^[[F' end-of-line                                      # End key
 if [[ "${terminfo[kend]}" != "" ]]; then
   bindkey "${terminfo[kend]}" end-of-line                       # [End] - Go to end of line
 fi
@@ -68,153 +67,84 @@ bindkey '^[[1;5C' forward-word                                  #
 bindkey '^H' backward-kill-word                                 # delete previous word with ctrl+backspace
 bindkey '^[[Z' undo                                             # Shift+tab undo last action
 
-# Theming section  
+# Theming section
 autoload -U compinit colors zcalc
 compinit -d
 colors
 
 
 
-### SCRIPTS
-
-## Load scripts
+### SHELL CONFIG (shared with bash)
+[ -f "$HOME/.config/shell/env.sh" ] && source "$HOME/.config/shell/env.sh"
+[ -f "$HOME/.config/shell/aliases.sh" ] && source "$HOME/.config/shell/aliases.sh"
+case "$(uname -s)" in
+  Darwin) _os=darwin ;;
+  *) _os=linux ;;
+esac
+[ -f "$HOME/.config/shell/os/$_os.sh" ] && source "$HOME/.config/shell/os/$_os.sh"
+unset _os
 [ -f "$HOME/.config/zsh/scripts.zsh" ] && source "$HOME/.config/zsh/scripts.zsh"
-
-## Load aliases and shortcuts if existent.
-[ -f "$HOME/.config/aliases.sh" ] && source "$HOME/.config/aliases.sh"
+[ -f "$HOME/.config/shell/local.sh" ] && source "$HOME/.config/shell/local.sh"
+[ -r "$HOME/.config/keys.sh" ] && source "$HOME/.config/keys.sh"
 alias reload='source ~/.zshrc'
 
-## Load exports and shortcuts if existent.
-[ -f "$HOME/.config/exports.sh" ] && source "$HOME/.config/exports.sh"
 
 
-
-### EXPORTS
-
-# Neovim
-export PATH="$HOME/.local/bin:$PATH"
-
-# Cargo
-. "$HOME/.cargo/env"
-
-# RCLONE
-export RCLONE_BETA_FEATURES=bisync
+### TOOLS (only if installed)
 
 # nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-nvm use default --silent 2>/dev/null # nvm's own auto-use hook is unreliable; force it explicitly
-
-# CUDA
-export PATH=/usr/local/cuda/bin${PATH:+:${PATH}}
-export LD_LIBRARY_PATH=/usr/local/cuda-12.2/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
-
-# Code editor
-export EDITOR="code --wait"
-export VISUAL="code --wait"
+[ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && source "$NVM_DIR/bash_completion"
 
 # Pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+command -v pyenv >/dev/null && eval "$(pyenv init - zsh)"
+
+# Pixi
+command -v pixi >/dev/null && eval "$(pixi completion --shell zsh)"
+
+# Conda / mamba (miniforge3 or mambaforge)
+for _c in "$HOME/miniforge3" "$HOME/mambaforge"; do
+  if [ -x "$_c/bin/conda" ]; then
+    eval "$("$_c/bin/conda" shell.zsh hook 2>/dev/null)"
+    [ -f "$_c/etc/profile.d/mamba.sh" ] && source "$_c/etc/profile.d/mamba.sh"
+    break
+  fi
+done
+unset _c
 
 
 
-### PLUGINS
+### PLUGINS (installed by ~/dotfiles/install.sh)
+_zp="$HOME/.zsh"
 
-# Load zsh-syntax-highlighting; should be last.
-source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-# Load history substring search
-source ~/.zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
-# bind UP and DOWN arrow keys to history substring search
-zmodload zsh/terminfo
-bindkey "$terminfo[kcuu1]" history-substring-search-up
-bindkey "$terminfo[kcud1]" history-substring-search-down
-bindkey '^[[A' history-substring-search-up			
-bindkey '^[[B' history-substring-search-down
+# Load history substring search, bind UP and DOWN arrow keys
+if [ -f "$_zp/zsh-history-substring-search/zsh-history-substring-search.zsh" ]; then
+  source "$_zp/zsh-history-substring-search/zsh-history-substring-search.zsh"
+  zmodload zsh/terminfo
+  bindkey "$terminfo[kcuu1]" history-substring-search-up
+  bindkey "$terminfo[kcud1]" history-substring-search-down
+  bindkey '^[[A' history-substring-search-up
+  bindkey '^[[B' history-substring-search-down
+else
+  bindkey '^[[A' history-beginning-search-backward
+  bindkey '^[[B' history-beginning-search-forward
+fi
 
 # Load autosuggestions
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+[ -f "$_zp/zsh-autosuggestions/zsh-autosuggestions.zsh" ] && source "$_zp/zsh-autosuggestions/zsh-autosuggestions.zsh"
 
 # Load sudo: adds sudo after hitting escape twice
-source ~/.zsh/zsh-sudo/sudo.plugin.zsh
+[ -f "$_zp/zsh-sudo/sudo.plugin.zsh" ] && source "$_zp/zsh-sudo/sudo.plugin.zsh"
 
 # Load zsh-z: jump around directories with z
-source ~/.zsh/zsh-z/zsh-z.plugin.zsh
+[ -f "$_zp/zsh-z/zsh-z.plugin.zsh" ] && source "$_zp/zsh-z/zsh-z.plugin.zsh"
+
+# Load zsh-syntax-highlighting; should be last of the plugins.
+[ -f "$_zp/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ] && source "$_zp/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+unset _zp
 
 # p10k stuff
-source ~/powerlevel10k/powerlevel10k.zsh-theme
+[ -f ~/powerlevel10k/powerlevel10k.zsh-theme ] && source ~/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-# git ceiling for configs
-export GIT_CEILING_DIRECTORIES="$HOME"
-
-
-
-# >>> juliaup initialize >>>
-
-# !! Contents within this block are managed by juliaup !!
-
-path=('/home/hazot/.juliaup/bin' $path)
-export PATH
-# Tab completion for juliaup and julia channel selection
-[ -f "/home/hazot/.julia/juliaup/completions/zsh.zsh" ] && source "/home/hazot/.julia/juliaup/completions/zsh.zsh"
-
-# <<< juliaup initialize <<<
-source ~/powerlevel10k/powerlevel10k.zsh-theme
-
-
-
-### MAMBA (CONDA)
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$("$HOME/miniforge3/bin/conda" 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "$HOME/miniforge3/etc/profile.d/conda.sh" ]; then
-        . "$HOME/miniforge3/etc/profile.d/conda.sh"
-    else
-        export PATH="$HOME/miniforge3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-
-if [ -f "$HOME/miniforge3/etc/profile.d/mamba.sh" ]; then
-    . "$HOME/miniforge3/etc/profile.d/mamba.sh"
-fi
-# <<< conda initialize <<<
-
-
-
-#### PIXI
-export PATH="$HOME/.pixi/bin:$PATH"
-eval "$(pixi completion --shell zsh)"
-
-# >>> b2 autocomplete >>>
-# This section is managed by b2 . Manual edit may break automated updates.
-if [[ -z "$_comps" ]] && [[ -t 0 ]]; then autoload -Uz compinit && compinit -i -D; fi
-source "$HOME/.zsh/completion/_b2"
-
-# <<< b2 autocomplete <<<
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/google-cloud-sdk/path.zsh.inc"; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-cloud-sdk/completion.zsh.inc"; fi
-
-# Go
-export PATH=$PATH:$HOME/go/bin
-export GOROOT=$HOME/go
-export GOPATH=$HOME/go-workspace
-
-# opencode
-export PATH=$HOME/.opencode/bin:$PATH
-
-# asdf
-export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"

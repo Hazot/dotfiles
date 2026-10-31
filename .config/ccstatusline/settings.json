@@ -1,0 +1,65 @@
+{
+  "version": 4,
+  "lines": [
+    [
+      { "id": "1", "type": "model", "color": "cyan" },
+      { "id": "4", "type": "separator" },
+      { "id": "5", "type": "git-branch", "color": "magenta" },
+      { "id": "6", "type": "separator" },
+      { "id": "7", "type": "git-worktree", "color": "magenta" },
+      { "id": "8", "type": "separator" },
+      { "id": "9", "type": "git-changes", "color": "yellow" }
+    ],
+    [
+      { "id": "12", "type": "context-length", "color": "brightBlack", "merge": "no-padding" },
+      { "id": "30", "type": "custom-text", "customText": " (", "color": "brightBlack", "merge": "no-padding" },
+      { "id": "10", "type": "context-percentage", "rawValue": true, "color": "green", "merge": "no-padding" },
+      { "id": "31", "type": "custom-text", "customText": ")", "color": "brightBlack" },
+      { "id": "13", "type": "separator" },
+      { "id": "32", "type": "custom-text", "customText": "↑", "color": "brightBlack", "merge": "no-padding" },
+      { "id": "14", "type": "tokens-input", "rawValue": true, "color": "brightBlack", "merge": "no-padding" },
+      { "id": "33", "type": "custom-text", "customText": " ↓", "color": "brightBlack", "merge": "no-padding" },
+      { "id": "16", "type": "tokens-output", "rawValue": true, "color": "brightBlack", "merge": "no-padding" },
+      { "id": "34", "type": "custom-text", "customText": " ⟳", "color": "brightBlack", "merge": "no-padding" },
+      { "id": "18", "type": "tokens-cached", "rawValue": true, "color": "brightBlack" },
+      { "id": "35", "type": "separator" },
+      { "id": "40", "type": "custom-text", "customText": "5h ", "color": "brightBlue", "merge": "no-padding" },
+      { "id": "41", "type": "custom-command", "commandPath": "sh ~/.claude/usage-bar.sh session", "timeout": 1000, "color": "brightBlue", "merge": "no-padding" },
+      { "id": "42", "type": "custom-text", "customText": " ", "merge": "no-padding" },
+      { "id": "43", "type": "session-usage", "rawValue": true, "color": "brightBlue", "merge": "no-padding" },
+      { "id": "44", "type": "custom-text", "customText": " ↻", "color": "brightBlack", "merge": "no-padding" },
+      { "id": "45", "type": "reset-timer", "rawValue": true, "color": "brightBlack", "metadata": { "compact": "true" } },
+      { "id": "46", "type": "separator" },
+      { "id": "50", "type": "custom-text", "customText": "7d ", "color": "brightBlue", "merge": "no-padding" },
+      { "id": "51", "type": "custom-command", "commandPath": "sh ~/.claude/usage-bar.sh weekly", "timeout": 1000, "color": "brightBlue", "merge": "no-padding" },
+      { "id": "52", "type": "custom-text", "customText": " ", "merge": "no-padding" },
+      { "id": "53", "type": "weekly-usage", "rawValue": true, "color": "brightBlue", "merge": "no-padding" },
+      { "id": "54", "type": "custom-text", "customText": " ↻", "color": "brightBlack", "merge": "no-padding" },
+      { "id": "55", "type": "weekly-reset-timer", "rawValue": true, "color": "brightBlack", "metadata": { "compact": "true" } }
+    ],
+    []
+  ],
+  "flexMode": "full",
+  "compactThreshold": 60,
+  "colorLevel": 2,
+  "defaultPaddingSide": "both",
+  "inheritSeparatorColors": false,
+  "globalBold": false,
+  "gitCacheTtlSeconds": 5,
+  "terminalWidthCacheTtlSeconds": 5,
+  "customCommandCacheTtlSeconds": 0,
+  "minimalistMode": false,
+  "powerline": {
+    "enabled": false,
+    "separators": [
+      ""
+    ],
+    "separatorInvertBackground": [
+      false
+    ],
+    "startCaps": [],
+    "endCaps": [],
+    "autoAlign": false,
+    "continueThemeAcrossLines": false
+  }
+}

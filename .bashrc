@@ -1,4 +1,4 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
+## Kevin's config for bash (portable: macOS, Linux, VMs, no plugins)
 
 # If not running interactively, don't do anything
 case $- in
@@ -6,252 +6,104 @@ case $- in
       *) return;;
 esac
 
-# don't put duplicate lines or lines starting with space in the history.
-# See bash(1) for more options
-HISTCONTROL=ignoreboth
+## Options
+shopt -s autocd 2>/dev/null # cd into typed directory (bash 4+)
+shopt -s cdspell        # fix small typos in cd
+shopt -s dirspell 2>/dev/null # bash 4+
+shopt -s nocaseglob     # case insensitive globbing
+shopt -s globstar 2>/dev/null # ** matches subdirectories (bash 4+)
+shopt -s extglob        # extended globbing
+shopt -s checkwinsize   # update LINES and COLUMNS after each command
+shopt -s no_empty_cmd_completion
+set +o notify           # don't report background jobs immediately
 
-# append to the history file, don't overwrite it
-shopt -s histappend
+## History
+HISTFILE=~/.bash_history
+HISTSIZE=10000
+HISTFILESIZE=10000
+HISTCONTROL=ignoreboth:erasedups # skip dups and lines starting with space
+HISTIGNORE='ls:ll:la:l:cd:pwd:exit:clear'
+shopt -s histappend     # append to the history file, don't overwrite it
+shopt -s cmdhist        # multi-line commands as one entry
 
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+## Readline (completion, keys)
+[ -f "$HOME/.config/bash/inputrc" ] && export INPUTRC="$HOME/.config/bash/inputrc"
 
-# check the window size after each command and, if necessary,
-# update the values of LINES and COLUMNS.
-shopt -s checkwinsize
-
-# If set, the pattern "**" used in a pathname expansion context will
-# match all files and zero or more directories and subdirectories.
-shopt -s globstar
-
-# make less more friendly for non-text input files, see lesspipe(1)
-[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
-
-# set variable identifying the chroot you work in (used in the prompt below)
-if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
-    debian_chroot=$(cat /etc/debian_chroot)
-fi
-
-# set a fancy prompt (non-color, unless we know we "want" color)
-case "$TERM" in
-    xterm-color|*-256color|xterm-kitty) color_prompt=yes;;
-esac
-
-# uncomment for a colored prompt, if the terminal has the capability; turned
-# off by default to not distract the user: the focus in a terminal window
-# should be on the output of commands, not on the prompt
-force_color_prompt=yes
-force_python_prompt=no
-
-if [ -n "$force_color_prompt" ]; then
-    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	# We have color support; assume it's compliant with Ecma-48
-	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-	# a case would tend to support setf rather than setaf.)
-	color_prompt=yes
-    else
-	color_prompt=no
-    fi
-fi
-
-if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h \[\033[01;34m\]\w\[\033[00m\]\$ '
-else
-    PS1='${debian_chroot:+($debian_chroot)}\u \w\$ '
-fi
-unset color_prompt force_color_prompt
-
-# If this is an xterm set the title to user@host:dir
-case "$TERM" in
-xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-    ;;
-*)
-    ;;
-esac
-
-# enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
-
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
-fi
-
-# colored GCC warnings and errors
-#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
-
-# some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
-
-# Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
-# if [ -f ~/.bash_aliases ]; then
-#     . ~/.bash_aliases
-# fi
-
-# enable programmable completion features (you don't need to enable
-# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-# sources /etc/bash.bashrc).
+## Completion
 if ! shopt -oq posix; then
-  if [ -f /usr/share/bash-completion/bash_completion ]; then
-    . /usr/share/bash-completion/bash_completion
-  elif [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
-  fi
-fi
-
-
-# Configured prompt in python for bash)
-if [ "$force_python_prompt" = yes ]; then
-    export PROMPT_COMMAND='PS1="$(python ~/.config/bash.config.color.py)"'
-fi
-
-# colored GCC warnings and errors
-export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
-
-# Alias definitions (uses the same file as .zshrc)
-if [ -r $HOME/.config/aliases.sh ]; then
-    . $HOME/.config/aliases.sh
-fi
-# Exports (uses the same file as .zshrc)
-if [ -r $HOME/.config/exports.sh ]; then
-    . $HOME/.config/exports.sh
-fi
-
-# enable programmable completion features (you don't need to enable
-# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-# sources /etc/bash.bashrc).
-if ! shopt -oq posix; then
-  if [ -f /usr/share/bash-completion/bash_completion ]; then
-    . /usr/share/bash-completion/bash_completion
-  elif [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
-  fi
-fi
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# Bash history pressing arrows
-bind '"\e[A": history-search-backward'
-bind '"\e[B": history-search-forward'
-
-# mkcdir: create directory and change directory into it
-mkcdir ()
-{
-    mkdir -p -- "$1" &&
-    cd -P -- "$1"
-}
-
-# rmlatex: remove *.aux, *.bbl, *.blg, *.out, *.log, *.fls, *fdb_latexmk files
-rmlatex ()
-{
-    rm $(find '.' -maxdepth 1 | grep -E "$1"".*((aux)|(bbl)|(blg)|(out)|(thm)|(synctex.gz)|(log)|(fls)|(fdb_latexmk))")
-}
-
-# compile latex: pdflatex > bibtex (x2) > pdflatex (x2)
-compilelatex ()
-{
-    pdflatex $1"tex" &&
-    bibtex $1"aux" &&
-    bibtex $1"aux" &&
-    pdflatex $1"tex" &&
-    pdflatex $1"tex"
-}
-
-
-
-### EXPORTS 
-
-# Poetry + pip user-level binaries
-export PATH="$HOME/.local/bin:$PATH"
-
-# CUDA
-export PATH=/usr/local/cuda/bin${PATH:+:${PATH}}
-export LD_LIBRARY_PATH=/usr/local/cuda-12.2/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
-
-# pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-
-# node
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-
-# Nvidia OpenGL instead of Mesa 3D 
-export LIBGL_ALWAYS_INDIRECT=0
-. "$HOME/.cargo/env"
-
-
-
-### MAMBA (CONDA)
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$("$HOME/miniforge3/bin/conda" 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "$HOME/miniforge3/etc/profile.d/conda.sh" ]; then
-        . "$HOME/miniforge3/etc/profile.d/conda.sh"
-    else
-        export PATH="$HOME/miniforge3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-
-if [ -f "$HOME/miniforge3/etc/profile.d/mamba.sh" ]; then
-    . "$HOME/miniforge3/etc/profile.d/mamba.sh"
-fi
-# <<< conda initialize <<<
-
-
-
-# >>> juliaup initialize >>>
-
-# !! Contents within this block are managed by juliaup !!
-
-case ":$PATH:" in
-    *:/home/hazot/.juliaup/bin:*)
-        ;;
-
-    *)
-        export PATH=/home/hazot/.juliaup/bin${PATH:+:${PATH}}
-        ;;
-esac
-# Tab completion for juliaup and julia channel selection
-[ -f "/home/hazot/.julia/juliaup/completions/bash.sh" ] && source "/home/hazot/.julia/juliaup/completions/bash.sh"
-
-# <<< juliaup initialize <<<
-
-# For asdf
-export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
-
-# Keep $PATH duplicate-free across nested shells.
-__dedup_path() {
-    local IFS=: dir new=
-    for dir in $PATH; do
-        case ":$new:" in
-            *":$dir:"*) ;;
-            *) new="${new:+$new:}$dir" ;;
-        esac
+    for _f in /usr/share/bash-completion/bash_completion /etc/bash_completion \
+              "${HOMEBREW_PREFIX:-/opt/homebrew}/etc/profile.d/bash_completion.sh"; do
+        if [ -r "$_f" ]; then . "$_f"; break; fi
     done
-    export PATH="$new"
+    unset _f
+fi
+
+## Environment, aliases, OS specifics, machine specifics
+[ -f "$HOME/.config/shell/env.sh" ] && . "$HOME/.config/shell/env.sh"
+[ -f "$HOME/.config/shell/aliases.sh" ] && . "$HOME/.config/shell/aliases.sh"
+case "$(uname -s)" in
+    Darwin) _os=darwin ;;
+    *) _os=linux ;;
+esac
+[ -f "$HOME/.config/shell/os/$_os.sh" ] && . "$HOME/.config/shell/os/$_os.sh"
+unset _os
+[ -f "$HOME/.config/shell/local.sh" ] && . "$HOME/.config/shell/local.sh"
+[ -r "$HOME/.config/keys.sh" ] && . "$HOME/.config/keys.sh"
+alias reload='source ~/.bashrc'
+
+## Tools (only if installed)
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"
+command -v pyenv >/dev/null 2>&1 && eval "$(pyenv init - bash)"
+command -v pixi >/dev/null 2>&1 && eval "$(pixi completion --shell bash)"
+for _c in "$HOME/miniforge3" "$HOME/mambaforge"; do
+    if [ -x "$_c/bin/conda" ]; then
+        eval "$("$_c/bin/conda" shell.bash hook 2>/dev/null)"
+        [ -f "$_c/etc/profile.d/mamba.sh" ] && . "$_c/etc/profile.d/mamba.sh"
+        break
+    fi
+done
+unset _c
+
+## z: jump to the most visited directory matching all args (z foo bar)
+_Z_DATA="${XDG_DATA_HOME:-$HOME/.local/share}/z"
+_z_add() {
+    [ "$PWD" = "$HOME" ] && return
+    [ "$PWD" = "$_Z_LAST" ] && return
+    _Z_LAST=$PWD
+    command mkdir -p "${_Z_DATA%/*}"
+    {
+        printf '%s\n' "$PWD"
+        if [ -f "$_Z_DATA" ]; then head -n 2000 "$_Z_DATA"; fi
+    } > "$_Z_DATA.tmp" && command mv -f "$_Z_DATA.tmp" "$_Z_DATA"
 }
-__dedup_path
+z() {
+    [ $# -eq 0 ] && { cd ~ || return; return; }
+    [ -f "$_Z_DATA" ] || return 1
+    local dir
+    dir=$(awk -v q="$*" '
+        BEGIN { n = split(tolower(q), w, " ") }
+        { l = tolower($0); ok = 1
+          for (i = 1; i <= n; i++) if (index(l, w[i]) == 0) ok = 0
+          if (ok) c[$0]++ }
+        END { for (d in c) if (c[d] > best) { best = c[d]; r = d }; print r }
+    ' "$_Z_DATA")
+    [ -n "$dir" ] && [ -d "$dir" ] && cd "$dir" || { echo "z: no match for '$*'" >&2; return 1; }
+}
+
+## Prompt: user@host dir (branch) $
+_git_branch() {
+    local b
+    b=$(git symbolic-ref --short HEAD 2>/dev/null || git rev-parse --short HEAD 2>/dev/null) || return
+    printf ' (%s)' "$b"
+}
+_prompt() {
+    local status=$?
+    history -a  # write each command right away (like zsh inc_append_history)
+    _z_add
+    local red='\[\e[01;31m\]' green='\[\e[01;32m\]' blue='\[\e[01;34m\]' yellow='\[\e[33m\]' reset='\[\e[00m\]'
+    local sym='\$'
+    [ $status -ne 0 ] && sym="$red\$$reset"
+    PS1="\[\e]0;\u@\h: \w\a\]$green\u@\h$reset $blue\w$reset$yellow$(_git_branch)$reset $sym "
+}
+PROMPT_COMMAND=_prompt
