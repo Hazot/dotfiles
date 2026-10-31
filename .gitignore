@@ -1,1 +1,13 @@
-/**
+# Independent repos cloned by install.sh
+.config/nvim/
+.config/sioyek/
+
+# Per-machine, never tracked
+.config/shell/local.sh
+.config/keys.sh
+.config/exports.sh
+
+.DS_Store
+
+# Local test harness, never tracked
+/tests/

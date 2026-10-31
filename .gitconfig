@@ -1,0 +1,21 @@
+# This is Git's per-user configuration file.
+[user]
+	name = Kevin Lessard
+	email = 59903015+Hazot@users.noreply.github.com
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+
+[init]
+    defaultBranch = main
+
+[core]
+    autocrlf = input
+
+[fetch]
+    prune = true
+
+[push]
+    autoSetupRemote = true

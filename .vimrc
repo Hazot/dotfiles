@@ -19,6 +19,8 @@ set clipboard=unnamedplus
 " keybindings
 nnoremap <SPACE> <Nop>
 let mapleader = " "
+nnoremap <esc> :noh<return><esc>
+" nnoremap <C-c> :noh<return><C-c>
 
 "--" Moves highlighted text together in visual mode with J and K
 vnoremap J :m '>+1<CR>gv=gv
@@ -27,7 +29,6 @@ vnoremap K :m '<-2<CR>gv=gv
 "--" Does not move mouse when appending lines with J
 nnoremap J mzJ`z
 
-" Cursor in middle of screen after these commands
 nnoremap <C-d> <C-d>zz
 nnoremap <C-u> <C-u>zz
 nnoremap n nzzzv

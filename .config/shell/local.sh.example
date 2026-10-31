@@ -1,0 +1,23 @@
+# Per-machine settings: copy to ~/.config/shell/local.sh (untracked) and uncomment
+# what applies. Sourced last by zsh and bash. No secrets here: use ~/.config/keys.sh.
+
+# CUDA (only on machines with an NVIDIA GPU)
+# path_add /usr/local/cuda/bin
+# export LD_LIBRARY_PATH=/usr/local/cuda/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+
+# Mason python (macOS brew)
+# export MASON_PYTHON="/opt/homebrew/bin/python3.12"
+# path_add /opt/homebrew/opt/python@3.12/bin
+
+# Lua 5.1 for neovim plugins (macOS brew)
+# path_add /opt/homebrew/opt/lua@5.4/bin
+# path_add "$HOME/.local/lua5.1/bin"
+# path_add "$HOME/.local/luarocks-5.1/bin"
+# export PKG_CONFIG_PATH="/opt/homebrew/opt/lua@5.1/lib/pkgconfig:$PKG_CONFIG_PATH"
+
+# Flutter
+# path_add "$HOME/development/flutter/bin"
+
+# Editor override
+# export EDITOR="code --wait"
+# export VISUAL="$EDITOR"
