@@ -12,7 +12,7 @@ YES=0
 # Files in the repo that are not linked into ~
 EXCLUDE=(
     install.sh minimal_install.sh update.sh README.md LICENSE .gitignore
-    gnome_keybinds.sh .github/% .config/wsl/% .config/shell/local.sh.example
+    linux/% .github/% .config/wsl/% .config/shell/local.sh.example
 )
 
 info() { printf '\033[1;34m>>> %s\033[0m\n' "$*"; }
@@ -190,7 +190,13 @@ fi
 # 7. Default shell
 if [[ "$(basename "${SHELL:-}")" != zsh ]] && command -v zsh >/dev/null; then
     if ask "Make zsh the default shell?"; then
-        chsh -s "$(command -v zsh)"
+        # Directory accounts (AD/LDAP via SSSD) are not in /etc/passwd, chsh can't change them
+        if [[ $OS == ubuntu ]] && ! grep -q "^$(id -un):" /etc/passwd; then
+            warn "$(id -un) is a directory account, chsh can't change its shell. Add to ~/.config/shell/local.sh:"
+            warn '  [ -n "$BASH_VERSION" ] && [[ $- == *i* ]] && command -v zsh >/dev/null && exec zsh'
+        else
+            chsh -s "$(command -v zsh)" || warn "chsh failed, shell unchanged"
+        fi
     fi
 fi
 

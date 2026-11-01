@@ -11,6 +11,22 @@ Neovim and Sioyek configs are independent repos, cloned by the installer:
 | [Hazot/nvim](https://github.com/Hazot/nvim) | `~/.config/nvim` |
 | [Hazot/sioyek](https://github.com/Hazot/sioyek) | `~/.config/sioyek` |
 
+## Prerequisites
+
+The Ghostty config uses CaskaydiaCove Nerd Font Mono. It is not installed by `install.sh`,
+and is only needed on machines with a graphical terminal.
+
+```sh
+# macOS
+brew install --cask font-caskaydia-cove-nerd-font
+
+# Ubuntu
+mkdir -p ~/.local/share/fonts/CaskaydiaCove
+curl -fsSL -o /tmp/CascadiaCode.zip https://github.com/ryanoasis/nerd-fonts/releases/latest/download/CascadiaCode.zip
+unzip -o /tmp/CascadiaCode.zip -d ~/.local/share/fonts/CaskaydiaCove
+fc-cache -f
+```
+
 ## Full machine (macOS, Ubuntu)
 
 ```sh

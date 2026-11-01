@@ -100,24 +100,4 @@ alias julab="jupyter lab --no-browser"
 
 # Python
 alias sov='source .venv/bin/activate'
-alias wk='workon'
 alias dc='deactivate'
-
-# Conda
-alias ca='conda activate'
-alias cdc='conda deactivate'
-alias ctf='conda activate tf'
-alias ctor='conda activate torch'
-# And mamba
-alias ma='mamba activate'
-alias mdc='mamba deactivate'
-alias mtor='mamba activate torch'
-
-# Old aliases
-alias udem='cd ~/code/udem/'
-alias ghub='cd ~/code/github/'
-alias h='cd ~'
-alias home='cd ~'
-
-# work
-alias wksp='cd ~/work/code/'

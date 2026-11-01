@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# GNOME keybindings (Linux only). Run by hand: bash ~/dotfiles/gnome_keybinds.sh
+# GNOME keybindings (Linux only). Run by hand: bash ~/dotfiles/linux/gnome_keybinds.sh
 # GNOME defaults are kept next to the custom bindings.
 set -euo pipefail
 

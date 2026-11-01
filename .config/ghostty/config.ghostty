@@ -1,0 +1,11 @@
+# appearance
+theme = Kitty Default
+
+# font
+font-family = CaskaydiaCove Nerd Font Mono
+font-size = 13
+
+# keybinds
+# Linux default, on macOS the default is only cmd+t
+keybind = ctrl+shift+t=new_tab
+
