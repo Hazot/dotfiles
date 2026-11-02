@@ -45,6 +45,15 @@ gsettings set $WM move-to-workspace-right   "['<Shift><Super>Page_Down', '<Shift
 # Shift+Super+S: screenshot UI (replaces the default Print key)
 gsettings set org.gnome.shell.keybindings show-screenshot-ui "['<Shift><Super>s']"
 
+# Super+N: notification list (default Super+V). Frees Super+N from focus-active-notification.
+gsettings set org.gnome.shell.keybindings focus-active-notification "[]"
+gsettings set org.gnome.shell.keybindings toggle-message-tray "['<Super>n', '<Super>m']"
+
+# Super+V: GPaste clipboard history (default Ctrl+Alt+H)
+if gsettings list-schemas | grep -qx org.gnome.GPaste; then
+    gsettings set org.gnome.GPaste show-history '<Super>v'
+fi
+
 # Super+E: open home folder
 gsettings set org.gnome.settings-daemon.plugins.media-keys home "['<Super>e']"
 

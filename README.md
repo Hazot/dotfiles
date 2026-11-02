@@ -72,12 +72,24 @@ GNOME settings live in dconf, not in files, so they can't be symlinked. Run the 
 per machine, and again after changing them:
 
 ```sh
-bash ~/dotfiles/linux/gnome_settings.sh   # mouse and touchpad speed, acceleration, scrolling
-bash ~/dotfiles/linux/gnome_keybinds.sh   # workspaces, tiling, monitors, screenshot, Super+E
+bash ~/dotfiles/linux/gnome_settings.sh   # mouse, touchpad, GPaste history
+bash ~/dotfiles/linux/gnome_keybinds.sh   # workspaces, tiling, monitors, screenshot, Super+N/V/E
 ```
 
 `gnome_keybinds.sh` sets the tiling keys on the Tiling Assistant extension when it is enabled,
 otherwise on GNOME itself. Keep the extension disabled to use GNOME's tiling.
+
+### VS Code (Ubuntu)
+
+Install the `.deb`, not the snap from App Center: the snap is sandboxed, which causes
+problems with the integrated terminal, shells and tools from `~`, and input methods.
+The `.deb` also adds Microsoft's apt repo, so `apt upgrade` keeps it updated.
+
+```sh
+sudo snap remove code   # only if the snap is installed
+curl -fsSL -o /tmp/code.deb 'https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64'
+sudo apt install /tmp/code.deb
+```
 
 ## Minimal (Linux VMs, servers)
 
