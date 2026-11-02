@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-# Pull the dotfiles and independent config repos, only when it's safe:
+# Pull the dotfiles and independent config repos, only when it's safe,
+# then link any new dotfiles into ~. Pulls only when:
 # repo exists, working tree is clean and on main. Never touches feature branches.
 set -uo pipefail
 
@@ -27,3 +28,6 @@ for repo in "${REPOS[@]}"; do
     printf 'pull %s: ' "$name"
     git -C "$repo" pull --ff-only --quiet && echo ok || echo "failed (diverged?)"
 done
+
+# Link files that new commits added (already linked files are left alone)
+"$HOME/dotfiles/install.sh" --link

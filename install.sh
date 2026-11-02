@@ -2,12 +2,15 @@
 # Full machine install (macOS + Ubuntu/Debian): link dotfiles, then ask per group.
 #   ~/dotfiles/install.sh        ask y/n for each group
 #   ~/dotfiles/install.sh -y     yes to everything
+#   ~/dotfiles/install.sh --link only (re)link dotfiles, no questions (used by update.sh)
 set -euo pipefail
 
 DOTFILES="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 BACKUP="$HOME/.dotfiles-backup/$(date +%Y%m%d-%H%M%S)"
 YES=0
+LINK_ONLY=0
 [[ "${1:-}" == "-y" ]] && YES=1
+[[ "${1:-}" == "--link" ]] && LINK_ONLY=1
 
 # Files in the repo that are not linked into ~
 EXCLUDE=(
@@ -75,6 +78,16 @@ clone_pinned() {
     echo "cloned $url @ ${sha:0:7}"
 }
 
+# 0. Links (always)
+info "Linking dotfiles into ~"
+while IFS= read -r f; do
+    excluded "$f" && continue
+    link "$DOTFILES/$f" "$HOME/$f"
+done < <(git -C "$DOTFILES" ls-files)
+link "$HOME/.config/tmux/tmux.conf" "$HOME/.tmux.conf"
+[[ -d "$BACKUP" ]] && warn "Replaced files backed up in $BACKUP"
+[[ $LINK_ONLY -eq 1 ]] && exit 0
+
 # OS detection
 case "$(uname -s)" in
     Darwin)
@@ -100,15 +113,6 @@ case "$(uname -s)" in
     *) warn "Unsupported OS: $(uname -s)"; exit 1 ;;
 esac
 info "Detected $OS, dotfiles in $DOTFILES"
-
-# 0. Links (always)
-info "Linking dotfiles into ~"
-while IFS= read -r f; do
-    excluded "$f" && continue
-    link "$DOTFILES/$f" "$HOME/$f"
-done < <(git -C "$DOTFILES" ls-files)
-link "$HOME/.config/tmux/tmux.conf" "$HOME/.tmux.conf"
-[[ -d "$BACKUP" ]] && warn "Replaced files backed up in $BACKUP"
 
 # 1. Core
 if ask "Install core packages (git curl zsh tmux bash-completion)?"; then

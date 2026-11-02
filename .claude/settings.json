@@ -1,0 +1,28 @@
+{
+  "theme": "auto",
+  "statusLine": {
+    "type": "command",
+    "command": "sh \"$HOME/.claude/statusline-switch.sh\"",
+    "padding": 0
+  },
+  "env": {
+    "CLAUDE_CODE_SCROLL_SPEED": "4",
+    "DISABLE_TELEMETRY": "1",
+    "DISABLE_ERROR_REPORTING": "1",
+    "CLAUDE_CODE_DISABLE_FEEDBACK_SURVEY": "1"
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "^(startup|resume|clear|compact|fork)$",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "f=\"$HOME/.claude/hooks/herdr-agent-state.sh\"; [ -f \"$f\" ] && bash \"$f\" session || true",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}

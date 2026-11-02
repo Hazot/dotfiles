@@ -1,0 +1,38 @@
+# ~/.config/herdr/config.toml
+# Keybinds mirror ~/.config/tmux/tmux.conf. Reload: herdr server reload-config
+onboarding = false
+
+[terminal]
+# Login shell can't be changed on directory accounts, so pick zsh here.
+# /bin/zsh exists on both macOS and Ubuntu.
+default_shell = "/bin/zsh"
+
+[keys]
+# tmux: prefix C-Space
+prefix = "ctrl+space"
+
+# Tabs (tmux windows). tmux: n/p, C-n/C-p, C-f/C-b
+new_tab = "prefix+c"
+next_tab = ["prefix+n", "prefix+ctrl+n", "prefix+ctrl+f"]
+previous_tab = ["prefix+p", "prefix+ctrl+p", "prefix+ctrl+b"]
+
+# Splits. tmux: | side by side, - stacked
+split_vertical = "prefix+|"
+split_horizontal = "prefix+minus"
+
+# Pane focus. tmux: Alt+hjkl and Alt+arrows without prefix
+focus_pane_left = ["prefix+h", "alt+h", "alt+left"]
+focus_pane_down = ["prefix+j", "alt+j", "alt+down"]
+focus_pane_up = ["prefix+k", "alt+k", "alt+up"]
+focus_pane_right = ["prefix+l", "alt+l", "alt+right"]
+
+# Pane management (tmux defaults)
+close_pane = "prefix+x"
+zoom = "prefix+z"
+copy_mode = "prefix+["
+
+# tmux: R reloads the config
+reload_config = "prefix+shift+r"
+
+# Sessions. tmux: d detaches
+detach = ["prefix+d", "prefix+q"]

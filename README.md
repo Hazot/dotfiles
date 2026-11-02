@@ -13,7 +13,7 @@ Neovim and Sioyek configs are independent repos, cloned by the installer:
 
 ## Prerequisites
 
-The Ghostty config uses CaskaydiaCove Nerd Font Mono. It is not installed by `install.sh`,
+The kitty config uses CaskaydiaCove Nerd Font Mono. It is not installed by `install.sh`,
 and is only needed on machines with a graphical terminal.
 
 ```sh
@@ -39,11 +39,45 @@ core packages, zsh plugins + powerlevel10k, tpm, Neovim (+ ripgrep, fd, node, `H
 `Hazot/sioyek`, dev extras (rustup, uv, pixi, pipx), zsh as default shell.
 Repos are only cloned when missing, never pulled or overwritten.
 
-Update everything later (skips repos that are dirty or not on `main`):
+Pull the latest config later, from this repo, `Hazot/nvim` and `Hazot/sioyek`:
 
 ```sh
 ~/dotfiles/update.sh         # or: dfu
 ```
+
+A repo is skipped when it has uncommitted changes or is not on `main`, and a pull that
+would need a merge is left alone. Files the pull added are then linked into `~`
+(`install.sh --link`). Packages, plugins and the GNOME scripts are not updated.
+
+## Manual steps after install
+
+These are not done by `install.sh`.
+
+### Claude Code status line
+
+`.claude/settings.json` points the status line at `.claude/statusline-switch.sh`, which runs
+either ccstatusline or the plain `.claude/statusline.sh`. Pick one per machine:
+
+```sh
+sl-cc      # ccstatusline (needs node/npx, config in .config/ccstatusline/settings.json)
+sl-mine    # plain statusline.sh (needs jq)
+```
+
+The choice is the untracked file `~/.claude/use-ccstatusline`, so new machines start on `sl-mine`.
+It shows up in the next Claude session.
+
+### GNOME (Ubuntu)
+
+GNOME settings live in dconf, not in files, so they can't be symlinked. Run the scripts once
+per machine, and again after changing them:
+
+```sh
+bash ~/dotfiles/linux/gnome_settings.sh   # mouse and touchpad speed, acceleration, scrolling
+bash ~/dotfiles/linux/gnome_keybinds.sh   # workspaces, tiling, monitors, screenshot, Super+E
+```
+
+`gnome_keybinds.sh` sets the tiling keys on the Tiling Assistant extension when it is enabled,
+otherwise on GNOME itself. Keep the extension disabled to use GNOME's tiling.
 
 ## Minimal (Linux VMs, servers)
 
@@ -70,6 +104,10 @@ git -C ~/dotfiles sparse-checkout set --no-cone /minimal_install.sh /.bashrc /.b
 .config/shell/local.sh       per machine, untracked (see local.sh.example)
 .config/bash/inputrc         bash completion and keys, close to the zsh setup
 .config/tmux/tmux.conf       also linked as ~/.tmux.conf for tmux < 3.1
+.config/kitty/kitty.conf     only the settings that differ from kitty's defaults
+.config/herdr/config.toml    herdr, keybinds mirror tmux.conf
+.claude/settings.json        Claude Code: status line, env (scroll speed, telemetry off)
+linux/gnome_*.sh             GNOME settings and keybinds, run by hand (see above)
 ```
 
 Secrets go in `~/.config/keys.sh` (untracked). When an installer appends lines to

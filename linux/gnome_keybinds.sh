@@ -15,10 +15,20 @@ for i in $(seq 1 9); do
 done
 
 # Ctrl+Super+hjkl: tile left, restore, maximize, tile right
-gsettings set $MUTTER toggle-tiled-left  "['<Super>Left', '<Control><Super>h']"
-gsettings set $WM     unmaximize         "['<Super>Down', '<Alt>F5', '<Control><Super>j']"
-gsettings set $WM     maximize           "['<Super>Up', '<Control><Super>k']"
-gsettings set $MUTTER toggle-tiled-right "['<Super>Right', '<Control><Super>l']"
+# Ubuntu's Tiling Assistant extension empties the mutter/wm versions of these keys
+# every time it is enabled (each login), so set them on the extension when it is enabled.
+TA=org.gnome.shell.extensions.tiling-assistant
+if gnome-extensions list --enabled 2>/dev/null | grep -qx 'tiling-assistant@ubuntu.com'; then
+    gsettings set $TA tile-left-half  "['<Super>Left', '<Super>KP_4', '<Control><Super>h']"
+    gsettings set $TA restore-window  "['<Super>Down', '<Control><Super>j']"
+    gsettings set $TA tile-maximize   "['<Super>Up', '<Super>KP_5', '<Control><Super>k']"
+    gsettings set $TA tile-right-half "['<Super>Right', '<Super>KP_6', '<Control><Super>l']"
+else
+    gsettings set $MUTTER toggle-tiled-left  "['<Super>Left', '<Control><Super>h']"
+    gsettings set $WM     unmaximize         "['<Super>Down', '<Alt>F5', '<Control><Super>j']"
+    gsettings set $WM     maximize           "['<Super>Up', '<Control><Super>k']"
+    gsettings set $MUTTER toggle-tiled-right "['<Super>Right', '<Control><Super>l']"
+fi
 
 # Shift+Ctrl+Super+hjkl: move window to the monitor left, down, up, right
 gsettings set $WM move-to-monitor-left  "['<Shift><Super>Left', '<Shift><Control><Super>h']"
@@ -31,6 +41,9 @@ gsettings set $WM switch-to-workspace-left  "['<Super>Page_Up', '<Super><Alt>Lef
 gsettings set $WM switch-to-workspace-right "['<Super>Page_Down', '<Super><Alt>Right', '<Control><Alt>Right', '<Super><Alt>l']"
 gsettings set $WM move-to-workspace-left    "['<Shift><Super>Page_Up', '<Shift><Super><Alt>Left', '<Shift><Control><Alt>Left', '<Shift><Super><Alt>h']"
 gsettings set $WM move-to-workspace-right   "['<Shift><Super>Page_Down', '<Shift><Super><Alt>Right', '<Shift><Control><Alt>Right', '<Shift><Super><Alt>l']"
+
+# Shift+Super+S: screenshot UI (replaces the default Print key)
+gsettings set org.gnome.shell.keybindings show-screenshot-ui "['<Shift><Super>s']"
 
 # Super+E: open home folder
 gsettings set org.gnome.settings-daemon.plugins.media-keys home "['<Super>e']"

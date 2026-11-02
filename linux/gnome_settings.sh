@@ -12,16 +12,12 @@ gsettings set $MOUSE speed 0.075
 gsettings set $MOUSE accel-profile 'flat'
 
 # Touchpad
-gsettings set $TOUCHPAD speed 0.1
+gsettings set $TOUCHPAD speed 0.05
 gsettings set $TOUCHPAD natural-scroll true
 gsettings set $TOUCHPAD two-finger-scrolling-enabled true
 gsettings set $TOUCHPAD tap-to-click true
 
-# Touchpad acceleration off. Older GNOME versions don't have this key.
-if gsettings writable $TOUCHPAD accel-profile >/dev/null 2>&1; then
-    gsettings set $TOUCHPAD accel-profile 'flat'
-else
-    echo "$TOUCHPAD accel-profile not available on this GNOME, acceleration unchanged" >&2
-fi
+# Touchpad keeps GNOME's default acceleration. Older GNOME versions don't have this key.
+gsettings writable $TOUCHPAD accel-profile >/dev/null 2>&1 && gsettings reset $TOUCHPAD accel-profile
 
 echo "Done"
