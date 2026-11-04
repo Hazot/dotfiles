@@ -7,6 +7,10 @@ onboarding = false
 # /bin/zsh exists on both macOS and Ubuntu.
 default_shell = "/bin/zsh"
 
+[theme]
+name = "catppuccin"
+auto_switch = false
+
 [keys]
 # tmux: prefix C-Space
 prefix = "ctrl+space"
@@ -70,4 +74,10 @@ type = "shell"
 command = "~/.config/herdr/scripts/focus-tab 10"
 
 [ui.toast]
-delivery = "herdr"
+delivery = "system"
+
+[ui]
+status_indicators = "symbols"
+
+[ui.sound]
+enabled = false
