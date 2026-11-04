@@ -137,6 +137,7 @@ git -C ~/dotfiles sparse-checkout set --no-cone /minimal_install.sh /.bashrc /.b
 .config/tmux/tmux.conf       also linked as ~/.tmux.conf for tmux < 3.1
 .config/kitty/kitty.conf     only the settings that differ from kitty's defaults
 .config/herdr/config.toml    herdr, keybinds mirror tmux.conf
+.config/karabiner/           macOS only, the whole folder is linked (Karabiner rewrites the file)
 .claude/settings.json        Claude Code: status line, env (scroll speed, telemetry off)
 linux/gnome_*.sh             GNOME settings and keybinds, run by hand (see above)
 ```
