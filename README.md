@@ -79,6 +79,25 @@ bash ~/dotfiles/linux/gnome_keybinds.sh   # workspaces, tiling, monitors, screen
 `gnome_keybinds.sh` sets the tiling keys on the Tiling Assistant extension when it is enabled,
 otherwise on GNOME itself. Keep the extension disabled to use GNOME's tiling.
 
+### Caps Lock navigation layer
+
+Tap Caps for Esc. Hold Caps with `h`/`j`/`k`/`l` for arrows, `u`/`d` for Page Up/Down,
+and `a`/`e` (or vim-like `0`/`4`) for Home/End. Same layer on both OSes:
+
+```sh
+# Ubuntu: installs keyd, copies linux/keyd.conf to /etc/keyd/ (needs sudo)
+bash ~/dotfiles/linux/keyd_setup.sh
+```
+
+```sh
+# macOS: adds the rule to the selected Karabiner-Elements profile, keeps everything else
+brew install --cask karabiner-elements   # open it once and allow its permissions
+bash ~/dotfiles/macos/karabiner_setup.sh
+```
+
+The rule lives in `.config/karabiner/assets/complex_modifications/nav-layer.json`. It also
+shows up in Karabiner under Complex Modifications > Add predefined rule.
+
 ### VS Code (Ubuntu)
 
 Install the `.deb`, not the snap from App Center: the snap is sandboxed, which causes

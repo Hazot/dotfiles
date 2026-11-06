@@ -15,7 +15,7 @@ LINK_ONLY=0
 # Files in the repo that are not linked into ~
 EXCLUDE=(
     install.sh minimal_install.sh update.sh README.md LICENSE .gitignore
-    linux/% .github/% .config/wsl/% .config/shell/local.sh.example
+    linux/% macos/% .github/% .config/wsl/% .config/shell/local.sh.example
 )
 
 info() { printf '\033[1;34m>>> %s\033[0m\n' "$*"; }

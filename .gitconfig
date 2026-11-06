@@ -28,3 +28,7 @@
 [credential "https://gist.github.com"]
     helper =
     helper = !gh auth git-credential
+
+# Machine-specific settings (signing key, etc.), not tracked
+[include]
+    path = ~/.gitconfig.local

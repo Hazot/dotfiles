@@ -1,12 +1,7 @@
 # Kevin's aliases (shared by zsh and bash, OS-specific ones in os/*.sh)
 
-# Claude Code: plain `claude` uses ~/.claude (org account, single login).
-# `claude-pro` uses a separate config dir for the personal Pro account.
-alias claude-pro='CLAUDE_CONFIG_DIR="$HOME/.claude-pro" claude'
-
-# Claude Code status line toggle
-alias sl-cc='touch ~/.claude/use-ccstatusline'
-alias sl-mine='rm -f ~/.claude/use-ccstatusline'
+# AI tool aliases live in ~/Agents/ai-config (installed into ~/.config/ai-config/shell.d/)
+for _ai_f in "$HOME"/.config/ai-config/shell.d/*.sh; do [ -r "$_ai_f" ] && . "$_ai_f"; done; unset _ai_f
 
 # Dotfiles
 alias dfu='~/dotfiles/update.sh'
