@@ -14,3 +14,6 @@
 
 # Local test harness, never tracked
 /tests/
+
+# Backup written by macos/karabiner_setup.sh
+.config/karabiner/karabiner.json.bak
