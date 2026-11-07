@@ -98,6 +98,11 @@ bash ~/dotfiles/macos/karabiner_setup.sh
 The rule lives in `.config/karabiner/assets/complex_modifications/nav-layer.json`. It also
 shows up in Karabiner under Complex Modifications > Add predefined rule.
 
+`install.sh` links the whole `~/.config/karabiner` folder, and the tracked `karabiner.json`
+already has the layer enabled: the script is only needed after editing `nav-layer.json`.
+Caps Lock is not remapped to Ctrl in `simple_modifications`, since Karabiner applies those
+before complex rules and the layer would never see Caps.
+
 ### VS Code (Ubuntu)
 
 Install the `.deb`, not the snap from App Center: the snap is sandboxed, which causes
