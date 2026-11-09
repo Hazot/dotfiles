@@ -26,6 +26,7 @@ path_add "$HOME/.juliaup/bin"
 path_add "$HOME/.pixi/bin"
 path_add "$HOME/.opencode/bin"
 path_add "$HOME/.cache/lm-studio/bin"
+path_add "$HOME/.duckdb/cli/latest"
 path_add "/Library/TeX/texbin"
 
 # Pyenv
