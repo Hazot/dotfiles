@@ -98,6 +98,11 @@ bash ~/dotfiles/macos/karabiner_setup.sh
 The rule lives in `.config/karabiner/assets/complex_modifications/nav-layer.json`. It also
 shows up in Karabiner under Complex Modifications > Add predefined rule.
 
+`install.sh` links the whole `~/.config/karabiner` folder, and the tracked `karabiner.json`
+already has the layer enabled: the script is only needed after editing `nav-layer.json`.
+Caps Lock is not remapped to Ctrl in `simple_modifications`, since Karabiner applies those
+before complex rules and the layer would never see Caps.
+
 ### VS Code (Ubuntu)
 
 Install the `.deb`, not the snap from App Center: the snap is sandboxed, which causes
@@ -137,6 +142,7 @@ git -C ~/dotfiles sparse-checkout set --no-cone /minimal_install.sh /.bashrc /.b
 .config/tmux/tmux.conf       also linked as ~/.tmux.conf for tmux < 3.1
 .config/kitty/kitty.conf     only the settings that differ from kitty's defaults
 .config/herdr/config.toml    herdr, keybinds mirror tmux.conf
+.config/karabiner/           macOS only, the whole folder is linked (Karabiner rewrites the file)
 .claude/settings.json        Claude Code: status line, env (scroll speed, telemetry off)
 linux/gnome_*.sh             GNOME settings and keybinds, run by hand (see above)
 ```

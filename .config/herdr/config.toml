@@ -7,6 +7,10 @@ onboarding = false
 # /bin/zsh exists on both macOS and Ubuntu.
 default_shell = "/bin/zsh"
 
+[theme]
+name = "catppuccin"
+auto_switch = false
+
 [keys]
 # tmux: prefix C-Space
 prefix = "ctrl+space"
@@ -36,3 +40,12 @@ reload_config = "prefix+shift+r"
 
 # Sessions. tmux: d detaches
 detach = ["prefix+d", "prefix+q"]
+
+[ui]
+status_indicators = "symbols"
+
+[ui.toast]
+delivery = "system"
+
+[ui.sound]
+enabled = false
