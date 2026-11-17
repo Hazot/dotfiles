@@ -115,12 +115,12 @@ esac
 info "Detected $OS, dotfiles in $DOTFILES"
 
 # 1. Core
-if ask "Install core packages (git curl zsh tmux bash-completion)?"; then
+if ask "Install core packages (git curl zsh tmux jq bash-completion)?"; then
     info "Installing core packages"
     if [[ $OS == macos ]]; then
-        pkg git zsh tmux bash-completion@2
+        pkg git zsh tmux jq bash-completion@2
     else
-        pkg git curl zsh tmux bash-completion
+        pkg git curl zsh tmux jq bash-completion
     fi
 fi
 

@@ -16,15 +16,27 @@ new_tab = "prefix+c"
 next_tab = ["prefix+n", "prefix+ctrl+n", "prefix+ctrl+f"]
 previous_tab = ["prefix+p", "prefix+ctrl+p", "prefix+ctrl+b"]
 
-# Splits. tmux: | side by side, - stacked
-split_vertical = "prefix+|"
-split_horizontal = "prefix+minus"
+# Splits. tmux: | and % side by side, - and " stacked (herdr defaults v and - kept)
+# Same as | for a side-by-side split: > is shift+< on a French Canadian keyboard
+split_vertical = ["prefix+v", "prefix+|", "prefix+%", "prefix+>"]
+split_horizontal = ["prefix+minus", "prefix+\""]
+
+# Renames. tmux: , renames the window, $ renames the session
+# (herdr defaults shift+t and shift+w kept)
+rename_tab = ["prefix+shift+t", "prefix+,"]
+rename_workspace = ["prefix+shift+w", "prefix+$"]
+
+# tmux: & kills the window, ; jumps to the last pane, ( ) cycle sessions
+close_tab = ["prefix+shift+x", "prefix+&"]
+last_pane = ["prefix+;", "prefix+l"]
+previous_workspace = "prefix+("
+next_workspace = "prefix+)"
 
 # Pane focus. tmux: Alt+hjkl and Alt+arrows without prefix
 focus_pane_left = ["prefix+h", "alt+h", "alt+left"]
 focus_pane_down = ["prefix+j", "alt+j", "alt+down"]
 focus_pane_up = ["prefix+k", "alt+k", "alt+up"]
-focus_pane_right = ["prefix+l", "alt+l", "alt+right"]
+focus_pane_right = ["alt+l", "alt+right"]  # prefix+l is last_pane, like tmux last-window
 
 # Pane management (tmux defaults)
 close_pane = "prefix+x"
@@ -36,3 +48,26 @@ reload_config = "prefix+shift+r"
 
 # Sessions. tmux: d detaches
 detach = ["prefix+d", "prefix+q"]
+
+# tmux: s opens the session tree. herdr's Goto picker is the closest match
+# (j/k to move, / to search). Settings moves to shift+s.
+goto = ["prefix+g", "prefix+s"]
+settings = "prefix+shift+s"
+
+# Workspace navigation (prefix+w): j/k and ctrl+n/ctrl+p move between workspaces,
+# shift+hjkl (and left/right arrows) move between panes.
+navigate_workspace_up = ["up", "k", "ctrl+p"]
+navigate_workspace_down = ["down", "j", "ctrl+n"]
+navigate_pane_left = "shift+h"
+navigate_pane_down = "shift+j"
+navigate_pane_up = "shift+k"
+navigate_pane_right = "shift+l"
+
+# switch_tab only accepts 1..9, so prefix+0 goes to tab 10 through a script.
+[[keys.command]]
+key = "prefix+0"
+type = "shell"
+command = "~/.config/herdr/scripts/focus-tab 10"
+
+[ui.toast]
+delivery = "herdr"

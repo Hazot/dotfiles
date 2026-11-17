@@ -1,0 +1,9 @@
+#!/bin/sh
+# Focus the Nth tab (list order) of the focused workspace.
+# herdr's switch_tab only accepts 1..9; this backs prefix+0 for tab 10.
+n="${1:?usage: focus-tab N}"
+id=$(herdr tab list | jq -r --argjson n "$n" '
+  .result.tabs as $t
+  | ($t[] | select(.focused) | .workspace_id) as $ws
+  | [$t[] | select(.workspace_id == $ws)][$n - 1].tab_id // empty')
+[ -n "$id" ] && herdr tab focus "$id" >/dev/null
