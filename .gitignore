@@ -9,5 +9,11 @@
 
 .DS_Store
 
+# Karabiner writes a dated copy of karabiner.json on every change
+.config/karabiner/automatic_backups/
+
 # Local test harness, never tracked
 /tests/
+
+# Backup written by macos/karabiner_setup.sh
+.config/karabiner/karabiner.json.bak

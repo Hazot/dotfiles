@@ -16,6 +16,7 @@ LINK_ONLY=0
 EXCLUDE=(
     install.sh minimal_install.sh update.sh README.md LICENSE .gitignore
     linux/% macos/% .github/% .config/wsl/% .config/shell/local.sh.example
+    .config/karabiner/%
 )
 
 info() { printf '\033[1;34m>>> %s\033[0m\n' "$*"; }
@@ -85,6 +86,8 @@ while IFS= read -r f; do
     link "$DOTFILES/$f" "$HOME/$f"
 done < <(git -C "$DOTFILES" ls-files)
 link "$HOME/.config/tmux/tmux.conf" "$HOME/.tmux.conf"
+# Karabiner rewrites karabiner.json in place and doesn't follow a symlinked file: link the whole folder
+[[ "$(uname -s)" == Darwin ]] && link "$DOTFILES/.config/karabiner" "$HOME/.config/karabiner"
 [[ -d "$BACKUP" ]] && warn "Replaced files backed up in $BACKUP"
 [[ $LINK_ONLY -eq 1 ]] && exit 0
 
