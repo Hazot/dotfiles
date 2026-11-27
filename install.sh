@@ -89,6 +89,14 @@ link "$HOME/.config/tmux/tmux.conf" "$HOME/.tmux.conf"
 # Karabiner rewrites karabiner.json in place and doesn't follow a symlinked file: link the whole folder
 [[ "$(uname -s)" == Darwin ]] && link "$DOTFILES/.config/karabiner" "$HOME/.config/karabiner"
 [[ -d "$BACKUP" ]] && warn "Replaced files backed up in $BACKUP"
+
+# herdr plugins: register every local plugin folder (re-linking is a no-op)
+if command -v herdr >/dev/null; then
+    for manifest in "$DOTFILES"/.config/herdr/scripts/*/herdr-plugin.toml; do
+        [[ -f "$manifest" ]] || continue
+        herdr plugin link "$(dirname "$manifest")" >/dev/null && echo "herdr plugin linked: $(basename "$(dirname "$manifest")")"
+    done
+fi
 [[ $LINK_ONLY -eq 1 ]] && exit 0
 
 # OS detection

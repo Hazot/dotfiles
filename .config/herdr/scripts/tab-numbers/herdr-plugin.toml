@@ -1,0 +1,22 @@
+id = "local.tab-numbers"
+name = "Tab numbers"
+version = "0.1.0"
+min_herdr_version = "0.9.5"
+description = "Prefix tab labels with their position (1-, 2-, ...)"
+platforms = ["linux", "macos", "windows"]
+
+[[events]]
+on = "tab.created"
+command = ["node", "tab-numbers.js"]
+
+[[events]]
+on = "tab.closed"
+command = ["node", "tab-numbers.js"]
+
+[[events]]
+on = "tab.moved"
+command = ["node", "tab-numbers.js"]
+
+[[events]]
+on = "tab.renamed"
+command = ["node", "tab-numbers.js"]

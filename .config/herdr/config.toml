@@ -78,6 +78,19 @@ delivery = "system"
 
 [ui]
 status_indicators = "symbols"
+# Layout "Recommended" from the layout lab (~/.config/herdr/layout-lab/6-recommended.toml)
+sidebar_width = 26
+agent_panel_sort = "priority"
+pane_gaps = false
+pane_outer_borders = false
+pane_scrollbars = false
+tab_bar_right = [{ type = "zoom" }, { type = "datetime" }]
+
+[ui.sidebar.spaces]
+rows = [["state_icon", "workspace"], [{ token = "branch", dim = true }, "git_status"]]
+
+[ui.sidebar.agents]
+rows = [["state_icon", "agent", "state_text"], [{ token = "workspace", dim = true }, { token = "tab", dim = true }]]
 
 [ui.sound]
 enabled = false
